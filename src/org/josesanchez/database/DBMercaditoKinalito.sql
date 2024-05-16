@@ -42,19 +42,19 @@ create table TipoDeProductos(
 );
 create table Productos (
     productoId int,
-    nombreProducto varchar(50),
     descripcionProducto varchar(100),
-    cantidadStock int,
-    precioVentaMayor decimal(10,2),
-    precioCompra decimal(10,2),
-    distribuidorId int,
-    imagenProducto blob,
-    categoriaProductosId int,
+    precioUnitario decimal(10,2),
+    precioDocena decimal(10,2),
+    precioMayor decimal(10,2),
+    imagenProducto varchar (45),
+    existencia int,
+    codigoProveedor int,
+    codigoTipoDeProducto int,
     primary key PK_productoId (productoId),
-    foreign key FK_distribuidorId (distribuidorId)
+    foreign key FK_codigoProveedor (codigoProveedor)
 		references Proveedores(codigoProveedor),
-	foreign key FK_categoriaProductosId (categoriaProductosId)
-		references CategoriaProductos (categoriaProductosId)
+	foreign key FK_codigoTipoDeProducto (codigoTipoDeProducto )
+		references TipoDeProductos (codigoTipoDeProducto )
 );
 
 
@@ -459,10 +459,6 @@ end $$
 delimiter ;
 
 
-
-
-
-
 delimiter $$
 create procedure sp_AgregarCompras(in compraId int, in fechaCompra date, in descripcion varchar (60), totalCompra decimal(10,2))
 begin
@@ -532,6 +528,95 @@ end $$
 delimiter ;
 
 
+delimiter $$
+create procedure sp_AgregarProductos(in productoId int, in descripcionProducto varchar(100), in precioUnitario decimal(10,2), in precioDocena decimal(10,2), in precioMayor decimal(10,2), in imagenProducto varchar(45), in existencia int, in codigoProveedor int, in codigoTipoDeProducto int)
+begin
+    insert into Productos (productoId, descripcionProducto, precioUnitario, precioDocena, precioMayor, imagenProducto, existencia, codigoProveedor, codigoTipoDeProducto)
+    values (productoId, descripcionProducto, precioUnitario, precioDocena, precioMayor, imagenProducto, existencia, codigoProveedor, codigoTipoDeProducto);
+end $$
+delimiter ;
+
+call sp_AgregarProductos (02, 'Cereal alto en proteinas', 25.00, 300.00, 50.00, 'nose que poner aqiui xd', 12, 02, 03);
+call sp_AgregarProductos (03, 'Leche chocolatada alto en azucares', 12.00, 144.00, 20.00, 'nose q poner aqiui xd', 07, 03, 02);
+
+
+-- Listar
+delimiter $$
+create procedure sp_ListarProductos()
+begin
+    select
+         productoId,
+         descripcionProducto,
+         precioUnitario,
+         precioDocena,
+         precioMayor,
+         imagenProducto,
+         existencia,
+         codigoProveedor,
+         codigoTipoDeProducto
+    from Productos R;
+end $$
+delimiter ;
+
+call sp_ListarProductos ();
+
+-- Actualizar
+delimiter $$
+create procedure sp_BuscarProductos (in  cPrs int)
+begin
+	select
+	R.descripcionProducto,
+	R.precioUnitario,
+	R.precioDocena,
+	R.precioMayor,
+	R.imagenProducto,
+	R.existencia,
+	R.codigoProveedor,
+	R.codigoTipoDeProducto
+    from Productos R
+    where productoId = cPrs ;
+end $$
+delimiter ;
+
+call sp_BuscarProductos (2);
+call sp_BuscarProductos (3);
+    
+
+-- Eliminar
+delimiter $$
+create procedure sp_EliminarProducto(in codPrs int)
+begin
+    delete from Productos 
+    where productoId = codPrs;
+end $$
+delimiter ;
+
+call sp_EliminarProducto (1);
+
+delimiter $$
+create procedure sp_EditarProducto(in productoId_ int, in descripcionProducto_ varchar(100), in precioUnitario_ decimal(10,2), in precioDocena_ decimal(10,2), in precioMayor_ decimal(10,2), in imagenProducto_ varchar(45), in existencia_ int, in codigoProveedor_ int, in codigoTipoDeProducto_ int)
+begin 
+			Update Productos  R
+            set 		
+		R.descripcionProducto = descripcionProducto_,
+		R.precioUnitario = precioUnitario_,
+		R.precioDocena = precioDocena_,
+		R.precioMayor = precioMayor_,
+		R.imagenProducto = imagenProducto_,
+		R.existencia = existencia_,
+		R.codigoProveedor = codigoProveedor_,
+		R.codigoTipoDeProducto = codigoTipoDeProducto_
+        where productoId = productoId_ ;
+end $$
+delimiter ;
+
+
+
+
+
+
+
+
 
 
 
@@ -591,78 +676,6 @@ delimiter ;
 
 -- productos
 -- Crear
-delimiter $$
-create procedure sp_CrearProducto(
-    in productoId int,
-    in nombreProducto varchar(50),
-    in descripcionProducto varchar(100),
-    in cantidadStock int,
-    in precioVentaMayor decimal(10,2),
-    in precioCompra decimal(10,2),
-    in distribuidorId int,
-    in imagenProducto blob,
-    in categoriaProductosId int
-)
-begin
-    insert into productos (productoId, nombreProducto, descripcionProducto, cantidadStock, precioVentaMayor, precioCompra, distribuidorId, imagenProducto, categoriaProductosId)
-    values (productoId, nombreProducto, descripcionProducto, cantidadStock, precioVentaMayor, precioCompra, distribuidorId, imagenProducto, categoriaProductosId);
-end $$
-delimiter ;
-
--- Actualizar
-delimiter $$
-create procedure sp_ActualizarProducto(
-    in productoId int,
-    in nombreProducto varchar(50),
-    in descripcionProducto varchar(100),
-    in cantidadStock int,
-    in precioVentaMayor decimal(10,2),
-    in precioCompra decimal(10,2),
-    in distribuidorId int,
-    in imagenProducto blob,
-    in categoriaProductosId int
-)
-begin
-    update Productos P
-    set P.nombreProducto = nombreProducto,
-        P.descripcionProducto = descripcionProducto,
-        P.cantidadStock = cantidadStock,
-        P.precioVentaMayor = precioVentaMayor,
-        P.precioCompra = precioCompra,
-        P.distribuidorId = distribuidorId,
-        P.imagenProducto = imagenProducto,
-        P.categoriaProductosId = categoriaProductosId
-    where P.productoId = productoId;
-end $$
-delimiter ;
-
--- Eliminar
-delimiter $$
-create procedure sp_EliminarProducto(
-    in productoId int
-)
-begin
-    delete from Productos where productoId = productoId;
-end $$
-delimiter ;
-
--- Listar
-delimiter $$
-create procedure sp_ListarProductos()
-begin
-    select
-        productoId,
-        nombreProducto,
-        descripcionProducto,
-        cantidadStock,
-        precioVentaMayor,
-        precioCompra,
-        distribuidorId,
-        imagenProducto,
-        categoriaProductosId
-    from Productos;
-end $$
-delimiter ;
 
 -- promociones
 -- Crear
@@ -766,69 +779,7 @@ begin
 end $$
 delimiter ;
 
--- Listar
-delimiter $$
-create procedure sp_ListarDetalleCompras()
-begin
-    select
-        detalleCompraId,
-        cantidadCompra,
-        productoId,
-        compaId
-    from DetalleCompra;
-end $$
-delimiter ;
 
--- Cargos
--- Crear
-delimiter $$
-create procedure sp_CrearCargo(
-    in cargoId int,
-    in nombreCargo varchar(30),
-    in descripcionCargo varchar(100)
-)
-begin
-    insert into Cargos (cargoId, nombreCargo, descripcionCargo)
-    values (cargoId, nombreCargo, descripcionCargo);
-end $$
-delimiter ;
-
--- Actualizar
-delimiter $$
-create procedure sp_ActualizarCargo(
-    in cargoId int,
-    in nombreCargo varchar(30),
-    in descripcionCargo varchar(100)
-)
-begin
-    update Cargos C
-    set C.nombreCargo = nombreCargo,
-        C.descripcionCargo = descripcionCargo
-    where C.cargoId = cargoId;
-end $$
-delimiter ;
-
--- Eliminar
-delimiter $$
-create procedure sp_EliminarCargo(
-    in cargoId int
-)
-begin
-    delete from Cargos where cargoId = cargoId;
-end $$
-delimiter ;
-
--- Listar
-delimiter $$
-create procedure sp_ListarCargos()
-begin
-    select
-        cargoId,
-        nombreCargo,
-        descripcionCargo
-    from Cargos;
-end $$
-delimiter ;
 
 -- Empleados
 -- Crear
