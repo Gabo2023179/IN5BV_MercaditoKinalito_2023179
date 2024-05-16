@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane id="AnchorPane" prefHeight="751.0" prefWidth="1162.0" style="-fx-background-color: #7ED957;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.josesanchez.controllers.MenuPrincipalController">
+   <children>
+      <ImageView fitHeight="749.0" fitWidth="1340.0" layoutX="-5.0" layoutY="1.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../Images/Diseño%20sin%20título%20(2).png" />
+         </image>
+      </ImageView>
+      <MenuBar prefHeight="25.0" prefWidth="1341.0" stylesheets="@../resources/KinalStoreCSS.css">
+        <menus>
+          <Menu mnemonicParsing="false" text="Modulos">
+            <items>
+              <MenuItem fx:id="btnMenuClientes" mnemonicParsing="false" onAction="#clicClientes" text="Clientes" />
+                  <MenuItem fx:id="btnMenuProveedores" mnemonicParsing="false" onAction="#clicClientes" text="Proveedores" />
+                  <MenuItem fx:id="btnMenuCargos" mnemonicParsing="false" onAction="#clicClientes" text="Cargos" />
+                  <MenuItem fx:id="btnMenuTdp" mnemonicParsing="false" onAction="#clicClientes" text="TipoDeProductos" />
+                  <MenuItem fx:id="btnMenuCompras" mnemonicParsing="false" onAction="#clicClientes" text="Compras" />
+            </items>
+          </Menu>
+          <Menu mnemonicParsing="false" text="Reportes">
+            <items>
+              <MenuItem mnemonicParsing="false" text="Compra y Venta" />
+            </items>
+          </Menu>
+          <Menu mnemonicParsing="false" text="Acerca de">
+            <items>
+              <MenuItem fx:id="btnMenuProgramador" mnemonicParsing="false" onAction="#clicClientes" text="Programador" />
+            </items>
+          </Menu>
+        </menus>
+      </MenuBar>
+      <ImageView fitHeight="41.0" fitWidth="41.0" layoutX="14.0" layoutY="25.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../Images/modules_apps_icon_188198.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="41.0" fitWidth="54.0" layoutX="83.0" layoutY="25.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../Images/iconfinder-documents01-1622837_121952.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="41.0" fitWidth="41.0" layoutX="157.0" layoutY="25.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../Images/about_3697.png" />
+         </image>
+      </ImageView>
+   </children>
+</AnchorPane>
