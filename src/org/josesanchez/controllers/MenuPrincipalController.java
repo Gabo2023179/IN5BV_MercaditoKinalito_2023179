@@ -33,6 +33,8 @@ public class MenuPrincipalController implements Initializable {
     MenuItem btnMenuCompras;
     @FXML
     MenuItem btnMenuProductos;
+    @FXML
+    MenuItem btnMenuCargoEmpleados;
 
 
     @Override
@@ -69,6 +71,9 @@ public class MenuPrincipalController implements Initializable {
         }
         if (event.getSource() == btnMenuProductos) {
             escenarioPrincipal.menuProductosView();
+        }
+        if (event.getSource() == btnMenuCargoEmpleados) {
+            escenarioPrincipal.menuCargoEmpleadosView();
         }
     }
 

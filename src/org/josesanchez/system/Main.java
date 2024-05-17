@@ -18,6 +18,7 @@ import javafx.fxml.JavaFXBuilderFactory;
 import javafx.scene.Scene;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
+import org.josesanchez.controllers.MenuCargoEmpleadosController;
 import org.josesanchez.controllers.MenuCargosController;
 import org.josesanchez.controllers.MenuClientesController;
 import org.josesanchez.controllers.MenuComprasController;
@@ -144,6 +145,16 @@ public class Main extends Application {
         try {
             MenuProductosController menuProductos = (MenuProductosController) cambiarEscena("MenuProductosView.fxml", 1298, 734);
             menuProductos.setEscenarioPrincipal(this);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+    }
+    
+        public void menuCargoEmpleadosView() {
+        try {
+            MenuCargoEmpleadosController menuCargoEmpleados = (MenuCargoEmpleadosController) cambiarEscena("MenuCargoEmpleadosView.fxml", 1254, 704);
+            menuCargoEmpleados.setEscenarioPrincipal(this);
         } catch (Exception e) {
             e.printStackTrace();
         }
