@@ -22,6 +22,7 @@ import org.josesanchez.controllers.MenuCargosController;
 import org.josesanchez.controllers.MenuClientesController;
 import org.josesanchez.controllers.MenuComprasController;
 import org.josesanchez.controllers.MenuPrincipalController;
+import org.josesanchez.controllers.MenuProductosController;
 import org.josesanchez.controllers.MenuProgramadorController;
 import org.josesanchez.controllers.MenuProveedoresController;
 import org.josesanchez.controllers.MenuTipoDeProductosController;
@@ -118,7 +119,7 @@ public class Main extends Application {
         }
 
     }
-    
+
     public void menuTipoDeProductosView() {
         try {
             MenuTipoDeProductosController menuTipoDeProductos = (MenuTipoDeProductosController) cambiarEscena("MenuTipoDeProductosView.fxml", 1212, 681);
@@ -128,11 +129,21 @@ public class Main extends Application {
         }
 
     }
-    
-     public void menuComprasView() {
+
+    public void menuComprasView() {
         try {
             MenuComprasController menuCompras = (MenuComprasController) cambiarEscena("MenuComprasView.fxml", 1154, 651);
             menuCompras.setEscenarioPrincipal(this);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+    }
+
+    public void menuProductosView() {
+        try {
+            MenuProductosController menuProductos = (MenuProductosController) cambiarEscena("MenuProductosView.fxml", 1298, 734);
+            menuProductos.setEscenarioPrincipal(this);
         } catch (Exception e) {
             e.printStackTrace();
         }

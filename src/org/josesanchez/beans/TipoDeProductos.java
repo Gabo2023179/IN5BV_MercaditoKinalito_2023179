@@ -30,5 +30,8 @@ public class TipoDeProductos {
         this.descripcion = descripcion;
     }
     
-    
+    @Override
+    public String toString(){
+        return " | " + getDescripcion();
+    }
 }
