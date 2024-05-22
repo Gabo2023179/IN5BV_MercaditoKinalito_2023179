@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.String?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="652.0" prefWidth="1165.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.josesanchez.controllers.MenuTelefonoProveedorController">
+   <children>
+      <ImageView fitHeight="808.0" fitWidth="1165.0" layoutY="-2.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../Images/TelefonoProveedorView.png" />
+         </image>
+      </ImageView>
+      <GridPane layoutX="127.0" layoutY="143.0" prefHeight="301.0" prefWidth="258.0">
+        <columnConstraints>
+          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+        </columnConstraints>
+        <rowConstraints>
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+        </rowConstraints>
+         <children>
+            <Button fx:id="btnAgregar" mnemonicParsing="false" onAction="#agregar" prefHeight="284.0" prefWidth="439.0" stylesheets="@../resources/KinalStoreCSS.css" text="Agregar" textFill="WHITE">
+               <styleClass>
+                  <String fx:value="button2" />
+                  <String fx:value="button3" />
+               </styleClass>
+            </Button>
+            <Button fx:id="btnEliminar" mnemonicParsing="false" onAction="#eliminar" prefHeight="230.0" prefWidth="410.0" stylesheets="@../resources/KinalStoreCSS.css" text="Eliminar" textFill="WHITE" GridPane.rowIndex="1">
+               <styleClass>
+                  <String fx:value="button2" />
+                  <String fx:value="button3" />
+               </styleClass>
+            </Button>
+            <Button fx:id="btnEditar" mnemonicParsing="false" onAction="#editar" prefHeight="231.0" prefWidth="323.0" stylesheets="@../resources/KinalStoreCSS.css" text="Editar" textFill="WHITE" GridPane.rowIndex="2">
+               <styleClass>
+                  <String fx:value="button2" />
+                  <String fx:value="button3" />
+               </styleClass>
+            </Button>
+            <Button fx:id="btnReporte" mnemonicParsing="false" onAction="#reporte" prefHeight="208.0" prefWidth="354.0" stylesheets="@../resources/KinalStoreCSS.css" text="Reportes" textFill="WHITE" GridPane.rowIndex="3">
+               <styleClass>
+                  <String fx:value="button2" />
+                  <String fx:value="button3" />
+               </styleClass>
+            </Button>
+            <ImageView fx:id="imgAgregar" fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true" />
+            <ImageView fx:id="imgEliminar" fitHeight="61.0" fitWidth="56.0" pickOnBounds="true" preserveRatio="true" GridPane.rowIndex="1" />
+            <ImageView fx:id="imgEditar" fitHeight="57.0" fitWidth="56.0" pickOnBounds="true" preserveRatio="true" GridPane.rowIndex="2" />
+            <ImageView fx:id="imgReporte" fitHeight="59.0" fitWidth="64.0" pickOnBounds="true" preserveRatio="true" GridPane.rowIndex="3" />
+         </children>
+      </GridPane>
+      <GridPane layoutX="526.0" layoutY="173.0" prefHeight="225.0" prefWidth="607.0">
+        <columnConstraints>
+          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+        </columnConstraints>
+        <rowConstraints>
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+        </rowConstraints>
+         <children>
+            <Label text="codigoTelefonoProveedor" textFill="#032a76">
+               <font>
+                  <Font name="Arial Narrow" size="15.0" />
+               </font>
+            </Label>
+            <Label text="numeroPrincipal" textFill="#032a76" GridPane.rowIndex="1">
+               <font>
+                  <Font name="Arial Narrow" size="18.0" />
+               </font>
+            </Label>
+            <Label text="numeroSecundario" textFill="#032a76" GridPane.rowIndex="2">
+               <font>
+                  <Font name="Arial Narrow" size="19.0" />
+               </font>
+            </Label>
+            <Label text="Observaciones" textFill="#032a76" GridPane.columnIndex="2">
+               <font>
+                  <Font name="Arial Narrow" size="21.0" />
+               </font>
+            </Label>
+            <Label text="codigoProveedor" textFill="#032a76" GridPane.columnIndex="2" GridPane.rowIndex="1">
+               <font>
+                  <Font name="Arial Narrow" size="22.0" />
+               </font>
+            </Label>
+            <TextField fx:id="txtCodTelPro" GridPane.columnIndex="1" />
+            <TextField fx:id="txtNumPrin" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+            <TextField fx:id="txtNumSecun" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+            <TextField fx:id="txtObserv" GridPane.columnIndex="3" />
+            <ComboBox fx:id="cmbCodProv" prefWidth="150.0" GridPane.columnIndex="3" GridPane.rowIndex="1" />
+         </children>
+      </GridPane>
+      <TableView fx:id="tblTelPro" layoutX="463.0" layoutY="388.0" onMouseClicked="#seleccionarElementos" prefHeight="200.0" prefWidth="687.0">
+        <columns>
+          <TableColumn fx:id="colCodTelPro" prefWidth="156.0" text="codigoTelefonoPro" />
+          <TableColumn fx:id="colNumPrin" prefWidth="86.0" text="numPrin" />
+            <TableColumn fx:id="colNumSecun" prefWidth="127.0" text="numSec" />
+            <TableColumn fx:id="colObserv" prefWidth="113.0" text="Obsevaciones" />
+            <TableColumn fx:id="colCodProv" prefWidth="203.0" text="CodigoProveedor" />
+        </columns>
+      </TableView>
+      <Button fx:id="btnRegresar" layoutX="211.0" layoutY="479.0" mnemonicParsing="false" onAction="#regresar" prefHeight="82.0" prefWidth="95.0" stylesheets="@../resources/KinalStoreCSS.css">
+         <graphic>
+            <ImageView fitHeight="90.0" fitWidth="107.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../Images/home_circle_icon_137496.png" />
+               </image>
+            </ImageView>
+         </graphic>
+         <styleClass>
+            <String fx:value="button2" />
+            <String fx:value="button3" />
+         </styleClass>
+      </Button>
+   </children>
+</AnchorPane>

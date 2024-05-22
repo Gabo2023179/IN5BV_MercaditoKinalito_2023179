@@ -27,13 +27,13 @@ public class MenuClientesController implements Initializable {
     private enum operaciones {
         AGREGAR, ELIMINAR, EDITAR, ACTUALIZAR, CANCELAR, NINGUNO
     }
-    
+
     private operaciones tipoDeOperaciones = operaciones.NINGUNO;
-    
+
     private ObservableList<Clientes> listaClientes;
-    
+
     private Main escenarioPrincipal;
-    
+
     @FXML
     private Button btnRegresar;
     @FXML

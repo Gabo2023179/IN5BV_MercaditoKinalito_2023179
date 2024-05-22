@@ -81,7 +81,9 @@ public class MenuDetalleCompraController implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+       cargaDatos();
+       cmbProCodPro.setItems(getProductos());
+       cmbComNumDoc.setItems(getCompras());
     }
 
     public Main getEscenarioPrincipal() {
@@ -93,16 +95,16 @@ public class MenuDetalleCompraController implements Initializable {
         colCodigoDc.setCellValueFactory(new PropertyValueFactory<DetalleCompra, Integer>("codigoDetalleCompra"));
         colCostoU.setCellValueFactory(new PropertyValueFactory<DetalleCompra, Double>("costoUnitario"));
         colCantidad.setCellValueFactory(new PropertyValueFactory<DetalleCompra, Integer>("cantidad"));
-        colProCodPro.setCellValueFactory(new PropertyValueFactory<DetalleCompra, String>("productosCodigoProducto"));
-        colComNumDoc.setCellValueFactory(new PropertyValueFactory<DetalleCompra, Integer>("comprasNumeroDocumento"));
+        colProCodPro.setCellValueFactory(new PropertyValueFactory<DetalleCompra, String>("productoId"));
+        colComNumDoc.setCellValueFactory(new PropertyValueFactory<DetalleCompra, Integer>("compraId"));
     }
 
     public void seleccionarElementos() {
         txtCodigoDC.setText(String.valueOf(((DetalleCompra) tblDetalleProducto.getSelectionModel().getSelectedItem()).getCodigoDetalleCompra()));
         txtCostoU.setText(String.valueOf(((DetalleCompra) tblDetalleProducto.getSelectionModel().getSelectedItem()).getCostoUnitario()));
         txtCantidad.setText(String.valueOf(((DetalleCompra) tblDetalleProducto.getSelectionModel().getSelectedItem()).getCantidad()));
-        cmbProCodPro.getSelectionModel().select(buscarProductos(((DetalleCompra) tblDetalleProducto.getSelectionModel().getSelectedItem()).getProductosCodigoProducto()));
-        cmbComNumDoc.getSelectionModel().select(buscarCompras(((DetalleCompra) tblDetalleProducto.getSelectionModel().getSelectedItem()).getComprasNumeroDocumento()));
+        cmbProCodPro.getSelectionModel().select(buscarProductos(((DetalleCompra) tblDetalleProducto.getSelectionModel().getSelectedItem()).getProductoId()));
+        cmbComNumDoc.getSelectionModel().select(buscarCompras(((DetalleCompra) tblDetalleProducto.getSelectionModel().getSelectedItem()).getCompraId()));
     }
 
     public Productos buscarProductos(int productoId) {
@@ -179,8 +181,8 @@ public class MenuDetalleCompraController implements Initializable {
                         resultado.getInt("codigoDetalleCompra"),
                         resultado.getDouble("costoUnitario"),
                         resultado.getInt("cantidad"),
-                        resultado.getInt("productosCodigoProducto"),
-                        resultado.getInt("comprasNumeroDocumento")
+                        resultado.getInt("productoId"),
+                        resultado.getInt("compraId")
                 ));
             }
         } catch (SQLException e) {
@@ -241,14 +243,21 @@ public class MenuDetalleCompraController implements Initializable {
     public void guardar() {
         DetalleCompra registro = new DetalleCompra();
         registro.setCodigoDetalleCompra(Integer.parseInt(txtCodigoDC.getText()));
-        registro.setProductosCodigoProducto(((DetalleCompra) cmbProCodPro.getSelectionModel().getSelectedItem())
-                .getProductosCodigoProducto());
-        registro.setComprasNumeroDocumento(((DetalleCompra) cmbComNumDoc.getSelectionModel().getSelectedItem())
-                .getComprasNumeroDocumento());
+        registro.setProductoId(((DetalleCompra) cmbProCodPro.getSelectionModel().getSelectedItem())
+                .getProductoId());
+        registro.setCompraId(((DetalleCompra) cmbComNumDoc.getSelectionModel().getSelectedItem())
+                .getCompraId());
         registro.setCostoUnitario(Double.parseDouble(txtCostoU.getText()));
         registro.setCantidad(Integer.parseInt(txtCantidad.getText()));
         try {
-
+            PreparedStatement procedimiento = Conexion.getInstance().getConexion().prepareCall("{call sp_AgregarDetalleCompra(?, ?, ?, ?, ?)}");
+            procedimiento.setInt(1, registro.getCodigoDetalleCompra());
+            procedimiento.setDouble(2, registro.getCostoUnitario());
+            procedimiento.setInt(3, registro.getCantidad());
+            procedimiento.setInt(4, registro.getProductoId());
+            procedimiento.setInt(5, registro.getCompraId());
+            procedimiento.execute();
+            listaDCompra.add(registro);
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -269,7 +278,7 @@ public class MenuDetalleCompraController implements Initializable {
                 break;
             default:
                 if (tblDetalleProducto.getSelectionModel().getSelectedItem() != null) {
-                    int respuesta = JOptionPane.showConfirmDialog(null, "Confirmar si elimina el registro", "Eliminar Productos", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
+                    int respuesta = JOptionPane.showConfirmDialog(null, "Confirmar si elimina el registro", "Eliminar Detalle Compra", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
                     if (respuesta == JOptionPane.YES_NO_OPTION) {
                         try {
                             PreparedStatement procedimiento = Conexion.getInstance().getConexion().prepareCall("{call sp_EliminarDetalleCompra (?)}");
@@ -324,17 +333,13 @@ public class MenuDetalleCompraController implements Initializable {
 
     public void actualizar() {
         try {
-            PreparedStatement procedimiento = Conexion.getInstance().getConexion().prepareCall("{call sp_EditarProductos (?, ?, ?, ?, ?, ?, ?, ?, ?)}");
-            Productos registro = (Productos) tblDetalleProducto.getSelectionModel().getSelectedItem();
-            procedimiento.setInt(1, registro.getProductoId());
-            procedimiento.setString(2, registro.getDescripcionProducto());
-            procedimiento.setDouble(3, registro.getPrecioUnitario());
-            procedimiento.setDouble(4, registro.getPrecioDocena());
-            procedimiento.setDouble(5, registro.getPrecioMayor());
-            procedimiento.setString(6, registro.getImagenProducto());
-            procedimiento.setInt(7, registro.getExistencia());
-            procedimiento.setInt(8, registro.getCodigoProveedor());
-            procedimiento.setInt(9, registro.getCodigoTipoDeProducto());
+            PreparedStatement procedimiento = Conexion.getInstance().getConexion().prepareCall("{call sp_EditarDetalleCompra (?, ?, ?, ?, ?, ?, ?, ?, ?)}");
+            DetalleCompra registro = (DetalleCompra) tblDetalleProducto.getSelectionModel().getSelectedItem();
+            procedimiento.setInt(1, registro.getCodigoDetalleCompra());
+            procedimiento.setDouble(2, registro.getCostoUnitario());
+            procedimiento.setInt(3, registro.getCantidad());
+            procedimiento.setInt(4, registro.getProductoId());
+            procedimiento.setInt(5, registro.getCompraId());
             procedimiento.execute();
         } catch (Exception e) {
             e.printStackTrace();

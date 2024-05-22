@@ -54,6 +54,8 @@ public class MenuProductosController implements Initializable {
     @FXML
     private TextField txtPrecioM;
     @FXML
+    private TextField txtImagenPro;
+    @FXML
     private TextField txtExistencia;
     @FXML
     private ComboBox cmbCodigoTipoP;
@@ -71,6 +73,8 @@ public class MenuProductosController implements Initializable {
     private TableColumn colPrecioD;
     @FXML
     private TableColumn colPrecioM;
+    @FXML
+    private TableColumn colImagenPro;
     @FXML
     private TableColumn colExistencia;
     @FXML
@@ -112,6 +116,7 @@ public class MenuProductosController implements Initializable {
         colPrecioU.setCellValueFactory(new PropertyValueFactory<Productos, Double>("precioUnitario"));
         colPrecioD.setCellValueFactory(new PropertyValueFactory<Productos, Double>("precioDocena"));
         colPrecioM.setCellValueFactory(new PropertyValueFactory<Productos, Double>("precioMayor"));
+        colImagenPro.setCellValueFactory(new PropertyValueFactory<Productos, String>("imagenProducto"));
         colExistencia.setCellValueFactory(new PropertyValueFactory<Productos, Integer>("existencia"));
         colCodProv.setCellValueFactory(new PropertyValueFactory<Productos, Integer>("codigoProveedor"));
         colCodTipoProd.setCellValueFactory(new PropertyValueFactory<Productos, Integer>("codigoTipoDeProducto"));
@@ -123,9 +128,10 @@ public class MenuProductosController implements Initializable {
         txtPrecioU.setText(String.valueOf(((Productos) tblProductos.getSelectionModel().getSelectedItem()).getPrecioUnitario()));
         txtPrecioD.setText(String.valueOf(((Productos) tblProductos.getSelectionModel().getSelectedItem()).getPrecioDocena()));
         txtPrecioM.setText(String.valueOf(((Productos) tblProductos.getSelectionModel().getSelectedItem()).getPrecioMayor()));
+        txtImagenPro.setText(String.valueOf(((Productos) tblProductos.getSelectionModel().getSelectedItem()).getImagenProducto()));
         txtExistencia.setText(String.valueOf(((Productos) tblProductos.getSelectionModel().getSelectedItem()).getExistencia()));
-        cmbCodProv.getSelectionModel().select(buscarProveedor(((Proveedores) tblProductos.getSelectionModel().getSelectedItem()).getCodigoProveedor()));
-        cmbCodigoTipoP.getSelectionModel().select(buscarTipoP(((TipoDeProductos) tblProductos.getSelectionModel().getSelectedItem()).getCodigoTipoDeProducto()));
+        cmbCodProv.getSelectionModel().select(buscarProveedor(((Productos) tblProductos.getSelectionModel().getSelectedItem()).getCodigoProveedor()));
+        cmbCodigoTipoP.getSelectionModel().select(buscarTipoP(((Productos) tblProductos.getSelectionModel().getSelectedItem()).getCodigoTipoDeProducto()));
 
     }
 
@@ -183,8 +189,8 @@ public class MenuProductosController implements Initializable {
                         resultado.getDouble("precioMayor"),
                         resultado.getString("imagenProducto"),
                         resultado.getInt("existencia"),
-                        resultado.getInt("codigoTipoDeProducto"),
-                        resultado.getInt("codigoProveedor")));
+                        resultado.getInt("codigoProveedor"),
+                        resultado.getInt("codigoTipoDeProducto")));
             }
         } catch (Exception e) {
             e.printStackTrace();
@@ -269,9 +275,21 @@ public class MenuProductosController implements Initializable {
         registro.setPrecioDocena(Double.parseDouble(txtPrecioD.getText()));
         registro.setPrecioUnitario(Double.parseDouble(txtPrecioU.getText()));
         registro.setPrecioMayor(Double.parseDouble(txtPrecioM.getText()));
+        registro.setImagenProducto(txtImagenPro.getText());
         registro.setExistencia(Integer.parseInt(txtExistencia.getText()));
         try {
-
+            PreparedStatement procedimiento = Conexion.getInstance().getConexion().prepareCall("{call sp_AgregarProductos(?, ?, ?, ?, ?, ?, ?, ?, ?)}");
+            procedimiento.setInt(1, registro.getProductoId());
+            procedimiento.setString(2, registro.getDescripcionProducto());
+            procedimiento.setDouble(3, registro.getPrecioUnitario());
+            procedimiento.setDouble(4, registro.getPrecioDocena());
+            procedimiento.setDouble(5, registro.getPrecioMayor());
+            procedimiento.setString(6, registro.getImagenProducto());
+            procedimiento.setInt(7, registro.getExistencia());
+            procedimiento.setInt(8, registro.getCodigoProveedor());
+            procedimiento.setInt(9, registro.getCodigoTipoDeProducto());
+            procedimiento.execute();
+            listaProductos.add(registro);
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -391,7 +409,7 @@ public class MenuProductosController implements Initializable {
         txtPrecioD.setEditable(false);
         txtPrecioM.setEditable(false);
         txtExistencia.setEditable(false);
-        cmbCodigoTipoP.setDisable(true);
+        cmbCodigoTipoP.setDisable(false);
     }
 
     public void activarControles() {
@@ -401,7 +419,7 @@ public class MenuProductosController implements Initializable {
         txtPrecioD.setEditable(true);
         txtPrecioM.setEditable(true);
         txtExistencia.setEditable(true);
-        cmbCodigoTipoP.setDisable(false);
+        cmbCodigoTipoP.setDisable(true);
     }
 
     public void limpiarControles() {

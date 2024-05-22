@@ -1,8 +1,7 @@
-
 package org.josesanchez.beans;
 
-
 public class TipoDeProductos {
+
     private int codigoTipoDeProducto;
     private String descripcion;
 
@@ -29,9 +28,9 @@ public class TipoDeProductos {
     public void setDescripcion(String descripcion) {
         this.descripcion = descripcion;
     }
-    
+
     @Override
-    public String toString(){
+    public String toString() {
         return " | " + getDescripcion();
     }
 }

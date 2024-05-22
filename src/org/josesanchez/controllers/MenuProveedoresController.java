@@ -27,9 +27,9 @@ public class MenuProveedoresController implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-	cargarDatos();
+        cargarDatos();
     }
-    
+
     private enum operaciones {
         AGREGAR, ELIMINAR, EDITAR, ACTUALIZAR, CANCELAR, NINGUNO
     }
@@ -88,7 +88,7 @@ public class MenuProveedoresController implements Initializable {
     private ImageView imgEditarP;
     @FXML
     private ImageView imgReporteP;
-  
+
     public void cargarDatos() {
         tblProveedor.setItems(getProveedores());
         colCodigoP.setCellValueFactory(new PropertyValueFactory<Proveedores, Integer>("codigoProveedor"));
@@ -290,7 +290,7 @@ public class MenuProveedoresController implements Initializable {
                 btnEditarP.setText("Editar");
                 btnReporteP.setText("Reporte");
                 btnAgregarP.setDisable(false);
-                btnEliminarP.setDisable(false);              
+                btnEliminarP.setDisable(false);
                 imgEditarP.setImage(new Image("/org/josesanchez/Images/business_application_addmale_useradd_insert_add_user_client_2312.png"));
                 imgReporteP.setImage(new Image("/org/josesanchez/Images/users_12820.png"));
                 tipoDeOperaciones = operaciones.NINGUNO;
@@ -309,8 +309,8 @@ public class MenuProveedoresController implements Initializable {
         txtPaginaWeb.setEditable(false);
 
     }
-    
-     public void activarControles() {
+
+    public void activarControles() {
         txtCodigoP.setEditable(true);
         txtNitP.setEditable(true);
         txtNombreP.setEditable(true);
@@ -321,8 +321,8 @@ public class MenuProveedoresController implements Initializable {
         txtPaginaWeb.setEditable(true);
 
     }
-    
-     public void limpiarControles() {
+
+    public void limpiarControles() {
         txtCodigoP.clear();
         txtNitP.clear();
         txtNombreP.clear();
@@ -332,12 +332,12 @@ public class MenuProveedoresController implements Initializable {
         txtContactoPrincipal.clear();
         txtPaginaWeb.clear();
     }
-     
-     public void setEscenarioPrincipal(Main escenarioPrincipal) {
+
+    public void setEscenarioPrincipal(Main escenarioPrincipal) {
         this.escenarioPrincipal = escenarioPrincipal;
     }
-     
-     @FXML
+
+    @FXML
     public void regresar(ActionEvent event) {
         if (event.getSource() == btnRegresar) {
             escenarioPrincipal.menuPrincipalView();

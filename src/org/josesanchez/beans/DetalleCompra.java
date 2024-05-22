@@ -5,18 +5,18 @@ public class DetalleCompra {
    private int codigoDetalleCompra;
    private double costoUnitario;
    private int cantidad;
-   private int productosCodigoProducto;
-   private int comprasNumeroDocumento;
+   private int productoId;
+   private int compraId;
 
     public DetalleCompra() {
     }
 
-    public DetalleCompra(int codigoDetalleCompra, double costoUnitario, int cantidad, int productosCodigoProducto, int comprasNumeroDocumento) {
+    public DetalleCompra(int codigoDetalleCompra, double costoUnitario, int cantidad, int productoId, int compraId) {
         this.codigoDetalleCompra = codigoDetalleCompra;
         this.costoUnitario = costoUnitario;
         this.cantidad = cantidad;
-        this.productosCodigoProducto = productosCodigoProducto;
-        this.comprasNumeroDocumento = comprasNumeroDocumento;
+        this.productoId = productoId;
+        this.compraId = compraId;
     }
 
     public int getCodigoDetalleCompra() {
@@ -43,20 +43,22 @@ public class DetalleCompra {
         this.cantidad = cantidad;
     }
 
-    public int getProductosCodigoProducto() {
-        return productosCodigoProducto;
+    public int getProductoId() {
+        return productoId;
     }
 
-    public void setProductosCodigoProducto(int productosCodigoProducto) {
-        this.productosCodigoProducto = productosCodigoProducto;
+    public void setProductoId(int productoId) {
+        this.productoId = productoId;
     }
 
-    public int getComprasNumeroDocumento() {
-        return comprasNumeroDocumento;
+    public int getCompraId() {
+        return compraId;
     }
 
-    public void setComprasNumeroDocumento(int comprasNumeroDocumento) {
-        this.comprasNumeroDocumento = comprasNumeroDocumento;
+    public void setCompraId(int compraId) {
+        this.compraId = compraId;
     }
+
+  
 
 }

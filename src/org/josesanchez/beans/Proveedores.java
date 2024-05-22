@@ -2,7 +2,7 @@ package org.josesanchez.beans;
 
 public class Proveedores {
 
-    private int codigoProveedor;
+private int codigoProveedor;
     private String NITproveedor;
     private String nombreProveedor;
     private String apellidoProveedor;

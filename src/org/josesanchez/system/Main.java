@@ -22,10 +22,16 @@ import org.josesanchez.controllers.MenuCargoEmpleadosController;
 import org.josesanchez.controllers.MenuCargosController;
 import org.josesanchez.controllers.MenuClientesController;
 import org.josesanchez.controllers.MenuComprasController;
+import org.josesanchez.controllers.MenuDetalleCompraController;
+import org.josesanchez.controllers.MenuDetalleFacturaController;
+import org.josesanchez.controllers.MenuEmailProveedorController;
+import org.josesanchez.controllers.MenuEmpleadosController;
+import org.josesanchez.controllers.MenuFacturaController;
 import org.josesanchez.controllers.MenuPrincipalController;
 import org.josesanchez.controllers.MenuProductosController;
 import org.josesanchez.controllers.MenuProgramadorController;
 import org.josesanchez.controllers.MenuProveedoresController;
+import org.josesanchez.controllers.MenuTelefonoProveedorController;
 import org.josesanchez.controllers.MenuTipoDeProductosController;
 
 /**
@@ -150,11 +156,71 @@ public class Main extends Application {
         }
 
     }
-    
-        public void menuCargoEmpleadosView() {
+
+    public void menuCargoEmpleadosView() {
         try {
             MenuCargoEmpleadosController menuCargoEmpleados = (MenuCargoEmpleadosController) cambiarEscena("MenuCargoEmpleadosView.fxml", 1254, 704);
             menuCargoEmpleados.setEscenarioPrincipal(this);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+    }
+
+    public void menuDetalleCompraView() {
+        try {
+            MenuDetalleCompraController menuDetalleCompra = (MenuDetalleCompraController) cambiarEscena("MenuDetalleCompraView.fxml", 1075, 605);
+            menuDetalleCompra.setEscenarioPrincipal(this);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+    }
+
+    public void menuDetalleFacturaView() {
+        try {
+            MenuDetalleFacturaController menuDetalleFactura = (MenuDetalleFacturaController) cambiarEscena("MenuDetalleFacturaView.fxml", 1027, 572);
+            menuDetalleFactura.setEscenarioPrincipal(this);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+    }
+
+    public void menuEmailProveedorView() {
+        try {
+            MenuEmailProveedorController menuEmailProveedor = (MenuEmailProveedorController) cambiarEscena("MenuEmailProveedorView.fxml", 1094, 611);
+            menuEmailProveedor.setEscenarioPrincipal(this);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+    }
+
+    public void menuEmpleadosView() {
+        try {
+            MenuEmpleadosController menuEmpleados = (MenuEmpleadosController) cambiarEscena("MenuEmpleadosView.fxml", 1208, 684);
+            menuEmpleados.setEscenarioPrincipal(this);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+    }
+
+    public void menuFacturaView() {
+        try {
+            MenuFacturaController menuFactura = (MenuFacturaController) cambiarEscena("MenuFacturaView.fxml", 1234, 695);
+            menuFactura.setEscenarioPrincipal(this);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+    }
+
+    public void menuTelefonoProveedorView() {
+        try {
+            MenuTelefonoProveedorController menuTelefonoProveedor = (MenuTelefonoProveedorController) cambiarEscena("MenuTelefonoProveedorView.fxml", 1165, 652);
+            menuTelefonoProveedor.setEscenarioPrincipal(this);
         } catch (Exception e) {
             e.printStackTrace();
         }

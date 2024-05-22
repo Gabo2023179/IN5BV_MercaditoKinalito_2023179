@@ -25,34 +25,46 @@
                   <MenuItem fx:id="btnMenuCompras" mnemonicParsing="false" onAction="#clicClientes" text="Compras" />
                   <MenuItem fx:id="btnMenuProductos" mnemonicParsing="false" onAction="#clicClientes" text="Productos" />
                   <MenuItem fx:id="btnMenuCargoEmpleados" mnemonicParsing="false" onAction="#clicClientes" text="CargoEmpleados" />
+                  <MenuItem fx:id="btnMenuDetalleCompra" mnemonicParsing="false" onAction="#clicClientes" text="DetalleCompra" />
+                  <MenuItem fx:id="btnMenuDetalleFactura" mnemonicParsing="false" onAction="#clicClientes" text="DetalleFactura" />
+                  <MenuItem fx:id="btnMenuEmailProveedor" mnemonicParsing="false" onAction="#clicClientes" text="EmailProveedor" />
+                  <MenuItem fx:id="btnMenuEmpleados" mnemonicParsing="false" onAction="#clicClientes" text="Empleados" />
+                  <MenuItem fx:id="btnMenuFactura" mnemonicParsing="false" onAction="#clicClientes" text="Factura" />
+                  <MenuItem fx:id="btnMenuTelefonoProveedor" mnemonicParsing="false" onAction="#clicClientes" text="TelefonoProveedor" />
             </items>
+               <graphic>
+                  <ImageView fitHeight="41.0" fitWidth="41.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../Images/modules_apps_icon_188198.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
           </Menu>
           <Menu mnemonicParsing="false" text="Reportes">
             <items>
               <MenuItem mnemonicParsing="false" text="Compra y Venta" />
             </items>
+               <graphic>
+                  <ImageView fitHeight="41.0" fitWidth="54.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../Images/iconfinder-documents01-1622837_121952.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
           </Menu>
           <Menu mnemonicParsing="false" text="Acerca de">
             <items>
               <MenuItem fx:id="btnMenuProgramador" mnemonicParsing="false" onAction="#clicClientes" text="Programador" />
             </items>
+               <graphic>
+                  <ImageView fitHeight="41.0" fitWidth="41.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../Images/about_3697.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
           </Menu>
         </menus>
       </MenuBar>
-      <ImageView fitHeight="41.0" fitWidth="41.0" layoutX="14.0" layoutY="25.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../Images/modules_apps_icon_188198.png" />
-         </image>
-      </ImageView>
-      <ImageView fitHeight="41.0" fitWidth="54.0" layoutX="83.0" layoutY="25.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../Images/iconfinder-documents01-1622837_121952.png" />
-         </image>
-      </ImageView>
-      <ImageView fitHeight="41.0" fitWidth="41.0" layoutX="157.0" layoutY="25.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../Images/about_3697.png" />
-         </image>
-      </ImageView>
    </children>
 </AnchorPane>

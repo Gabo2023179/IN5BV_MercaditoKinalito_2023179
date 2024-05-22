@@ -30,7 +30,7 @@ public class MenuCargoEmpleadosController implements Initializable {
 
     private operaciones tipoDeOperaciones = operaciones.NINGUNO;
 
-    private ObservableList<CargoEmpleados> listaCEmp ;
+    private ObservableList<CargoEmpleados> listaCEmp;
 
     private Main escenarioPrincipal;
 
@@ -220,7 +220,7 @@ public class MenuCargoEmpleadosController implements Initializable {
 
     public void actualizar() {
         try {
-            PreparedStatement procedimiento = Conexion.getInstance().getConexion().prepareCall("{call sp_EditarEmpleadoController (?, ?, ?)}");
+            PreparedStatement procedimiento = Conexion.getInstance().getConexion().prepareCall("{call sp_EditarCargoEmpleados(?, ?, ?)}");
             CargoEmpleados registro = (CargoEmpleados) tblCEmp.getSelectionModel().getSelectedItem();
             registro.setNombreCargo(txtNombreCargo.getText());
             registro.setDescripcionCargo(txtDescripcionCargo.getText());
@@ -258,7 +258,7 @@ public class MenuCargoEmpleadosController implements Initializable {
     public void activarControles() {
         txtCCE.setEditable(true);
         txtNombreCargo.setEditable(true);
-         txtDescripcionCargo.setEditable(true);
+        txtDescripcionCargo.setEditable(true);
 
     }
 
