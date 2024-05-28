@@ -193,21 +193,24 @@ public class MenuTelefonoProveedorController implements Initializable{
 
     public void guardar() {
         TelefonoProveedor registro = new TelefonoProveedor();
-        registro.setCodigoProveedor(Integer.parseInt(txtCodTelPro.getText()));
         registro.setCodigoProveedor(((Proveedores) cmbCodProv.getSelectionModel().getSelectedItem())
                 .getCodigoProveedor());
         registro.setNumeroPrincipal(txtNumPrin.getText());
         registro.setNumeroSecundario(txtNumSecun.getText());
         registro.setObservaciones(txtObserv.getText());
         try {
-            PreparedStatement procedimiento = Conexion.getInstance().getConexion().prepareCall("{call sp_AgregarTelefonoProveedor(?, ?, ?, ?, ?, ?)}");
-            procedimiento.setInt(1, registro.getCodigoTelefonoProveedor());
-            procedimiento.setString(2, registro.getNumeroPrincipal());
-            procedimiento.setString(3, registro.getNumeroSecundario());
-            procedimiento.setString(4, registro.getObservaciones());
-            procedimiento.setInt(5, registro.getCodigoProveedor());
+            PreparedStatement procedimiento = Conexion.getInstance().getConexion().prepareCall("{call sp_AgregarTelefonoProveedor(?, ?, ?, ?)}");
+            procedimiento.setString(1, registro.getNumeroPrincipal());
+            procedimiento.setString(2, registro.getNumeroSecundario());
+            procedimiento.setString(3, registro.getObservaciones());
+            procedimiento.setInt(4, registro.getCodigoProveedor());
             procedimiento.execute();
+            ResultSet generatedKeys = procedimiento.getGeneratedKeys();
+            if(generatedKeys.next()){
+                registro.setCodigoTelefonoProveedor(generatedKeys.getInt(1));
+            }
             listaTelPro.add(registro);
+            cargaDatos();
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -325,7 +328,6 @@ public class MenuTelefonoProveedorController implements Initializable{
     }
 
     public void activarControles() {
-        txtCodTelPro.setEditable(true);
         txtNumPrin.setEditable(true);
         txtNumSecun.setEditable(true);
         txtObserv.setEditable(true);

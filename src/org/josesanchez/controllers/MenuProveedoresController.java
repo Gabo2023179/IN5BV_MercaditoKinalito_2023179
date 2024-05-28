@@ -37,7 +37,7 @@ public class MenuProveedoresController implements Initializable {
     private operaciones tipoDeOperaciones = operaciones.NINGUNO;
     private Main escenarioPrincipal;
     @FXML
-    private Button btnRegresar;
+    private Button btnRegresar;s
     @FXML
     private TextField txtDireccionP;
     @FXML
@@ -162,7 +162,6 @@ public class MenuProveedoresController implements Initializable {
 
     public void guardar() {
         Proveedores registro = new Proveedores();
-        registro.setCodigoProveedor(Integer.parseInt(txtCodigoP.getText()));
         registro.setNITproveedor(txtNitP.getText());
         registro.setNombreProveedor((txtNombreP.getText()));
         registro.setApellidoProveedor(txtApellidoP.getText());
@@ -171,18 +170,21 @@ public class MenuProveedoresController implements Initializable {
         registro.setContactoPrincipal(txtContactoPrincipal.getText());
         registro.setPaginaWeb(txtPaginaWeb.getText());
         try {
-            PreparedStatement procedimiento = Conexion.getInstance().getConexion().prepareCall("{call sp_AgregarProveedores (?, ?, ?, ?, ?, ?, ?, ?)}");
-            procedimiento.setInt(1, registro.getCodigoProveedor());
-            procedimiento.setString(2, registro.getNITproveedor());
-            procedimiento.setString(3, registro.getNombreProveedor());
-            procedimiento.setString(4, registro.getApellidoProveedor());
-            procedimiento.setString(5, registro.getDireccionProveedor());
-            procedimiento.setString(6, registro.getRazonSocial());
-            procedimiento.setString(7, registro.getContactoPrincipal());
-            procedimiento.setString(8, registro.getPaginaWeb());
+            PreparedStatement procedimiento = Conexion.getInstance().getConexion().prepareCall("{call sp_AgregarProveedores (?, ?, ?, ?, ?, ?, ?)}");
+            procedimiento.setString(1, registro.getNITproveedor());
+            procedimiento.setString(2, registro.getNombreProveedor());
+            procedimiento.setString(3, registro.getApellidoProveedor());
+            procedimiento.setString(4, registro.getDireccionProveedor());
+            procedimiento.setString(5, registro.getRazonSocial());
+            procedimiento.setString(6, registro.getContactoPrincipal());
+            procedimiento.setString(7, registro.getPaginaWeb());
             procedimiento.execute();
+            ResultSet generatedKeys = procedimiento.getGeneratedKeys();
+            if(generatedKeys.next()){
+                registro.setCodigoProveedor(generatedKeys.getInt(1));
+            }
             listaProveedores.add(registro);
-
+            cargarDatos();
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -311,7 +313,6 @@ public class MenuProveedoresController implements Initializable {
     }
 
     public void activarControles() {
-        txtCodigoP.setEditable(true);
         txtNitP.setEditable(true);
         txtNombreP.setEditable(true);
         txtApellidoP.setEditable(true);

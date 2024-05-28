@@ -213,7 +213,6 @@ public class MenuEmpleadosController implements Initializable {
 
     public void guardar() {
         Empleados registro = new Empleados();
-        registro.setCodigoEmpleado(Integer.parseInt(txtCodEmpleado.getText()));
         registro.setCargoId(((Cargos) cmbCargoId.getSelectionModel().getSelectedItem())
                 .getCargoId());
         registro.setNombresEmpleado(txtNomEmpleado.getText());
@@ -222,16 +221,20 @@ public class MenuEmpleadosController implements Initializable {
         registro.setDireccion(txtDireccion.getText());
         registro.setTurno(txtTurno.getText());
         try {
-            PreparedStatement procedimiento = Conexion.getInstance().getConexion().prepareCall("{call sp_AgregarEmpleados(?, ?, ?, ?, ?, ?, ?)}");
-            procedimiento.setInt(1, registro.getCodigoEmpleado());
-            procedimiento.setString(2, registro.getNombresEmpleado());
-            procedimiento.setString(3, registro.getApellidosEmpleado());
-            procedimiento.setDouble(4, registro.getSueldo());
-            procedimiento.setString(5, registro.getDireccion());
-            procedimiento.setString(6, registro.getTurno());
-            procedimiento.setInt(7, registro.getCargoId());
+            PreparedStatement procedimiento = Conexion.getInstance().getConexion().prepareCall("{call sp_AgregarEmpleados(?, ?, ?, ?, ?, ?)}");
+            procedimiento.setString(1, registro.getNombresEmpleado());
+            procedimiento.setString(2, registro.getApellidosEmpleado());
+            procedimiento.setDouble(3, registro.getSueldo());
+            procedimiento.setString(4, registro.getDireccion());
+            procedimiento.setString(5, registro.getTurno());
+            procedimiento.setInt(6, registro.getCargoId());
             procedimiento.execute();
+            ResultSet generatedKeys = procedimiento.getGeneratedKeys();
+            if(generatedKeys.next()){
+                registro.setCodigoEmpleado(generatedKeys.getInt(1));
+            }
             listaEmpleados.add(registro);
+            cargaDatos();
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -353,7 +356,6 @@ public class MenuEmpleadosController implements Initializable {
     }
 
     public void activarControles() {
-        txtCodEmpleado.setEditable(true);
         txtNomEmpleado.setEditable(true);
         txtApeEmpleado.setEditable(true);
         txtSueldo.setEditable(true);

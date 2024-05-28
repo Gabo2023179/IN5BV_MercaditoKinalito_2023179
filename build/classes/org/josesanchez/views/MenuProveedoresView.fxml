@@ -140,7 +140,7 @@
                   <Font name="System Bold" size="17.0" />
                </font>
             </Label>
-            <TextField fx:id="txtCodigoP" GridPane.columnIndex="1" />
+            <TextField fx:id="txtCodigoP" editable="false" GridPane.columnIndex="1" />
             <TextField fx:id="txtPaginaWeb" GridPane.columnIndex="1" GridPane.rowIndex="1" />
             <TextField fx:id="txtNitP" prefHeight="22.0" prefWidth="160.0" GridPane.columnIndex="3" />
             <TextField fx:id="txtRazonSocial" GridPane.columnIndex="3" GridPane.rowIndex="1" />

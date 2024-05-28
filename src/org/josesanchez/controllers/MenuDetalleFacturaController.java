@@ -244,7 +244,6 @@ public class MenuDetalleFacturaController implements Initializable {
 
     public void guardar() {
         DetalleFactura registro = new DetalleFactura();
-        registro.setCodigoDetalleFactura(Integer.parseInt(txtCodigoDF.getText()));
         registro.setNumeroFactura(((Factura) cmbNumFactura.getSelectionModel().getSelectedItem())
                 .getNumeroFactura());
         registro.setProductoId(((Productos) cmbProductoId.getSelectionModel().getSelectedItem())
@@ -252,14 +251,18 @@ public class MenuDetalleFacturaController implements Initializable {
         registro.setPrecioUnitario(Double.parseDouble(txtprecioU.getText()));
         registro.setCantidad(txtCantidad.getText());
         try {
-            PreparedStatement procedimiento = Conexion.getInstance().getConexion().prepareCall("{call sp_AgregarDetalleFactura(?, ?, ?, ?, ?)}");
-            procedimiento.setInt(1, registro.getCodigoDetalleFactura());
-            procedimiento.setDouble(2, registro.getPrecioUnitario());
-            procedimiento.setString(3, registro.getCantidad());
-            procedimiento.setInt(4, registro.getNumeroFactura());
-            procedimiento.setInt(5, registro.getProductoId());
+            PreparedStatement procedimiento = Conexion.getInstance().getConexion().prepareCall("{call sp_AgregarDetalleFactura(?, ?, ?, ?)}");
+            procedimiento.setDouble(1, registro.getPrecioUnitario());
+            procedimiento.setString(2, registro.getCantidad());
+            procedimiento.setInt(3, registro.getNumeroFactura());
+            procedimiento.setInt(4, registro.getProductoId());
             procedimiento.execute();
+            ResultSet generatedKeys = procedimiento.getGeneratedKeys();
+            if(generatedKeys.next()){
+                registro.setCodigoDetalleFactura(generatedKeys.getInt(1));
+            }
             listaDFactura.add(registro);
+            cargaDatos();
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -378,7 +381,6 @@ public class MenuDetalleFacturaController implements Initializable {
     }
 
     public void activarControles() {
-        txtCodigoDF.setEditable(true);
         txtprecioU.setEditable(true);
         txtCantidad.setEditable(true);
         cmbNumFactura.setEditable(true);

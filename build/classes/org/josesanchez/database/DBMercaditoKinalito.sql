@@ -101,8 +101,8 @@ create table Cargos(
 
 create table Empleados(
 	codigoEmpleado int auto_increment,
-    nombreEmpleado varchar(30),
-    apellidoEmpleado varchar(30),
+    nombresEmpleado varchar(30),
+    apellidosEmpleado varchar(30),
     sueldo decimal(10,2),
     direccion varchar(150),
     turno varchar(15),
@@ -785,16 +785,16 @@ delimiter ;
 -- Agregar
 delimiter $$
 create procedure sp_AgregarEmpleado(
-    in nombreEmpleado varchar(30),
-    in apellidoEmpleado varchar(30),
+    in nombresEmpleado varchar(30),
+    in apellidosEmpleado varchar(30),
     in sueldo decimal(10,2),
     in direccion varchar(150),
     in turno varchar(15),
     in cargoId int
 )
 begin
-    insert into Empleados (nombreEmpleado, apellidoEmpleado, sueldo, direccion, turno, cargoId)
-    values (nombreEmpleado, apellidoEmpleado, sueldo, direccion, turno, cargoId);
+    insert into Empleados (nombresEmpleado, apellidosEmpleado, sueldo, direccion, turno, cargoId)
+    values (nombresEmpleado, apellidosEmpleado, sueldo, direccion, turno, cargoId);
 end $$
 delimiter ;
 
@@ -804,8 +804,8 @@ create procedure sp_ListarEmpleados()
 begin
     select
         codigoEmpleado,
-        nombreEmpleado,
-        apellidoEmpleado,
+        nombresEmpleado,
+        apellidosEmpleado,
         sueldo,
         direccion,
         turno,
@@ -820,8 +820,8 @@ create procedure sp_BuscarEmpleados(in codigoEmpleado int)
 begin
     select
         E.codigoEmpleado,
-        E.nombreEmpleado,
-        E.apellidoEmpleado,
+        E.nombresEmpleado,
+        E.apellidosEmpleado,
         E.sueldo,
         E.direccion,
         E.turno,
@@ -845,8 +845,8 @@ delimiter ;
 delimiter $$
 create procedure sp_EditarEmpleado(
     in codigoEmpleado int,
-    in nombreEmpleado varchar(30),
-    in apellidoEmpleado varchar(30),
+    in nombresEmpleado varchar(30),
+    in apellidosEmpleado varchar(30),
     in sueldo decimal(10,2),
 	in direccion varchar(150),
     in turno varchar(15),
@@ -854,8 +854,8 @@ create procedure sp_EditarEmpleado(
 )
 begin
     update Empleados E
-    set E.nombreEmpleado = nombreEmpleado,
-        E.apellidoEmpleado = apellidoEmpleado,
+    set E.nombresEmpleado = nombresEmpleado,
+        E.apellidosEmpleado = apellidosEmpleado,
         E.sueldo = sueldo,
         E.direccion = direccion,
         E.turno = turno,

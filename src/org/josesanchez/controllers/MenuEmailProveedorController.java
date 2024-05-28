@@ -195,19 +195,22 @@ public class MenuEmailProveedorController implements Initializable{
 
     public void guardar() {
         EmailProveedor registro = new EmailProveedor();
-        registro.setCodigoProveedor(Integer.parseInt(txtCodEmPro.getText()));
         registro.setCodigoProveedor(((Proveedores) cmbCodPro.getSelectionModel().getSelectedItem())
                 .getCodigoProveedor());
         registro.setEmailProveedor(txtEmailPro.getText());
         registro.setDescripcion(txtDescripcion.getText());
         try {
-            PreparedStatement procedimiento = Conexion.getInstance().getConexion().prepareCall("{call sp_AgregarEmailProveedor(?, ?, ?, ?)}");
-            procedimiento.setInt(1, registro.getCodigoEmailProveedor());
-            procedimiento.setString(2, registro.getEmailProveedor());
-            procedimiento.setString(3, registro.getDescripcion());
-            procedimiento.setInt(4, registro.getCodigoProveedor());
+            PreparedStatement procedimiento = Conexion.getInstance().getConexion().prepareCall("{call sp_AgregarEmailProveedor(?, ?, ?)}");
+            procedimiento.setString(1, registro.getEmailProveedor());
+            procedimiento.setString(2, registro.getDescripcion());
+            procedimiento.setInt(3, registro.getCodigoProveedor());
             procedimiento.execute();
+            ResultSet generatedKeys = procedimiento.getGeneratedKeys();
+            if(generatedKeys.next()){
+                registro.setCodigoEmailProveedor(generatedKeys.getInt(1));
+            }
             listaEmPro.add(registro);
+            cargaDatos();
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -323,7 +326,6 @@ public class MenuEmailProveedorController implements Initializable{
     }
 
     public void activarControles() {
-        txtCodEmPro.setEditable(true);
         txtEmailPro.setEditable(true);
         txtDescripcion.setEditable(true);
         cmbCodPro.setDisable(false);

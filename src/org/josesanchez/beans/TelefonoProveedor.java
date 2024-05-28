@@ -58,6 +58,11 @@ public class TelefonoProveedor {
     public void setCodigoProveedor(int codigoProveedor) {
         this.codigoProveedor = codigoProveedor;
     }
+    
+     @Override
+    public String toString(){
+        return "| " + getCodigoProveedor();
+    }
    
    
 }

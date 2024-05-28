@@ -129,7 +129,7 @@
                   <Font name="System Bold" size="31.0" />
                </font>
             </Label>
-            <TextField fx:id="txtCargoId" GridPane.columnIndex="1" />
+            <TextField fx:id="txtCargoId" editable="false" GridPane.columnIndex="1" />
             <TextField fx:id="txtNombreCargo" GridPane.columnIndex="1" GridPane.rowIndex="1" />
             <TextField fx:id="txtDescripcionCargo" GridPane.columnIndex="1" GridPane.rowIndex="2" />
          </children>

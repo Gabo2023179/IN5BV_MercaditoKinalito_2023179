@@ -59,6 +59,9 @@ public class DetalleCompra {
         this.compraId = compraId;
     }
 
-  
+  @Override
+    public String toString(){
+        return "| " + getProductoId() + " - " + getCompraId();
+    }
 
 }

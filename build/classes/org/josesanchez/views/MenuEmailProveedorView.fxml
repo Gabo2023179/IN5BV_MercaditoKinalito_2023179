@@ -99,7 +99,7 @@
                   <Font name="Book Antiqua" size="24.0" />
                </font>
             </Label>
-            <TextField fx:id="txtCodEmPro" GridPane.columnIndex="1" />
+            <TextField fx:id="txtCodEmPro" editable="false" GridPane.columnIndex="1" />
             <TextField fx:id="txtEmailPro" GridPane.columnIndex="1" GridPane.rowIndex="1" />
             <TextField fx:id="txtDescripcion" GridPane.columnIndex="1" GridPane.rowIndex="2" />
             <ComboBox fx:id="cmbCodPro" prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="3" />

@@ -152,19 +152,20 @@ public class MenuComprasController implements Initializable {
 
     public void guardar() {
         Compras registro = new Compras();
-        registro.setCompraId(Integer.parseInt(txtCompraId.getText()));
         registro.setDescripcion(txtdescripcion.getText());
         registro.setFechaCompra(datepFc.getValue());
         registro.setTotalCompra(Double.parseDouble(txtTotalCompra.getText()));
         try {
-            PreparedStatement procedimiento = Conexion.getInstance().getConexion().prepareCall("{call sp_AgregarCompras (?, ?, ?, ?)}");
-            procedimiento.setInt(1, registro.getCompraId());
-            procedimiento.setDate(2, java.sql.Date.valueOf(registro.getFechaCompra()));
-            procedimiento.setString(3, registro.getDescripcion());
-            procedimiento.setDouble(4, registro.getTotalCompra());
+            PreparedStatement procedimiento = Conexion.getInstance().getConexion().prepareCall("{call sp_AgregarCompras ( ?, ?)}");
+            procedimiento.setDate(1, java.sql.Date.valueOf(registro.getFechaCompra()));
+            procedimiento.setString(2, registro.getDescripcion());
             procedimiento.execute();
+            ResultSet generatedKeys = procedimiento.getGeneratedKeys();
+            if(generatedKeys.next()){
+                registro.setCompraId(generatedKeys.getInt(1));
+            }
             listaCompras.add(registro);
-
+            cargarDatos();
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -241,7 +242,7 @@ public class MenuComprasController implements Initializable {
 
     public void actualizar() {
         try {
-            PreparedStatement procedimiento = Conexion.getInstance().getConexion().prepareCall("{call sp_BuscarCompras (?, ?, ?, ?)}");
+            PreparedStatement procedimiento = Conexion.getInstance().getConexion().prepareCall("{call sp_EditarCompras (?, ?, ?, ?, ?)}");
             Compras registro = (Compras) tblCompras.getSelectionModel().getSelectedItem();
             procedimiento.setInt(1, registro.getCompraId());
             procedimiento.setDate(2, java.sql.Date.valueOf(registro.getFechaCompra()));
@@ -277,7 +278,6 @@ public class MenuComprasController implements Initializable {
     }
 
     public void activarControles() {
-        txtCompraId.setEditable(true);
         txtdescripcion.setEditable(true);
         datepFc.setEditable(true);
         txtTotalCompra.setEditable(true);

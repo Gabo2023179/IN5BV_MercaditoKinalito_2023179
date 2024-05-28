@@ -134,14 +134,17 @@ private enum operaciones {
 
     public void guardar() {
         TipoDeProductos registro = new TipoDeProductos();
-        registro.setCodigoTipoDeProducto(Integer.parseInt(txtTdp.getText()));
         registro.setDescripcion(txtdescripcion.getText());
         try {
-            PreparedStatement procedimiento = Conexion.getInstance().getConexion().prepareCall("{call sp_AgregarTipoDeProducto (?, ?)}");
-            procedimiento.setInt(1, registro.getCodigoTipoDeProducto());
+            PreparedStatement procedimiento = Conexion.getInstance().getConexion().prepareCall("{call sp_AgregarTipoDeProducto (?)}");
             procedimiento.setString(2, registro.getDescripcion());
             procedimiento.execute();
+            ResultSet generatedKeys = procedimiento.getGeneratedKeys();
+            if(generatedKeys.next()){
+                registro.setCodigoTipoDeProducto(generatedKeys.getInt(1));
+            }
             listaTdp.add(registro);
+            cargarDatos();
 
         } catch (Exception e) {
             e.printStackTrace();
@@ -252,7 +255,6 @@ private enum operaciones {
     }
 
     public void activarControles() {
-        txtTdp.setEditable(true);
         txtdescripcion.setEditable(true);
 
     }

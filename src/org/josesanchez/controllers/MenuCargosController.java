@@ -141,15 +141,17 @@ public class MenuCargosController implements Initializable {
 
     public void guardar() {
         Cargos registro = new Cargos();
-        registro.setCargoId(Integer.parseInt(txtCargoId.getText()));
         registro.setNombreCargo(txtNombreCargo.getText());
         registro.setDescripcionCargo((txtDescripcionCargo.getText()));
         try {
-            PreparedStatement procedimiento = Conexion.getInstance().getConexion().prepareCall("{call sp_AgregarCargos (?, ?, ?)}");
-            procedimiento.setInt(1, registro.getCargoId());
-            procedimiento.setString(2, registro.getNombreCargo());
-            procedimiento.setString(3, registro.getDescripcionCargo());
+            PreparedStatement procedimiento = Conexion.getInstance().getConexion().prepareCall("{call sp_AgregarCargos (?, ?)}");
+            procedimiento.setString(1, registro.getNombreCargo());
+            procedimiento.setString(2, registro.getDescripcionCargo());
             procedimiento.execute();
+            ResultSet generatedKeys = procedimiento.getGeneratedKeys();
+            if(generatedKeys.next()){
+                registro.setCargoId(generatedKeys.getInt(1));
+            }
             listaCargos.add(registro);
 
         } catch (Exception e) {
@@ -264,7 +266,6 @@ public class MenuCargosController implements Initializable {
     }
 
     public void activarControles() {
-        txtCargoId.setEditable(true);
         txtNombreCargo.setEditable(true);
         txtDescripcionCargo.setEditable(true);
 

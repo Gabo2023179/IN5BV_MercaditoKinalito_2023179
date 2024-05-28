@@ -242,7 +242,6 @@ public class MenuDetalleCompraController implements Initializable {
 
     public void guardar() {
         DetalleCompra registro = new DetalleCompra();
-        registro.setCodigoDetalleCompra(Integer.parseInt(txtCodigoDC.getText()));
         registro.setProductoId(((DetalleCompra) cmbProCodPro.getSelectionModel().getSelectedItem())
                 .getProductoId());
         registro.setCompraId(((DetalleCompra) cmbComNumDoc.getSelectionModel().getSelectedItem())
@@ -250,14 +249,18 @@ public class MenuDetalleCompraController implements Initializable {
         registro.setCostoUnitario(Double.parseDouble(txtCostoU.getText()));
         registro.setCantidad(Integer.parseInt(txtCantidad.getText()));
         try {
-            PreparedStatement procedimiento = Conexion.getInstance().getConexion().prepareCall("{call sp_AgregarDetalleCompra(?, ?, ?, ?, ?)}");
-            procedimiento.setInt(1, registro.getCodigoDetalleCompra());
-            procedimiento.setDouble(2, registro.getCostoUnitario());
-            procedimiento.setInt(3, registro.getCantidad());
-            procedimiento.setInt(4, registro.getProductoId());
-            procedimiento.setInt(5, registro.getCompraId());
+            PreparedStatement procedimiento = Conexion.getInstance().getConexion().prepareCall("{call sp_AgregarDetalleCompra(?, ?, ?, ?)}");
+            procedimiento.setDouble(1, registro.getCostoUnitario());
+            procedimiento.setInt(2, registro.getCantidad());
+            procedimiento.setInt(3, registro.getProductoId());
+            procedimiento.setInt(4, registro.getCompraId());
             procedimiento.execute();
+            ResultSet generatedKeys = procedimiento.getGeneratedKeys();
+            if(generatedKeys.next()){
+                registro.setCodigoDetalleCompra(generatedKeys.getInt(1));
+            }
             listaDCompra.add(registro);
+            cargaDatos();
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -376,7 +379,6 @@ public class MenuDetalleCompraController implements Initializable {
     }
 
     public void activarControles() {
-        txtCodigoDC.setEditable(true);
         txtCostoU.setEditable(true);
         txtCantidad.setEditable(true);
         cmbProCodPro.setEditable(true);

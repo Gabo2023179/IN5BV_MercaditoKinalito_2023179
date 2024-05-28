@@ -112,7 +112,7 @@
                   <Font size="18.0" />
                </font>
             </Label>
-            <TextField fx:id="txtCodEmpleado" GridPane.columnIndex="1" />
+            <TextField fx:id="txtCodEmpleado" editable="false" GridPane.columnIndex="1" />
             <TextField fx:id="txtNomEmpleado" GridPane.columnIndex="1" GridPane.rowIndex="1" />
             <TextField fx:id="txtApeEmpleado" GridPane.columnIndex="1" GridPane.rowIndex="2" />
             <TextField fx:id="txtSueldo" GridPane.columnIndex="1" GridPane.rowIndex="3" />

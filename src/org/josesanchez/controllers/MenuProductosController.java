@@ -266,7 +266,6 @@ public class MenuProductosController implements Initializable {
 
     public void guardar() {
         Productos registro = new Productos();
-        registro.setProductoId(Integer.parseInt(txtCodigoProd.getText()));
         registro.setCodigoProveedor(((Proveedores) cmbCodProv.getSelectionModel().getSelectedItem())
                 .getCodigoProveedor());
         registro.setCodigoTipoDeProducto(((TipoDeProductos) cmbCodigoTipoP.getSelectionModel().getSelectedItem())
@@ -278,18 +277,22 @@ public class MenuProductosController implements Initializable {
         registro.setImagenProducto(txtImagenPro.getText());
         registro.setExistencia(Integer.parseInt(txtExistencia.getText()));
         try {
-            PreparedStatement procedimiento = Conexion.getInstance().getConexion().prepareCall("{call sp_AgregarProductos(?, ?, ?, ?, ?, ?, ?, ?, ?)}");
-            procedimiento.setInt(1, registro.getProductoId());
-            procedimiento.setString(2, registro.getDescripcionProducto());
-            procedimiento.setDouble(3, registro.getPrecioUnitario());
-            procedimiento.setDouble(4, registro.getPrecioDocena());
-            procedimiento.setDouble(5, registro.getPrecioMayor());
-            procedimiento.setString(6, registro.getImagenProducto());
-            procedimiento.setInt(7, registro.getExistencia());
-            procedimiento.setInt(8, registro.getCodigoProveedor());
-            procedimiento.setInt(9, registro.getCodigoTipoDeProducto());
+            PreparedStatement procedimiento = Conexion.getInstance().getConexion().prepareCall("{call sp_AgregarProductos(?, ?, ?, ?, ?, ?, ?, ?)}");
+            procedimiento.setString(1, registro.getDescripcionProducto());
+            procedimiento.setDouble(2, registro.getPrecioUnitario());
+            procedimiento.setDouble(3, registro.getPrecioDocena());
+            procedimiento.setDouble(4, registro.getPrecioMayor());
+            procedimiento.setString(5, registro.getImagenProducto());
+            procedimiento.setInt(6, registro.getExistencia());
+            procedimiento.setInt(7, registro.getCodigoProveedor());
+            procedimiento.setInt(8, registro.getCodigoTipoDeProducto());
             procedimiento.execute();
+            ResultSet generatedKeys = procedimiento.getGeneratedKeys();
+            if(generatedKeys.next()){
+                registro.setProductoId(generatedKeys.getInt(1));
+            }
             listaProductos.add(registro);
+            cargaDatos();
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -413,7 +416,6 @@ public class MenuProductosController implements Initializable {
     }
 
     public void activarControles() {
-        txtCodigoProd.setEditable(true);
         txtDescPro.setEditable(true);
         txtPrecioU.setEditable(true);
         txtPrecioD.setEditable(true);

@@ -14,7 +14,6 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.text.Font?>
 
-
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="704.0" prefWidth="1254.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.josesanchez.controllers.MenuCargoEmpleadosController">
    <children>
       <ImageView fitHeight="721.0" fitWidth="1256.0" pickOnBounds="true" preserveRatio="true">
@@ -121,7 +120,7 @@
             <TableColumn fx:id="colDescripcionCargo" prefWidth="117.0" text="DescEmpelado" />
         </columns>
       </TableView>
-      <Button fx:id="btnRegresar" layoutX="243.0" layoutY="544.0" mnemonicParsing="false" prefHeight="54.0" prefWidth="54.0" stylesheets="@../resources/KinalStoreCSS.css">
+      <Button fx:id="btnRegresar" layoutX="243.0" layoutY="544.0" mnemonicParsing="false" onAction="#regresar" prefHeight="54.0" prefWidth="54.0" stylesheets="@../resources/KinalStoreCSS.css">
          <graphic>
             <ImageView fitHeight="52.0" fitWidth="48.0" pickOnBounds="true" preserveRatio="true">
                <image>

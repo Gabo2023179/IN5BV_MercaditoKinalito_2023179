@@ -98,7 +98,7 @@
                   <Font name="Baskerville Old Face" size="18.0" />
                </font>
             </Label>
-            <TextField fx:id="txtCodigoClienteC" GridPane.columnIndex="1" />
+            <TextField fx:id="txtCodigoClienteC" editable="false" GridPane.columnIndex="1" />
             <Label text="codigoCliente">
                <font>
                   <Font name="Baskerville Old Face" size="18.0" />

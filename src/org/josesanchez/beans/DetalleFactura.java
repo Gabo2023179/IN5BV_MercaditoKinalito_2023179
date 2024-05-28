@@ -59,7 +59,10 @@ public class DetalleFactura {
         this.productoId = productoId;
     }
     
-    
+    @Override
+    public String toString(){
+        return "| " + getNumeroFactura() + " - " + getProductoId();
+    }
 
 }
 

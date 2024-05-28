@@ -33,4 +33,6 @@ public class TipoDeProductos {
     public String toString() {
         return " | " + getDescripcion();
     }
+    
+    
 }

@@ -102,7 +102,7 @@
                </font>
             </Label>
             <Label GridPane.columnIndex="2" GridPane.rowIndex="2" />
-            <TextField fx:id="txtCodigoDC" GridPane.columnIndex="1" />
+            <TextField fx:id="txtCodigoDC" editable="false" GridPane.columnIndex="1" />
             <TextField fx:id="txtCostoU" GridPane.columnIndex="1" GridPane.rowIndex="1" />
             <TextField fx:id="txtCantidad" GridPane.columnIndex="1" GridPane.rowIndex="2" />
             <ComboBox fx:id="cmbProCodPro" prefWidth="150.0" GridPane.columnIndex="3" />

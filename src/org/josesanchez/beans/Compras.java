@@ -59,6 +59,9 @@ public class Compras {
         this.totalCompra = totalCompra;
     }
 
-    
+    @Override
+    public String toString(){
+        return "| " + getDescripcion() + " - " + getTotalCompra();
+    }
     
 }

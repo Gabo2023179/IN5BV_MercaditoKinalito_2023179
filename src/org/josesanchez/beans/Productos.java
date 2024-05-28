@@ -107,5 +107,11 @@ public class Productos {
     public void setCodigoTipoDeProducto(int codigoTipoDeProducto) {
         this.codigoTipoDeProducto = codigoTipoDeProducto;
     }
+    
+     @Override
+    public String toString(){
+        return "| " + getCodigoProveedor() + " - " + getCodigoTipoDeProducto();
+    }
+
 
 }

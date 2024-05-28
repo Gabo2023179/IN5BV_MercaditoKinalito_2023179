@@ -132,7 +132,7 @@
                   <Font name="System Bold" size="23.0" />
                </font>
             </Label>
-            <TextField fx:id="txtCompraId" GridPane.columnIndex="1" />
+            <TextField fx:id="txtCompraId" editable="false" GridPane.columnIndex="1" />
             <TextField fx:id="txtdescripcion" GridPane.columnIndex="1" GridPane.rowIndex="2" />
             <TextField fx:id="txtTotalCompra" GridPane.columnIndex="1" GridPane.rowIndex="3" />
             <DatePicker fx:id="datepFc" prefHeight="25.0" prefWidth="355.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
