@@ -143,7 +143,6 @@ public class MenuDetalleCompraController implements Initializable {
                         registro.getString("descripcion"),
                         registro.getDouble("totalCompra")
                 );
-
             }
         } catch (Exception e) {
             e.printStackTrace();
