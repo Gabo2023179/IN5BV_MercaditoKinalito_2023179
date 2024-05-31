@@ -249,16 +249,25 @@ public class MenuFacturaController implements Initializable{
 
     public void guardar() {
         Factura registro = new Factura();
-        registro.setNumeroFactura(Integer.parseInt(txtNumFactura.getText()));
-        registro.setCodigoCliente(((Clientes) cmbCodigoCliente.getSelectionModel().getSelectedItem())
-                .getCodigoCliente());
-        registro.setCodigoEmpleado(((Empleados) cmbCodEmpleado.getSelectionModel().getSelectedItem())
-                .getCodigoEmpleado());
+        registro.setCodigoCliente(((Clientes) cmbCodigoCliente.getSelectionModel().getSelectedItem()).getCodigoCliente());
+        registro.setCodigoEmpleado(((Empleados) cmbCodEmpleado.getSelectionModel().getSelectedItem()).getCodigoEmpleado());
         registro.setEstado(txtEstado.getText());
         registro.setTotalFactura(Double.parseDouble(txtTotalFac.getText()));
         registro.setFechaFactura(txtFechaFac.getText());
         try {
-
+             PreparedStatement procedimiento = Conexion.getInstance().getConexion().prepareCall("{call sp_AgregarFactura(?, ?, ?, ?, ?)}");
+            procedimiento.setString(1, registro.getEstado());
+            procedimiento.setDouble(2, registro.getTotalFactura());
+            procedimiento.setString(3, registro.getFechaFactura());
+            procedimiento.setInt(4, registro.getCodigoCliente());
+            procedimiento.setInt(5, registro.getCodigoEmpleado());
+            procedimiento.execute();
+            ResultSet generatedKeys = procedimiento.getGeneratedKeys();
+            if(generatedKeys.next()){
+                registro.setNumeroFactura(generatedKeys.getInt(1));
+            }
+            listaFactura.add(registro);
+            cargaDatos();
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -381,7 +390,6 @@ public class MenuFacturaController implements Initializable{
     }
 
     public void activarControles() {
-        txtNumFactura.setEditable(true);
         txtEstado.setEditable(true);
         txtTotalFac.setEditable(true);
         txtFechaFac.setEditable(true);

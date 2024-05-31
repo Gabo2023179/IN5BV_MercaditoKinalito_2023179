@@ -242,8 +242,12 @@ public class MenuComprasController implements Initializable {
 
     public void actualizar() {
         try {
-            PreparedStatement procedimiento = Conexion.getInstance().getConexion().prepareCall("{call sp_EditarCompras (?, ?, ?, ?, ?)}");
+            PreparedStatement procedimiento = Conexion.getInstance().getConexion().prepareCall("{call sp_EditarCompras (?, ?, ?, ?)}");
             Compras registro = (Compras) tblCompras.getSelectionModel().getSelectedItem();
+            registro.setFechaCompra(datepFc.getValue());
+            registro.setDescripcion(txtdescripcion.getText());
+            double totalCompra = Double.parseDouble(txtTotalCompra.getText());
+            registro.setTotalCompra(totalCompra);
             procedimiento.setInt(1, registro.getCompraId());
             procedimiento.setDate(2, java.sql.Date.valueOf(registro.getFechaCompra()));
             procedimiento.setString(3, registro.getDescripcion());
@@ -272,23 +276,24 @@ public class MenuComprasController implements Initializable {
 
     public void desactivarControles() {
         txtCompraId.setEditable(false);
-        txtdescripcion.setEditable(false);
         datepFc.setEditable(false);
+        txtdescripcion.setEditable(false);    
         txtTotalCompra.setEditable(false);
     }
 
     public void activarControles() {
-        txtdescripcion.setEditable(true);
         datepFc.setEditable(true);
         txtTotalCompra.setEditable(true);
+        txtdescripcion.setEditable(true);
+        
 
     }
 
     public void limpiarControles() {
         txtCompraId.clear();
-        txtdescripcion.clear();
-        datepFc.setValue(null);
         txtTotalCompra.clear();
+        txtdescripcion.clear();
+
         
     }
 

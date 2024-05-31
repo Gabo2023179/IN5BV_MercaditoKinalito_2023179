@@ -161,12 +161,12 @@
                   <Font size="10.0" />
                </font>
             </Label>
-            <TextField fx:id="txtCodigoProd" GridPane.columnIndex="1" />
-            <TextField fx:id="txtPrecioD" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-            <TextField fx:id="txtExistencia" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+            <TextField fx:id="txtCodigoProd" editable="false" GridPane.columnIndex="1" />
+            <TextField fx:id="txtPrecioD" editable="false" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+            <TextField fx:id="txtExistencia" editable="false" GridPane.columnIndex="1" GridPane.rowIndex="2" />
             <TextField fx:id="txtDescPro" GridPane.columnIndex="3" />
-            <TextField fx:id="txtPrecioM" GridPane.columnIndex="3" GridPane.rowIndex="1" />
-            <TextField fx:id="txtPrecioU" GridPane.columnIndex="5" />
+            <TextField fx:id="txtPrecioM" editable="false" GridPane.columnIndex="3" GridPane.rowIndex="1" />
+            <TextField fx:id="txtPrecioU" editable="false" GridPane.columnIndex="5" />
             <TextField fx:id="txtImagenPro" GridPane.columnIndex="5" GridPane.rowIndex="1" />
             <ComboBox fx:id="cmbCodProv" prefWidth="150.0" GridPane.columnIndex="3" GridPane.rowIndex="2" />
             <ComboBox fx:id="cmbCodigoTipoP" prefWidth="150.0" GridPane.columnIndex="5" GridPane.rowIndex="2" />

@@ -196,7 +196,7 @@ public class MenuDetalleFacturaController implements Initializable {
         }
         return listaProductos = FXCollections.observableArrayList(lista);
     }
-    
+
     public ObservableList<DetalleFactura> getDetalleFactura() {
         ArrayList<DetalleFactura> lista = new ArrayList<DetalleFactura>();
         try {
@@ -258,7 +258,7 @@ public class MenuDetalleFacturaController implements Initializable {
             procedimiento.setInt(4, registro.getProductoId());
             procedimiento.execute();
             ResultSet generatedKeys = procedimiento.getGeneratedKeys();
-            if(generatedKeys.next()){
+            if (generatedKeys.next()) {
                 registro.setCodigoDetalleFactura(generatedKeys.getInt(1));
             }
             listaDFactura.add(registro);

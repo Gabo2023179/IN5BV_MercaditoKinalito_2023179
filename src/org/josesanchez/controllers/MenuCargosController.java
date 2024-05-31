@@ -8,6 +8,8 @@ package org.josesanchez.controllers;
 import java.net.URL;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.SQLIntegrityConstraintViolationException;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
 import javafx.collections.FXCollections;
@@ -32,16 +34,17 @@ import org.josesanchez.system.Main;
  * @author joseg
  */
 public class MenuCargosController implements Initializable {
+
     private enum operaciones {
         AGREGAR, ELIMINAR, EDITAR, ACTUALIZAR, CANCELAR, NINGUNO
     }
-    
+
     private operaciones tipoDeOperaciones = operaciones.NINGUNO;
-    
+
     private ObservableList<Cargos> listaCargos;
-    
+
     private Main escenarioPrincipal;
-    
+
     @FXML
     private Button btnRegresar;
     @FXML
@@ -149,11 +152,11 @@ public class MenuCargosController implements Initializable {
             procedimiento.setString(2, registro.getDescripcionCargo());
             procedimiento.execute();
             ResultSet generatedKeys = procedimiento.getGeneratedKeys();
-            if(generatedKeys.next()){
+            if (generatedKeys.next()) {
                 registro.setCargoId(generatedKeys.getInt(1));
             }
             listaCargos.add(registro);
-
+            cargarDatos();
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -177,6 +180,7 @@ public class MenuCargosController implements Initializable {
                 if (tblCargos.getSelectionModel().getSelectedItem() != null) {
                     int respuesta = JOptionPane.showConfirmDialog(null, "Confirmar si elimina el registro", "Eliminar Cargos", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
                     if (respuesta == JOptionPane.YES_NO_OPTION) {
+
                         try {
                             PreparedStatement procedimiento = Conexion.getInstance().getConexion().prepareCall("{call sp_EliminarCargo (?)}");
                             procedimiento.setInt(1, ((Cargos) tblCargos.getSelectionModel().getSelectedItem()).getCargoId());
@@ -289,5 +293,3 @@ public class MenuCargosController implements Initializable {
     }
 
 }
-
-

@@ -101,8 +101,11 @@ public class MenuProductosController implements Initializable {
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         cargaDatos();
+        if(true){
+        System.out.println("wesos michones");
         cmbCodigoTipoP.setItems(getTipoDeProductos());
         cmbCodProv.setItems(getProveedores());
+        }
     }
 
     public Main getEscenarioPrincipal() {
@@ -159,7 +162,7 @@ public class MenuProductosController implements Initializable {
             ResultSet registro = procedimiento.executeQuery();
             while (registro.next()) {
                 resultado = new Proveedores(registro.getInt("codigoProveedor"),
-                      registro.getString("NITproveedor"),
+                        registro.getString("NITproveedor"),
                         registro.getString("nombreProveedor"),
                         registro.getString("apellidoProveedor"),
                         registro.getString("direccionProveedor"),
@@ -167,7 +170,7 @@ public class MenuProductosController implements Initializable {
                         registro.getString("contactoPrincipal"),
                         registro.getString("paginaWeb")
                 );
-                
+
             }
         } catch (Exception e) {
             e.printStackTrace();
@@ -199,7 +202,7 @@ public class MenuProductosController implements Initializable {
     }
 
     public ObservableList<TipoDeProductos> getTipoDeProductos() {
-        ArrayList<TipoDeProductos> lista = new ArrayList<>();
+        ArrayList<TipoDeProductos> lista = new ArrayList<TipoDeProductos>();
         try {
             PreparedStatement procedimiento = Conexion.getInstance().getConexion().prepareCall("{call sp_ListarTipoDeProducto ()}");
             ResultSet resultado = procedimiento.executeQuery();
@@ -216,10 +219,10 @@ public class MenuProductosController implements Initializable {
     }
 
 
-    public ObservableList<Proveedores> getProveedores() {
+     public ObservableList<Proveedores> getProveedores() {
         ArrayList<Proveedores> lista = new ArrayList<>();
         try {
-            PreparedStatement procedimiento = Conexion.getInstance().getConexion().prepareCall("{call sp_ListarProveedores ()}");
+            PreparedStatement procedimiento = Conexion.getInstance().getConexion().prepareCall("{call sp_ListarProveedores()}");
             ResultSet resultado = procedimiento.executeQuery();
             while (resultado.next()) {
                 lista.add(new Proveedores(resultado.getInt("codigoProveedor"),
@@ -268,24 +271,15 @@ public class MenuProductosController implements Initializable {
         Productos registro = new Productos();
         registro.setCodigoProveedor(((Proveedores) cmbCodProv.getSelectionModel().getSelectedItem())
                 .getCodigoProveedor());
-        registro.setCodigoTipoDeProducto(((TipoDeProductos) cmbCodigoTipoP.getSelectionModel().getSelectedItem())
-                .getCodigoTipoDeProducto());
+        registro.setCodigoTipoDeProducto(((TipoDeProductos) cmbCodigoTipoP.getSelectionModel().getSelectedItem()).getCodigoTipoDeProducto());
         registro.setDescripcionProducto(txtDescPro.getText());
-        registro.setPrecioDocena(Double.parseDouble(txtPrecioD.getText()));
-        registro.setPrecioUnitario(Double.parseDouble(txtPrecioU.getText()));
-        registro.setPrecioMayor(Double.parseDouble(txtPrecioM.getText()));
         registro.setImagenProducto(txtImagenPro.getText());
-        registro.setExistencia(Integer.parseInt(txtExistencia.getText()));
         try {
-            PreparedStatement procedimiento = Conexion.getInstance().getConexion().prepareCall("{call sp_AgregarProductos(?, ?, ?, ?, ?, ?, ?, ?)}");
+            PreparedStatement procedimiento = Conexion.getInstance().getConexion().prepareCall("{call sp_AgregarProductos(?, ?, ?, ?)}");
             procedimiento.setString(1, registro.getDescripcionProducto());
-            procedimiento.setDouble(2, registro.getPrecioUnitario());
-            procedimiento.setDouble(3, registro.getPrecioDocena());
-            procedimiento.setDouble(4, registro.getPrecioMayor());
-            procedimiento.setString(5, registro.getImagenProducto());
-            procedimiento.setInt(6, registro.getExistencia());
-            procedimiento.setInt(7, registro.getCodigoProveedor());
-            procedimiento.setInt(8, registro.getCodigoTipoDeProducto());
+            procedimiento.setString(2, registro.getImagenProducto());
+            procedimiento.setInt(3, registro.getCodigoProveedor());
+            procedimiento.setInt(4, registro.getCodigoTipoDeProducto());
             procedimiento.execute();
             ResultSet generatedKeys = procedimiento.getGeneratedKeys();
             if(generatedKeys.next()){
@@ -412,16 +406,14 @@ public class MenuProductosController implements Initializable {
         txtPrecioD.setEditable(false);
         txtPrecioM.setEditable(false);
         txtExistencia.setEditable(false);
-        cmbCodigoTipoP.setDisable(false);
+        cmbCodProv.setDisable(true);
+        cmbCodigoTipoP.setDisable(true);
     }
 
     public void activarControles() {
         txtDescPro.setEditable(true);
-        txtPrecioU.setEditable(true);
-        txtPrecioD.setEditable(true);
-        txtPrecioM.setEditable(true);
-        txtExistencia.setEditable(true);
-        cmbCodigoTipoP.setDisable(true);
+        cmbCodProv.setDisable(false);
+        cmbCodigoTipoP.setDisable(false);
     }
 
     public void limpiarControles() {
@@ -431,6 +423,7 @@ public class MenuProductosController implements Initializable {
         txtPrecioD.clear();
         txtPrecioM.clear();
         txtExistencia.clear();
+        cmbCodProv.getSelectionModel().getSelectedItem();
         cmbCodigoTipoP.getSelectionModel().getSelectedItem();
     }
 

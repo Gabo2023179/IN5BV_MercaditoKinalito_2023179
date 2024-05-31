@@ -529,6 +529,7 @@ delimiter $$
 create procedure sp_BuscarProductos (in  productoId int)
 begin
 	select
+    P.productoId,
 	P.descripcionProducto,
 	P.precioUnitario,
 	P.precioDocena,

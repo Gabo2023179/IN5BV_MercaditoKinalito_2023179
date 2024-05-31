@@ -110,7 +110,7 @@ public class Productos {
     
      @Override
     public String toString(){
-        return "| " + getCodigoProveedor() + " - " + getCodigoTipoDeProducto();
+        return " | " + getProductoId();
     }
 
 

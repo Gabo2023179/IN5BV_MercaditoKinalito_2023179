@@ -37,7 +37,7 @@ public class MenuProveedoresController implements Initializable {
     private operaciones tipoDeOperaciones = operaciones.NINGUNO;
     private Main escenarioPrincipal;
     @FXML
-    private Button btnRegresar;s
+    private Button btnRegresar;
     @FXML
     private TextField txtDireccionP;
     @FXML
@@ -113,7 +113,7 @@ public class MenuProveedoresController implements Initializable {
     }
 
     public ObservableList<Proveedores> getProveedores() {
-        ArrayList<Proveedores> lista = new ArrayList<>();
+        ArrayList<Proveedores> lista = new ArrayList<Proveedores>();
         try {
             PreparedStatement procedimiento = Conexion.getInstance().getConexion().prepareCall("{call sp_ListarProveedores ()}");
             ResultSet resultado = procedimiento.executeQuery();

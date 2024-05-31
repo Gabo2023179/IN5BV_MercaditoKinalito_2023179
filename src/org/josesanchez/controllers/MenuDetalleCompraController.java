@@ -81,9 +81,9 @@ public class MenuDetalleCompraController implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-       cargaDatos();
-       cmbProCodPro.setItems(getProductos());
-       cmbComNumDoc.setItems(getCompras());
+        cargaDatos();
+        cmbProCodPro.setItems(getProductos());
+        cmbComNumDoc.setItems(getCompras());
     }
 
     public Main getEscenarioPrincipal() {
@@ -98,15 +98,14 @@ public class MenuDetalleCompraController implements Initializable {
         colProCodPro.setCellValueFactory(new PropertyValueFactory<DetalleCompra, String>("productoId"));
         colComNumDoc.setCellValueFactory(new PropertyValueFactory<DetalleCompra, Integer>("compraId"));
     }
-
-    public void seleccionarElementos() {
+        public void seleccionarElementos() {
         txtCodigoDC.setText(String.valueOf(((DetalleCompra) tblDetalleProducto.getSelectionModel().getSelectedItem()).getCodigoDetalleCompra()));
         txtCostoU.setText(String.valueOf(((DetalleCompra) tblDetalleProducto.getSelectionModel().getSelectedItem()).getCostoUnitario()));
         txtCantidad.setText(String.valueOf(((DetalleCompra) tblDetalleProducto.getSelectionModel().getSelectedItem()).getCantidad()));
         cmbProCodPro.getSelectionModel().select(buscarProductos(((DetalleCompra) tblDetalleProducto.getSelectionModel().getSelectedItem()).getProductoId()));
         cmbComNumDoc.getSelectionModel().select(buscarCompras(((DetalleCompra) tblDetalleProducto.getSelectionModel().getSelectedItem()).getCompraId()));
     }
-
+    
     public Productos buscarProductos(int productoId) {
         Productos resultado = null;
         try {
@@ -153,7 +152,7 @@ public class MenuDetalleCompraController implements Initializable {
     }
 
     public ObservableList<Compras> getCompras() {
-        ArrayList<Compras> lista = new ArrayList<>();
+        ArrayList<Compras> lista = new ArrayList<Compras>();
         try {
             PreparedStatement procedimiento = Conexion.getInstance().getConexion().prepareCall("{call sp_ListarCompras()}");
             ResultSet resultado = procedimiento.executeQuery();
@@ -172,7 +171,7 @@ public class MenuDetalleCompraController implements Initializable {
     }
 
     public ObservableList<DetalleCompra> getDetalleCompra() {
-        ArrayList<DetalleCompra> lista = new ArrayList<>();
+        ArrayList<DetalleCompra> lista = new ArrayList<DetalleCompra>();
         try {
             PreparedStatement procedimiento = Conexion.getInstance().getConexion().prepareCall("{call sp_ListarDetalleCompra()}");
             ResultSet resultado = procedimiento.executeQuery();
@@ -242,9 +241,9 @@ public class MenuDetalleCompraController implements Initializable {
 
     public void guardar() {
         DetalleCompra registro = new DetalleCompra();
-        registro.setProductoId(((DetalleCompra) cmbProCodPro.getSelectionModel().getSelectedItem())
+        registro.setProductoId(((Productos) cmbProCodPro.getSelectionModel().getSelectedItem())
                 .getProductoId());
-        registro.setCompraId(((DetalleCompra) cmbComNumDoc.getSelectionModel().getSelectedItem())
+        registro.setCompraId(((Compras) cmbComNumDoc.getSelectionModel().getSelectedItem())
                 .getCompraId());
         registro.setCostoUnitario(Double.parseDouble(txtCostoU.getText()));
         registro.setCantidad(Integer.parseInt(txtCantidad.getText()));
@@ -256,7 +255,7 @@ public class MenuDetalleCompraController implements Initializable {
             procedimiento.setInt(4, registro.getCompraId());
             procedimiento.execute();
             ResultSet generatedKeys = procedimiento.getGeneratedKeys();
-            if(generatedKeys.next()){
+            if (generatedKeys.next()) {
                 registro.setCodigoDetalleCompra(generatedKeys.getInt(1));
             }
             listaDCompra.add(registro);
@@ -336,8 +335,12 @@ public class MenuDetalleCompraController implements Initializable {
 
     public void actualizar() {
         try {
-            PreparedStatement procedimiento = Conexion.getInstance().getConexion().prepareCall("{call sp_EditarDetalleCompra (?, ?, ?, ?, ?, ?, ?, ?, ?)}");
+            PreparedStatement procedimiento = Conexion.getInstance().getConexion().prepareCall("{call sp_EditarDetalleCompra (?, ?, ?, ?, ?)}");
             DetalleCompra registro = (DetalleCompra) tblDetalleProducto.getSelectionModel().getSelectedItem();
+            double costoUnitario = Double.parseDouble(txtCostoU.getText());
+            registro.setCostoUnitario(costoUnitario);
+            int cantidad = Integer.parseInt(txtCantidad.getText());
+            registro.setCantidad(cantidad);
             procedimiento.setInt(1, registro.getCodigoDetalleCompra());
             procedimiento.setDouble(2, registro.getCostoUnitario());
             procedimiento.setInt(3, registro.getCantidad());
@@ -364,7 +367,7 @@ public class MenuDetalleCompraController implements Initializable {
                 break;
         }
     }
-    
+
     public void setEscenarioPrincipal(Main escenarioPrincipal) {
         this.escenarioPrincipal = escenarioPrincipal;
     }
@@ -375,7 +378,7 @@ public class MenuDetalleCompraController implements Initializable {
         txtCantidad.setEditable(false);
         cmbProCodPro.setEditable(false);
         cmbComNumDoc.setEditable(false);
-    
+
     }
 
     public void activarControles() {

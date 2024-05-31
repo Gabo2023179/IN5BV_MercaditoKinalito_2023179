@@ -101,7 +101,7 @@
                   <Font name="Arial Narrow" size="22.0" />
                </font>
             </Label>
-            <TextField fx:id="txtCodTelPro" GridPane.columnIndex="1" />
+            <TextField fx:id="txtCodTelPro" editable="false" GridPane.columnIndex="1" />
             <TextField fx:id="txtNumPrin" GridPane.columnIndex="1" GridPane.rowIndex="1" />
             <TextField fx:id="txtNumSecun" GridPane.columnIndex="1" GridPane.rowIndex="2" />
             <TextField fx:id="txtObserv" GridPane.columnIndex="3" />

@@ -61,7 +61,7 @@ public class Compras {
 
     @Override
     public String toString(){
-        return "| " + getDescripcion() + " - " + getTotalCompra();
+        return "| " + getCompraId();
     }
     
 }
