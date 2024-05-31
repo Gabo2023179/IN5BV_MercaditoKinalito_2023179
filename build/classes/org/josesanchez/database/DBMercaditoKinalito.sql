@@ -339,10 +339,10 @@ delimiter ;
 
 -- Eliminar
 delimiter $$
-create procedure sp_EliminarTelefonoProveedor(in codigoTelefonoProveedor int)
+create procedure sp_EliminarTelefonoProveedor(in _codigoTelefonoProveedor int)
 begin
     delete from telefonoProveedor 
-    where codigoTelefonoProveedor = codigoTelefonoProveedor;
+    where telefonoProveedor.codigoTelefonoProveedor = _codigoTelefonoProveedor;
 end $$
 delimiter ;
 
@@ -407,10 +407,10 @@ delimiter ;
 
 -- Eliminar
 delimiter $$
-create procedure sp_EliminarEmailProveedor(in codigoEmailProveedor int)
+create procedure sp_EliminarEmailProveedor(in _codigoEmailProveedor int)
 begin
     delete from EmailProveedor 
-    where codigoEmailProveedor = codigoEmailProveedor;
+    where EmailProveedor.codigoEmailProveedor = _codigoEmailProveedor;
 end $$
 delimiter ;
 
@@ -689,10 +689,10 @@ delimiter ;
 -- Eliminar 
 delimiter $$
 create procedure sp_EliminarDetalleCompra(
-    in codigoDetalleCompra int
+    in _codigoDetalleCompra int
 )
 begin
-    delete from DetalleCompra where codigoDetalleCompra = codigoDetalleCompra;
+    delete from DetalleCompra where DetalleCompra.codigoDetalleCompra = _codigoDetalleCompra;
 end $$
 delimiter ;
 
@@ -1013,7 +1013,7 @@ begin
     set precioUnitario = (new.costoUnitario * 1.40),
 		precioDocena = (new.costoUnitario * 1.35),
         precioMayor = (new.costoUnitario * 1.25),
-        existencia  = (new.cantidad)
+        existencia  = (existencia + new.cantidad)
 	where productoId = new.productoId;
     
 	select (costoUnitario * cantidad) into _totalCompra

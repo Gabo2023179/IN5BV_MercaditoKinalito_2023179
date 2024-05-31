@@ -44,5 +44,9 @@ public class Cargos {
         this.descripcionCargo = descripcionCargo;
     }
     
+    @Override
+    public String toString(){
+        return " | " + getCargoId() + " - " + getNombreCargo();
+    }
     
 }

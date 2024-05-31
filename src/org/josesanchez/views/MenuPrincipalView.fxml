@@ -24,7 +24,6 @@
                   <MenuItem fx:id="btnMenuTdp" mnemonicParsing="false" onAction="#clicClientes" text="TipoDeProductos" />
                   <MenuItem fx:id="btnMenuCompras" mnemonicParsing="false" onAction="#clicClientes" text="Compras" />
                   <MenuItem fx:id="btnMenuProductos" mnemonicParsing="false" onAction="#clicClientes" text="Productos" />
-                  <MenuItem fx:id="btnMenuCargoEmpleados" mnemonicParsing="false" onAction="#clicClientes" text="CargoEmpleados" />
                   <MenuItem fx:id="btnMenuDetalleCompra" mnemonicParsing="false" onAction="#clicClientes" text="DetalleCompra" />
                   <MenuItem fx:id="btnMenuDetalleFactura" mnemonicParsing="false" onAction="#clicClientes" text="DetalleFactura" />
                   <MenuItem fx:id="btnMenuEmailProveedor" mnemonicParsing="false" onAction="#clicClientes" text="EmailProveedor" />

@@ -95,7 +95,7 @@ public class MenuDetalleCompraController implements Initializable {
         colCodigoDc.setCellValueFactory(new PropertyValueFactory<DetalleCompra, Integer>("codigoDetalleCompra"));
         colCostoU.setCellValueFactory(new PropertyValueFactory<DetalleCompra, Double>("costoUnitario"));
         colCantidad.setCellValueFactory(new PropertyValueFactory<DetalleCompra, Integer>("cantidad"));
-        colProCodPro.setCellValueFactory(new PropertyValueFactory<DetalleCompra, String>("productoId"));
+        colProCodPro.setCellValueFactory(new PropertyValueFactory<DetalleCompra, Integer>("productoId"));
         colComNumDoc.setCellValueFactory(new PropertyValueFactory<DetalleCompra, Integer>("compraId"));
     }
         public void seleccionarElementos() {

@@ -3,6 +3,7 @@ package org.josesanchez.controllers;
 import java.net.URL;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLIntegrityConstraintViolationException;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
 import javafx.collections.FXCollections;
@@ -177,7 +178,7 @@ public class MenuClientesController implements Initializable {
             procedimiento.setString(6, registro.getCorreoCliente());
             procedimiento.execute();
             ResultSet generatedKeys = procedimiento.getGeneratedKeys();
-            if(generatedKeys.next()){
+            if (generatedKeys.next()) {
                 registro.setCodigoCliente(generatedKeys.getInt(1));
             }
             listaClientes.add(registro);
@@ -211,8 +212,11 @@ public class MenuClientesController implements Initializable {
                             procedimiento.execute();
                             limpiarControles();
                             listaClientes.remove(tblClientes.getSelectionModel().getSelectedItem());
+                        } catch (SQLIntegrityConstraintViolationException e) {
+                            JOptionPane.showMessageDialog(null, "No puedes eliminar este registro, esta referenciado en otra clase");
                         } catch (Exception e) {
                             e.printStackTrace();
+                            JOptionPane.showMessageDialog(null, "Se produjo un error: " + e.getMessage());
                         }
                     }
                 } else {

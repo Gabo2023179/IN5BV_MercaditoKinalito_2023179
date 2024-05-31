@@ -3,6 +3,7 @@ package org.josesanchez.controllers;
 import java.net.URL;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLIntegrityConstraintViolationException;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
 import javafx.collections.FXCollections;
@@ -101,10 +102,10 @@ public class MenuProductosController implements Initializable {
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         cargaDatos();
-        if(true){
-        System.out.println("wesos michones");
-        cmbCodigoTipoP.setItems(getTipoDeProductos());
-        cmbCodProv.setItems(getProveedores());
+        if (true) {
+            System.out.println("wesos michones");
+            cmbCodigoTipoP.setItems(getTipoDeProductos());
+            cmbCodProv.setItems(getProveedores());
         }
     }
 
@@ -154,6 +155,7 @@ public class MenuProductosController implements Initializable {
         }
         return resultado;
     }
+
     public Proveedores buscarProveedor(int codigoProveedor) {
         Proveedores resultado = null;
         try {
@@ -177,7 +179,6 @@ public class MenuProductosController implements Initializable {
         }
         return resultado;
     }
-    
 
     public ObservableList<Productos> getProductos() {
         ArrayList<Productos> lista = new ArrayList<Productos>();
@@ -218,8 +219,7 @@ public class MenuProductosController implements Initializable {
         return listaTdp = FXCollections.observableArrayList(lista);
     }
 
-
-     public ObservableList<Proveedores> getProveedores() {
+    public ObservableList<Proveedores> getProveedores() {
         ArrayList<Proveedores> lista = new ArrayList<>();
         try {
             PreparedStatement procedimiento = Conexion.getInstance().getConexion().prepareCall("{call sp_ListarProveedores()}");
@@ -282,7 +282,7 @@ public class MenuProductosController implements Initializable {
             procedimiento.setInt(4, registro.getCodigoTipoDeProducto());
             procedimiento.execute();
             ResultSet generatedKeys = procedimiento.getGeneratedKeys();
-            if(generatedKeys.next()){
+            if (generatedKeys.next()) {
                 registro.setProductoId(generatedKeys.getInt(1));
             }
             listaProductos.add(registro);
@@ -311,12 +311,15 @@ public class MenuProductosController implements Initializable {
                     if (respuesta == JOptionPane.YES_NO_OPTION) {
                         try {
                             PreparedStatement procedimiento = Conexion.getInstance().getConexion().prepareCall("{call sp_EliminarProducto (?)}");
-                            procedimiento.setInt(1, ((TipoDeProductos) tblProductos.getSelectionModel().getSelectedItem()).getCodigoTipoDeProducto());
+                            procedimiento.setInt(1, ((Productos) tblProductos.getSelectionModel().getSelectedItem()).getProductoId());
                             procedimiento.execute();
                             limpiarControles();
                             listaTdp.remove(tblProductos.getSelectionModel().getSelectedItem());
+                        } catch (SQLIntegrityConstraintViolationException e) {
+                            JOptionPane.showMessageDialog(null, "No puedes eliminar este registro, esta referenciado en otra clase");
                         } catch (Exception e) {
                             e.printStackTrace();
+                            JOptionPane.showMessageDialog(null, "Se produjo un error: " + e.getMessage());
                         }
                     }
                 } else {
