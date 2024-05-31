@@ -260,6 +260,7 @@ public class MenuClientesController implements Initializable {
         try {
             PreparedStatement procedimiento = Conexion.getInstance().getConexion().prepareCall("{call sp_EditarCliente (?, ?, ?, ?, ?, ?, ?)}");
             Clientes registro = (Clientes) tblClientes.getSelectionModel().getSelectedItem();
+            registro.setCodigoCliente(Integer.parseInt(txtCodigoClienteC.getText()));
             registro.setNITcliente(txtNit.getText());
             registro.setNombreCliente(txtNombreC.getText());
             registro.setApellidoCliente(txtApellidoC.getText());

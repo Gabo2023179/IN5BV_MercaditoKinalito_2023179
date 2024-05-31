@@ -8,6 +8,7 @@ package org.josesanchez.controllers;
 import java.net.URL;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLIntegrityConstraintViolationException;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
 import javafx.collections.FXCollections;
@@ -239,8 +240,11 @@ public class MenuEmailProveedorController implements Initializable{
                             procedimiento.execute();
                             limpiarControles();
                             listaEmPro.remove(tblEmPro.getSelectionModel().getSelectedItem());
+                        } catch (SQLIntegrityConstraintViolationException e) {
+                            JOptionPane.showMessageDialog(null, "No puedes eliminar este registro, esta referenciado en otra clase");
                         } catch (Exception e) {
                             e.printStackTrace();
+                            JOptionPane.showMessageDialog(null, "Se produjo un error: " + e.getMessage());
                         }
                     }
                 } else {
@@ -288,6 +292,10 @@ public class MenuEmailProveedorController implements Initializable{
         try {
             PreparedStatement procedimiento = Conexion.getInstance().getConexion().prepareCall("{call sp_EditarEmailProveedor (?, ?, ?, ?)}");
             EmailProveedor registro = (EmailProveedor) tblEmPro.getSelectionModel().getSelectedItem();
+            registro.setCodigoEmailProveedor(Integer.parseInt(txtCodEmPro.getText()));
+            registro.setEmailProveedor(txtEmailPro.getText());
+            registro.setDescripcion(txtDescripcion.getText());
+            registro.setCodigoProveedor(((Proveedores) cmbCodPro.getValue()).getCodigoProveedor());
             procedimiento.setInt(1, registro.getCodigoEmailProveedor());
             procedimiento.setString(2, registro.getEmailProveedor());
             procedimiento.setString(3, registro.getDescripcion());

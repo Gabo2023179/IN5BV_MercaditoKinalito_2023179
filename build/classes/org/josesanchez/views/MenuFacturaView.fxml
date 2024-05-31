@@ -108,7 +108,7 @@
             </Label>
             <TextField fx:id="txtEstado" GridPane.columnIndex="1" GridPane.rowIndex="1" />
             <TextField fx:id="txtNumFactura" editable="false" GridPane.columnIndex="1" />
-            <TextField fx:id="txtTotalFac" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+            <TextField fx:id="txtTotalFac" editable="false" GridPane.columnIndex="1" GridPane.rowIndex="2" />
             <TextField fx:id="txtFechaFac" GridPane.columnIndex="3" />
             <ComboBox fx:id="cmbCodigoCliente" prefWidth="150.0" GridPane.columnIndex="3" GridPane.rowIndex="1" />
             <ComboBox fx:id="cmbCodEmpleado" prefWidth="150.0" GridPane.columnIndex="3" GridPane.rowIndex="2" />

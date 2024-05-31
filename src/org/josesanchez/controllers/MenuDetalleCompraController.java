@@ -376,16 +376,16 @@ public class MenuDetalleCompraController implements Initializable {
         txtCodigoDC.setEditable(false);
         txtCostoU.setEditable(false);
         txtCantidad.setEditable(false);
-        cmbProCodPro.setEditable(false);
-        cmbComNumDoc.setEditable(false);
+        cmbProCodPro.setEditable(true);
+        cmbComNumDoc.setEditable(true);
 
     }
 
     public void activarControles() {
         txtCostoU.setEditable(true);
         txtCantidad.setEditable(true);
-        cmbProCodPro.setEditable(true);
-        cmbComNumDoc.setEditable(true);
+        cmbProCodPro.setEditable(false);
+        cmbComNumDoc.setEditable(false);
 
     }
 

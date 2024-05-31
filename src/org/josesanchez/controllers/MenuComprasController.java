@@ -9,6 +9,7 @@ import java.net.URL;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.SQLIntegrityConstraintViolationException;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
@@ -195,8 +196,11 @@ public class MenuComprasController implements Initializable {
                             procedimiento.execute();
                             limpiarControles();
                             listaCompras.remove(tblCompras.getSelectionModel().getSelectedItem());
+                        } catch (SQLIntegrityConstraintViolationException e) {
+                            JOptionPane.showMessageDialog(null, "No puedes eliminar este registro, esta referenciado en otra clase");
                         } catch (Exception e) {
                             e.printStackTrace();
+                            JOptionPane.showMessageDialog(null, "Se produjo un error: " + e.getMessage());
                         }
                     }
                 } else {

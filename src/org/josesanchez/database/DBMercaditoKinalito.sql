@@ -361,7 +361,7 @@ begin
 			T.numeroSecundario = numeroSecundario,
 			T.observaciones = observaciones,
 			T.codigoProveedor = codigoProveedor
-        where T.telefonoProveedorId = telefonoProveedorId ;
+        where T.codigoTelefonoProveedor = codigoTelefonoProveedor ;
 end $$
 delimiter ;
 
@@ -427,7 +427,7 @@ begin
 			E.emailProveedor = emailProveedor,
 			E.descripcion = descripcion,
 			E.codigoProveedor = codigoProveedor 
-        where E.emailProveedorId = emailProveedorId ;
+        where E.codigoEmailProveedor = codigoEmailProveedor ;
 end $$
 delimiter ;
 
@@ -551,16 +551,7 @@ begin
     where productoId = productoId;
 end $$
 delimiter ;
-
-         productoId,
-         descripcionProducto,
-         precioUnitario,
-         precioDocena,
-         precioMayor,
-         imagenProducto,
-         existencia,
-         codigoProveedor,
-         codigoTipoDeProducto
+        
          
 -- Editar
 delimiter $$
@@ -927,7 +918,7 @@ create procedure sp_EditarFactura(
     in numeroFactura int,
     in estado varchar (50),
     in totalFactura decimal (10,2),
-    in fechaFactura int,
+    in fechaFactura date,
     in codigoCliente int,
     in codigoEmpleado int)
 begin

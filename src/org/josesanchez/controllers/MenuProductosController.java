@@ -364,6 +364,14 @@ public class MenuProductosController implements Initializable {
         try {
             PreparedStatement procedimiento = Conexion.getInstance().getConexion().prepareCall("{call sp_EditarProductos (?, ?, ?, ?, ?, ?, ?, ?, ?)}");
             Productos registro = (Productos) tblProductos.getSelectionModel().getSelectedItem();
+            registro.setProductoId(Integer.parseInt(txtCodigoProd.getText()));
+            registro.setDescripcionProducto(txtDescPro.getText());
+            registro.setPrecioMayor(Double.parseDouble(txtPrecioU.getText()));
+            registro.setPrecioMayor(Double.parseDouble(txtPrecioD.getText()));
+            registro.setPrecioMayor(Double.parseDouble(txtPrecioM.getText()));
+            registro.setImagenProducto(txtExistencia.getText());
+            registro.setCodigoProveedor(((Proveedores) cmbCodProv.getValue()).getCodigoProveedor());
+            registro.setCodigoTipoDeProducto(((TipoDeProductos) cmbCodigoTipoP.getValue()).getCodigoTipoDeProducto());
             procedimiento.setInt(1, registro.getProductoId());
             procedimiento.setString(2, registro.getDescripcionProducto());
             procedimiento.setDouble(3, registro.getPrecioUnitario());

@@ -1,18 +1,20 @@
 package org.josesanchez.beans;
 
+import java.time.LocalDate;
+
 public class Factura {
 
     private int numeroFactura;
     private String estado;
     private double totalFactura;
-    private String fechaFactura;
+    private LocalDate fechaFactura;
     private int codigoCliente;
     private int codigoEmpleado;
 
     public Factura() {
     }
 
-    public Factura(int numeroFactura, String estado, double totalFactura, String fechaFactura, int codigoCliente, int codigoEmpleado) {
+    public Factura(int numeroFactura, String estado, double totalFactura, LocalDate fechaFactura, int codigoCliente, int codigoEmpleado) {
         this.numeroFactura = numeroFactura;
         this.estado = estado;
         this.totalFactura = totalFactura;
@@ -45,11 +47,11 @@ public class Factura {
         this.totalFactura = totalFactura;
     }
 
-    public String getFechaFactura() {
+    public LocalDate getFechaFactura() {
         return fechaFactura;
     }
 
-    public void setFechaFactura(String fechaFactura) {
+    public void setFechaFactura(LocalDate fechaFactura) {
         this.fechaFactura = fechaFactura;
     }
 
@@ -68,6 +70,7 @@ public class Factura {
     public void setCodigoEmpleado(int codigoEmpleado) {
         this.codigoEmpleado = codigoEmpleado;
     }
+
     
      @Override
     public String toString(){

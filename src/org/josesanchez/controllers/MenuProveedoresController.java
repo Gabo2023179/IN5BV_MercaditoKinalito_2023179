@@ -263,6 +263,7 @@ public class MenuProveedoresController implements Initializable {
         try {
             PreparedStatement procedimiento = Conexion.getInstance().getConexion().prepareCall("{call sp_EditarProveedor (?, ?, ?, ?, ?, ?, ?, ?)}");
             Proveedores registro = (Proveedores) tblProveedor.getSelectionModel().getSelectedItem();
+            registro.setCodigoProveedor(Integer.parseInt(txtCodigoP.getText()));
             registro.setNITproveedor(txtNitP.getText());
             registro.setNombreProveedor(txtNombreP.getText());
             registro.setApellidoProveedor(txtApellidoP.getText());

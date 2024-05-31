@@ -4,6 +4,7 @@ import java.net.URL;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.SQLIntegrityConstraintViolationException;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
 import javafx.collections.FXCollections;
@@ -137,14 +138,14 @@ public class MenuDetalleFacturaController implements Initializable {
     public Factura buscarFacturas(int numeroFactura) {
         Factura resultado = null;
         try {
-            PreparedStatement procedimiento = Conexion.getInstance().getConexion().prepareCall("{call sp_BuscarFactura(?)}");
+            PreparedStatement procedimiento = Conexion.getInstance().getConexion().prepareCall("{call sp_BuscarFacturas(?)}");
             procedimiento.setInt(1, numeroFactura);
             ResultSet registro = procedimiento.executeQuery();
             while (registro.next()) {
                 resultado = new Factura(registro.getInt("numeroFactura"),
                         registro.getString("estado"),
                         registro.getDouble("totalFactura"),
-                        registro.getString("fechaFactura"),
+                        registro.getDate("fechaFactura").toLocalDate(),
                         registro.getInt("codigoCliente"),
                         registro.getInt("codigoEmpleado")
                 );
@@ -165,7 +166,7 @@ public class MenuDetalleFacturaController implements Initializable {
                 lista.add(new Factura(resultado.getInt("numeroFactura"),
                         resultado.getString("estado"),
                         resultado.getDouble("totalFactura"),
-                        resultado.getString("fechaFactura"),
+                        resultado.getDate("fechaFactura").toLocalDate(),
                         resultado.getInt("codigoCliente"),
                         resultado.getInt("codigoEmpleado")));
             }
@@ -248,14 +249,12 @@ public class MenuDetalleFacturaController implements Initializable {
                 .getNumeroFactura());
         registro.setProductoId(((Productos) cmbProductoId.getSelectionModel().getSelectedItem())
                 .getProductoId());
-        registro.setPrecioUnitario(Double.parseDouble(txtprecioU.getText()));
         registro.setCantidad(txtCantidad.getText());
         try {
-            PreparedStatement procedimiento = Conexion.getInstance().getConexion().prepareCall("{call sp_AgregarDetalleFactura(?, ?, ?, ?)}");
-            procedimiento.setDouble(1, registro.getPrecioUnitario());
-            procedimiento.setString(2, registro.getCantidad());
-            procedimiento.setInt(3, registro.getNumeroFactura());
-            procedimiento.setInt(4, registro.getProductoId());
+            PreparedStatement procedimiento = Conexion.getInstance().getConexion().prepareCall("{call sp_AgregarDetalleFactura(?, ?, ?)}");
+            procedimiento.setString(1, registro.getCantidad());
+            procedimiento.setInt(2, registro.getNumeroFactura());
+            procedimiento.setInt(3, registro.getProductoId());
             procedimiento.execute();
             ResultSet generatedKeys = procedimiento.getGeneratedKeys();
             if (generatedKeys.next()) {
@@ -291,8 +290,11 @@ public class MenuDetalleFacturaController implements Initializable {
                             procedimiento.execute();
                             limpiarControles();
                             listaDFactura.remove(tblDetalleFactura.getSelectionModel().getSelectedItem());
+                        } catch (SQLIntegrityConstraintViolationException e) {
+                            JOptionPane.showMessageDialog(null, "No puedes eliminar este registro, esta referenciado en otra clase");
                         } catch (Exception e) {
                             e.printStackTrace();
+                            JOptionPane.showMessageDialog(null, "Se produjo un error: " + e.getMessage());
                         }
                     }
                 } else {
@@ -340,6 +342,10 @@ public class MenuDetalleFacturaController implements Initializable {
         try {
             PreparedStatement procedimiento = Conexion.getInstance().getConexion().prepareCall("{call sp_EditarDetalleFactura (?, ?, ?, ?, ?)}");
             DetalleFactura registro = (DetalleFactura) tblDetalleFactura.getSelectionModel().getSelectedItem();
+            registro.setCodigoDetalleFactura(Integer.parseInt(txtCodigoDF.getText()));
+            registro.setPrecioUnitario(Double.parseDouble(txtprecioU.getText()));
+            registro.setCantidad(txtCantidad.getText());
+            registro.setProductoId(((Productos) cmbProductoId.getValue()).getProductoId());;
             procedimiento.setInt(1, registro.getCodigoDetalleFactura());
             procedimiento.setDouble(2, registro.getPrecioUnitario());
             procedimiento.setString(3, registro.getCantidad());
@@ -375,16 +381,15 @@ public class MenuDetalleFacturaController implements Initializable {
         txtCodigoDF.setEditable(false);
         txtprecioU.setEditable(false);
         txtCantidad.setEditable(false);
-        cmbNumFactura.setEditable(false);
-        cmbProductoId.setEditable(false);
+        cmbNumFactura.setEditable(true);
+        cmbProductoId.setEditable(true);
 
     }
 
     public void activarControles() {
-        txtprecioU.setEditable(true);
         txtCantidad.setEditable(true);
-        cmbNumFactura.setEditable(true);
-        cmbProductoId.setEditable(true);
+        cmbNumFactura.setEditable(false);
+        cmbProductoId.setEditable(false);
 
     }
 

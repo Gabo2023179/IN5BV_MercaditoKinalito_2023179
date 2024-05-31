@@ -3,6 +3,10 @@ package org.josesanchez.controllers;
 import java.net.URL;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.SQLIntegrityConstraintViolationException;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
 import javafx.collections.FXCollections;
@@ -148,7 +152,7 @@ public class MenuFacturaController implements Initializable{
                         registro.getDouble("sueldo"),
                         registro.getString("direccion"),
                         registro.getString("turno"),
-                        registro.getInt("codigoCargoEmpleado")
+                        registro.getInt("cargoId")
                 );
             }
         } catch (Exception e) {
@@ -167,7 +171,7 @@ public class MenuFacturaController implements Initializable{
                 lista.add(new Factura(resultado.getInt("numeroFactura"),
                         resultado.getString("estado"),
                         resultado.getDouble("totalFactura"),
-                        resultado.getString("fechaFactura"),
+                        resultado.getDate("fechaFactura").toLocalDate(),
                         resultado.getInt("codigoCliente"),
                         resultado.getInt("codigoEmpleado")));
             }
@@ -249,18 +253,17 @@ public class MenuFacturaController implements Initializable{
 
     public void guardar() {
         Factura registro = new Factura();
+        
         registro.setCodigoCliente(((Clientes) cmbCodigoCliente.getSelectionModel().getSelectedItem()).getCodigoCliente());
         registro.setCodigoEmpleado(((Empleados) cmbCodEmpleado.getSelectionModel().getSelectedItem()).getCodigoEmpleado());
         registro.setEstado(txtEstado.getText());
-        registro.setTotalFactura(Double.parseDouble(txtTotalFac.getText()));
-        registro.setFechaFactura(txtFechaFac.getText());
+        registro.setFechaFactura(LocalDate.parse(txtFechaFac.getText(), formatter));
         try {
-             PreparedStatement procedimiento = Conexion.getInstance().getConexion().prepareCall("{call sp_AgregarFactura(?, ?, ?, ?, ?)}");
+             PreparedStatement procedimiento = Conexion.getInstance().getConexion().prepareCall("{call sp_AgregarFactura(?, ?, ?, ?)}");
             procedimiento.setString(1, registro.getEstado());
-            procedimiento.setDouble(2, registro.getTotalFactura());
-            procedimiento.setString(3, registro.getFechaFactura());
-            procedimiento.setInt(4, registro.getCodigoCliente());
-            procedimiento.setInt(5, registro.getCodigoEmpleado());
+            procedimiento.setDate(2, java.sql.Date.valueOf(registro.getFechaFactura()));
+            procedimiento.setInt(3, registro.getCodigoCliente());
+            procedimiento.setInt(4, registro.getCodigoEmpleado());
             procedimiento.execute();
             ResultSet generatedKeys = procedimiento.getGeneratedKeys();
             if(generatedKeys.next()){
@@ -296,8 +299,11 @@ public class MenuFacturaController implements Initializable{
                             procedimiento.execute();
                             limpiarControles();
                             listaFactura.remove(tblFactura.getSelectionModel().getSelectedItem());
+                        } catch (SQLIntegrityConstraintViolationException e) {
+                            JOptionPane.showMessageDialog(null, "No puedes eliminar este registro, esta referenciado en otra clase");
                         } catch (Exception e) {
                             e.printStackTrace();
+                            JOptionPane.showMessageDialog(null, "Se produjo un error: " + e.getMessage());
                         }
                     }
                 } else {
@@ -343,17 +349,20 @@ public class MenuFacturaController implements Initializable{
 
     public void actualizar() {
         try {
-            PreparedStatement procedimiento = Conexion.getInstance().getConexion().prepareCall("{call sp_EditarFactura (?, ?, ?, ?, ?, ?, ?, ?, ?)}");
-            Productos registro = (Productos) tblFactura.getSelectionModel().getSelectedItem();
-            procedimiento.setInt(1, registro.getProductoId());
-            procedimiento.setString(2, registro.getDescripcionProducto());
-            procedimiento.setDouble(3, registro.getPrecioUnitario());
-            procedimiento.setDouble(4, registro.getPrecioDocena());
-            procedimiento.setDouble(5, registro.getPrecioMayor());
-            procedimiento.setString(6, registro.getImagenProducto());
-            procedimiento.setInt(7, registro.getExistencia());
-            procedimiento.setInt(8, registro.getCodigoProveedor());
-            procedimiento.setInt(9, registro.getCodigoTipoDeProducto());
+            PreparedStatement procedimiento = Conexion.getInstance().getConexion().prepareCall("{call sp_EditarFactura (?, ?, ?, ?, ?, ?)}");
+            Factura registro = (Factura) tblFactura.getSelectionModel().getSelectedItem();
+            registro.setNumeroFactura(Integer.parseInt(txtNumFactura.getText()));
+            registro.setEstado(txtEstado.getText());
+            registro.setTotalFactura(Double.parseDouble(txtTotalFac.getText()));
+            registro.setFechaFactura(LocalDate.parse(txtFechaFac.getText(), formatter));
+            registro.setCodigoCliente(((Clientes) cmbCodigoCliente.getValue()).getCodigoCliente());
+            registro.setCodigoEmpleado(((Empleados) cmbCodEmpleado.getValue()).getCodigoEmpleado());
+            procedimiento.setInt(1, registro.getNumeroFactura());
+            procedimiento.setString(2, registro.getEstado());
+            procedimiento.setDouble(3, registro.getTotalFactura());
+            procedimiento.setDate(4, java.sql.Date.valueOf(registro.getFechaFactura()));
+            procedimiento.setInt(5, registro.getCodigoCliente());
+            procedimiento.setInt(6, registro.getCodigoEmpleado());
             procedimiento.execute();
         } catch (Exception e) {
             e.printStackTrace();
@@ -385,16 +394,16 @@ public class MenuFacturaController implements Initializable{
         txtEstado.setEditable(false);
         txtTotalFac.setEditable(false);
         txtFechaFac.setEditable(false);
-        cmbCodigoCliente.setEditable(false);
-        cmbCodEmpleado.setEditable(false);
+        cmbCodigoCliente.setDisable(true);
+        cmbCodEmpleado.setDisable(true);
     }
 
     public void activarControles() {
         txtEstado.setEditable(true);
         txtTotalFac.setEditable(true);
         txtFechaFac.setEditable(true);
-        cmbCodigoCliente.setEditable(true);
-        cmbCodEmpleado.setEditable(true);
+        cmbCodigoCliente.setDisable(false);
+        cmbCodEmpleado.setDisable(false);
     }
 
     public void limpiarControles() {
@@ -412,5 +421,6 @@ public class MenuFacturaController implements Initializable{
             escenarioPrincipal.menuPrincipalView();
         }
     }
+    DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
 
 }
