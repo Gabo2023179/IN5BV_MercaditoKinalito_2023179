@@ -236,7 +236,7 @@ public class MenuTelefonoProveedorController implements Initializable{
                     if (respuesta == JOptionPane.YES_NO_OPTION) {
                         try {
                             PreparedStatement procedimiento = Conexion.getInstance().getConexion().prepareCall("{call sp_EliminarTelefonoProveedor (?)}");
-                            procedimiento.setInt(1, ((TelefonoProveedor) tblTelPro.getSelectionModel().getSelectedItem()).getCodigoProveedor());
+                            procedimiento.setInt(1, ((TelefonoProveedor) tblTelPro.getSelectionModel().getSelectedItem()).getCodigoTelefonoProveedor());
                             procedimiento.execute();
                             limpiarControles();
                             listaTelPro.remove(tblTelPro.getSelectionModel().getSelectedItem());

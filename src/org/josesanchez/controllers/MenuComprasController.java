@@ -127,6 +127,7 @@ public class MenuComprasController implements Initializable {
     public void agregar() {
         switch (tipoDeOperaciones) {
             case NINGUNO:
+                limpiarControles();
                 activarControles();
                 btnAgregar.setText("guardar");
                 btnEliminar.setText("cancelar");
@@ -157,7 +158,7 @@ public class MenuComprasController implements Initializable {
         registro.setFechaCompra(datepFc.getValue());
         registro.setTotalCompra(Double.parseDouble(txtTotalCompra.getText()));
         try {
-            PreparedStatement procedimiento = Conexion.getInstance().getConexion().prepareCall("{call sp_AgregarCompras ( ?, ?)}");
+            PreparedStatement procedimiento = Conexion.getInstance().getConexion().prepareCall("{call sp_AgregarCompras (?, ?)}");
             procedimiento.setDate(1, java.sql.Date.valueOf(registro.getFechaCompra()));
             procedimiento.setString(2, registro.getDescripcion());
             procedimiento.execute();
@@ -167,10 +168,10 @@ public class MenuComprasController implements Initializable {
             }
             listaCompras.add(registro);
             cargarDatos();
+            limpiarControles();
         } catch (Exception e) {
             e.printStackTrace();
         }
-
     }
 
     public void eliminar() {
@@ -287,7 +288,6 @@ public class MenuComprasController implements Initializable {
 
     public void activarControles() {
         datepFc.setEditable(true);
-        txtTotalCompra.setEditable(true);
         txtdescripcion.setEditable(true);
         
 
@@ -298,7 +298,6 @@ public class MenuComprasController implements Initializable {
         txtTotalCompra.clear();
         txtdescripcion.clear();
 
-        
     }
 
     public void setEscenarioPrincipal(Main escenarioPrincipal) {

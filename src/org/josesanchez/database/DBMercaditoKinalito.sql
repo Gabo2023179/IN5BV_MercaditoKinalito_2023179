@@ -130,7 +130,7 @@ create table Detallefactura (
     codigoDetalleFactura int auto_increment,
     precioUnitario decimal(10, 2),
     cantidad int,
-	numeroFactura int,
+	numeroFactura int unique,
     productoId int,
     Primary key PK_codigoDetalleFactura (codigoDetalleFactura),
     foreign key FK_detalleFacturaId (numeroFactura)

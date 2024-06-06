@@ -81,7 +81,7 @@
       </GridPane>
       <TableView fx:id="tblCompras" layoutX="557.0" layoutY="384.0" onMouseClicked="#seleccionarElemento" prefHeight="200.0" prefWidth="511.0">
         <columns>
-          <TableColumn fx:id="colCompraId" prefWidth="96.0" text="ID de la Compra" />
+          <TableColumn fx:id="colCompraId" editable="false" prefWidth="96.0" sortable="false" text="ID de la Compra" />
           <TableColumn fx:id="colFechaCompra" prefWidth="129.0" text="Fecha de la Compra" />
             <TableColumn fx:id="colDescripcion" prefWidth="167.0" text="Descripcion" />
             <TableColumn fx:id="colTotalCompra" prefWidth="118.0" text="Total de la Compra" />
@@ -133,9 +133,9 @@
                </font>
             </Label>
             <TextField fx:id="txtCompraId" editable="false" GridPane.columnIndex="1" />
-            <TextField fx:id="txtdescripcion" GridPane.columnIndex="1" GridPane.rowIndex="2" />
-            <TextField fx:id="txtTotalCompra" GridPane.columnIndex="1" GridPane.rowIndex="3" />
-            <DatePicker fx:id="datepFc" prefHeight="25.0" prefWidth="355.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+            <TextField fx:id="txtdescripcion" editable="false" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+            <TextField fx:id="txtTotalCompra" editable="false" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+            <DatePicker fx:id="datepFc" editable="false" prefHeight="25.0" prefWidth="355.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
          </children>
       </GridPane>
    </children>

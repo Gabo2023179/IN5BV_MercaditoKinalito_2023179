@@ -4,6 +4,8 @@ import java.net.URL;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.SQLIntegrityConstraintViolationException;
+import java.sql.SQLSyntaxErrorException;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
 import javafx.collections.FXCollections;
@@ -98,14 +100,15 @@ public class MenuDetalleCompraController implements Initializable {
         colProCodPro.setCellValueFactory(new PropertyValueFactory<DetalleCompra, Integer>("productoId"));
         colComNumDoc.setCellValueFactory(new PropertyValueFactory<DetalleCompra, Integer>("compraId"));
     }
-        public void seleccionarElementos() {
+
+    public void seleccionarElementos() {
         txtCodigoDC.setText(String.valueOf(((DetalleCompra) tblDetalleProducto.getSelectionModel().getSelectedItem()).getCodigoDetalleCompra()));
         txtCostoU.setText(String.valueOf(((DetalleCompra) tblDetalleProducto.getSelectionModel().getSelectedItem()).getCostoUnitario()));
         txtCantidad.setText(String.valueOf(((DetalleCompra) tblDetalleProducto.getSelectionModel().getSelectedItem()).getCantidad()));
         cmbProCodPro.getSelectionModel().select(buscarProductos(((DetalleCompra) tblDetalleProducto.getSelectionModel().getSelectedItem()).getProductoId()));
         cmbComNumDoc.getSelectionModel().select(buscarCompras(((DetalleCompra) tblDetalleProducto.getSelectionModel().getSelectedItem()).getCompraId()));
     }
-    
+
     public Productos buscarProductos(int productoId) {
         Productos resultado = null;
         try {
@@ -259,6 +262,8 @@ public class MenuDetalleCompraController implements Initializable {
             }
             listaDCompra.add(registro);
             cargaDatos();
+        } catch (SQLSyntaxErrorException e) {
+            JOptionPane.showMessageDialog(null, "No es posible duplicar la compra");
         } catch (Exception e) {
             e.printStackTrace();
         }
