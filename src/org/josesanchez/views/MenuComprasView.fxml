@@ -22,18 +22,18 @@
             <Image url="@../Images/compras.png" />
          </image>
       </ImageView>
-      <GridPane layoutX="126.0" layoutY="179.0" prefHeight="354.0" prefWidth="217.0">
+      <GridPane layoutX="133.0" layoutY="160.0" prefHeight="367.0" prefWidth="199.0">
         <columnConstraints>
           <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
         </columnConstraints>
         <rowConstraints>
-          <RowConstraints maxHeight="91.0" minHeight="10.0" prefHeight="86.0" vgrow="SOMETIMES" />
           <RowConstraints maxHeight="92.0" minHeight="10.0" prefHeight="91.0" vgrow="SOMETIMES" />
-          <RowConstraints maxHeight="101.0" minHeight="10.0" prefHeight="88.0" vgrow="SOMETIMES" />
-            <RowConstraints maxHeight="69.0" minHeight="10.0" prefHeight="28.0" vgrow="SOMETIMES" />
+          <RowConstraints maxHeight="92.0" minHeight="10.0" prefHeight="91.0" vgrow="SOMETIMES" />
+          <RowConstraints maxHeight="92.0" minHeight="10.0" prefHeight="91.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="92.0" minHeight="10.0" prefHeight="91.0" vgrow="SOMETIMES" />
         </rowConstraints>
          <children>
-            <Button fx:id="btnAgregar" mnemonicParsing="false" onAction="#agregar" prefHeight="136.0" prefWidth="242.0" stylesheets="@../resources/KinalStoreCSS.css" text="Agregar" textFill="WHITE">
+            <Button fx:id="btnAgregar" mnemonicParsing="false" onAction="#agregar" prefHeight="178.0" prefWidth="320.0" stylesheets="@../resources/KinalStoreCSS.css" text="Agregar" textFill="WHITE">
                <styleClass>
                   <String fx:value="button2" />
                   <String fx:value="button3" />
@@ -45,13 +45,13 @@
                   <String fx:value="button3" />
                </styleClass>
             </Button>
-            <Button fx:id="btnEditar" mnemonicParsing="false" onAction="#editar" prefHeight="122.0" prefWidth="214.0" stylesheets="@../resources/KinalStoreCSS.css" text="Editar" textFill="WHITE" GridPane.rowIndex="2">
+            <Button fx:id="btnEditar" mnemonicParsing="false" onAction="#editar" prefHeight="178.0" prefWidth="320.0" stylesheets="@../resources/KinalStoreCSS.css" text="Editar" textFill="WHITE" GridPane.rowIndex="2">
                <styleClass>
                   <String fx:value="button2" />
                   <String fx:value="button3" />
                </styleClass>
             </Button>
-            <Button fx:id="btnReporte" mnemonicParsing="false" onAction="#reporte" prefHeight="119.0" prefWidth="286.0" stylesheets="@../resources/KinalStoreCSS.css" text="Reporte" textFill="WHITE" GridPane.rowIndex="3">
+            <Button fx:id="btnReporte" mnemonicParsing="false" onAction="#reporte" prefHeight="102.0" prefWidth="219.0" stylesheets="@../resources/KinalStoreCSS.css" text="Reporte" textFill="WHITE" GridPane.rowIndex="3">
                <styleClass>
                   <String fx:value="button2" />
                   <String fx:value="button3" />
@@ -79,15 +79,15 @@
             </ImageView>
          </children>
       </GridPane>
-      <TableView fx:id="tblCompras" layoutX="481.0" layoutY="384.0" onMouseClicked="#seleccionarElemento" prefHeight="200.0" prefWidth="651.0">
+      <TableView fx:id="tblCompras" layoutX="557.0" layoutY="384.0" onMouseClicked="#seleccionarElemento" prefHeight="200.0" prefWidth="511.0">
         <columns>
-          <TableColumn fx:id="colCompraId" prefWidth="178.0" text="CompraId" />
-          <TableColumn fx:id="colFechaCompra" prefWidth="153.0" text="FechaCompra" />
-            <TableColumn fx:id="colDescripcion" prefWidth="122.0" text="Descripcion" />
-            <TableColumn fx:id="colTotalCompra" prefWidth="197.0" text="TotalCompra" />
+          <TableColumn fx:id="colCompraId" prefWidth="96.0" text="ID de la Compra" />
+          <TableColumn fx:id="colFechaCompra" prefWidth="129.0" text="Fecha de la Compra" />
+            <TableColumn fx:id="colDescripcion" prefWidth="167.0" text="Descripcion" />
+            <TableColumn fx:id="colTotalCompra" prefWidth="118.0" text="Total de la Compra" />
         </columns>
       </TableView>
-      <Button fx:id="btnRegresar" layoutX="178.0" layoutY="548.0" mnemonicParsing="false" onAction="#regresar" prefHeight="69.0" prefWidth="97.0" stylesheets="@../resources/KinalStoreCSS.css">
+      <Button fx:id="btnRegresar" layoutX="190.0" layoutY="538.0" mnemonicParsing="false" onAction="#regresar" prefHeight="84.0" prefWidth="84.0" stylesheets="@../resources/KinalStoreCSS.css">
          <graphic>
             <ImageView fitHeight="84.0" fitWidth="97.0" pickOnBounds="true" preserveRatio="true">
                <image>
@@ -100,10 +100,10 @@
             <String fx:value="button3" />
          </styleClass>
       </Button>
-      <GridPane layoutX="375.0" layoutY="79.0" prefHeight="194.0" prefWidth="662.0">
+      <GridPane layoutX="474.0" layoutY="220.0" prefHeight="153.0" prefWidth="591.0">
         <columnConstraints>
-          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+          <ColumnConstraints hgrow="SOMETIMES" maxWidth="326.0" minWidth="10.0" prefWidth="299.0" />
+          <ColumnConstraints hgrow="SOMETIMES" maxWidth="465.0" minWidth="10.0" prefWidth="363.0" />
         </columnConstraints>
         <rowConstraints>
           <RowConstraints maxHeight="68.0" minHeight="10.0" prefHeight="49.0" vgrow="SOMETIMES" />
@@ -112,24 +112,24 @@
             <RowConstraints maxHeight="51.0" minHeight="10.0" prefHeight="51.0" vgrow="SOMETIMES" />
         </rowConstraints>
          <children>
-            <Label text="CompraId" textFill="#032870">
+            <Label text="CompraId" textFill="#78cf53">
                <font>
-                  <Font name="System Bold" size="27.0" />
+                  <Font name="System Bold" size="25.0" />
                </font>
             </Label>
-            <Label text="FechaCompra" textFill="#032870" GridPane.rowIndex="1">
+            <Label text="FechaCompra" textFill="#78cf53" GridPane.rowIndex="1">
                <font>
-                  <Font name="System Bold" size="29.0" />
+                  <Font name="System Bold" size="25.0" />
                </font>
             </Label>
-            <Label text="Descripcion" textFill="#032870" GridPane.rowIndex="2">
+            <Label text="Descripcion" textFill="#78cf53" GridPane.rowIndex="2">
                <font>
-                  <Font name="System Bold" size="27.0" />
+                  <Font name="System Bold" size="25.0" />
                </font>
             </Label>
-            <Label text="TotalCompra" textFill="#032870" GridPane.rowIndex="3">
+            <Label text="TotalCompra" textFill="#78cf53" GridPane.rowIndex="3">
                <font>
-                  <Font name="System Bold" size="23.0" />
+                  <Font name="System Bold" size="25.0" />
                </font>
             </Label>
             <TextField fx:id="txtCompraId" editable="false" GridPane.columnIndex="1" />

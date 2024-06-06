@@ -21,7 +21,7 @@
             <Image url="@../Images/Vista%20cargoEmpleados.png" />
          </image>
       </ImageView>
-      <GridPane layoutX="159.0" layoutY="138.0" prefHeight="378.0" prefWidth="232.0">
+      <GridPane layoutX="159.0" layoutY="163.0" prefHeight="378.0" prefWidth="232.0">
         <columnConstraints>
             <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
         </columnConstraints>
@@ -93,17 +93,17 @@
           <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
         </rowConstraints>
          <children>
-            <Label text="codigoCargoEmpleado" textFill="#032870">
+            <Label text="CodigoCargoEmpleado" textFill="#032870">
                <font>
                   <Font name="System Bold" size="22.0" />
                </font>
             </Label>
-            <Label text="nombreCargo" textFill="#032870" GridPane.rowIndex="1">
+            <Label text="NombreCargo" textFill="#032870" GridPane.rowIndex="1">
                <font>
                   <Font name="System Bold" size="22.0" />
                </font>
             </Label>
-            <Label text="descripcionCargo" textFill="#032870" GridPane.rowIndex="2">
+            <Label text="DescripcionCargo" textFill="#032870" GridPane.rowIndex="2">
                <font>
                   <Font name="System Bold" size="22.0" />
                </font>
@@ -120,9 +120,9 @@
             <TableColumn fx:id="colDescripcionCargo" prefWidth="117.0" text="DescEmpelado" />
         </columns>
       </TableView>
-      <Button fx:id="btnRegresar" layoutX="243.0" layoutY="544.0" mnemonicParsing="false" onAction="#regresar" prefHeight="54.0" prefWidth="54.0" stylesheets="@../resources/KinalStoreCSS.css">
+      <Button fx:id="btnRegresar" layoutX="229.0" layoutY="545.0" mnemonicParsing="false" onAction="#regresar" prefHeight="86.0" prefWidth="92.0" stylesheets="@../resources/KinalStoreCSS.css">
          <graphic>
-            <ImageView fitHeight="52.0" fitWidth="48.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="67.0" fitWidth="78.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../Images/home_circle_icon_137496.png" />
                </image>

@@ -8,6 +8,7 @@ package org.josesanchez.controllers;
 import java.net.URL;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLIntegrityConstraintViolationException;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
 import javafx.collections.FXCollections;
@@ -137,7 +138,7 @@ private enum operaciones {
         registro.setDescripcion(txtdescripcion.getText());
         try {
             PreparedStatement procedimiento = Conexion.getInstance().getConexion().prepareCall("{call sp_AgregarTipoDeProducto (?)}");
-            procedimiento.setString(2, registro.getDescripcion());
+            procedimiento.setString(1, registro.getDescripcion());
             procedimiento.execute();
             ResultSet generatedKeys = procedimiento.getGeneratedKeys();
             if(generatedKeys.next()){
@@ -175,8 +176,11 @@ private enum operaciones {
                             procedimiento.execute();
                             limpiarControles();
                             listaTdp.remove(tblTdp.getSelectionModel().getSelectedItem());
-                        } catch (Exception e) {
+                        }catch (SQLIntegrityConstraintViolationException e) {
+                            JOptionPane.showMessageDialog(null, "No puedes eliminar este registro, esta referenciado en otra clase");
+                        }catch (Exception e) {
                             e.printStackTrace();
+                            JOptionPane.showMessageDialog(null, "Se produjo un error: " + e.getMessage());
                         }
                     }
                 } else {

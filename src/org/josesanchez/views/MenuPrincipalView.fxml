@@ -11,7 +11,7 @@
    <children>
       <ImageView fitHeight="749.0" fitWidth="1340.0" layoutX="-5.0" layoutY="1.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../Images/Diseño%20sin%20título%20(2).png" />
+            <Image url="@../Images/Bienvenido%20a....png" />
          </image>
       </ImageView>
       <MenuBar prefHeight="25.0" prefWidth="1341.0" stylesheets="@../resources/KinalStoreCSS.css">

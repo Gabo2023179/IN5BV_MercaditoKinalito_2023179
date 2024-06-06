@@ -673,7 +673,7 @@ delimiter ;
 
 -- Buscar
 delimiter $$
-create procedure sp_BuscarDetalleCompra(in codigoDetalleCompra int)
+create procedure sp_BuscarDetalleCompra(in _codigoDetalleCompra int)
 begin
 	select
     D.codigoDetalleCompra,
@@ -682,7 +682,7 @@ begin
     D.productoId,
     D.compraId
     from DetalleCompra D
-    where D.codigoDetalleCompra = codigoDetalleCompra ;
+    where D.codigoDetalleCompra = _codigoDetalleCompra ;
 end $$
 delimiter ;
 
@@ -1085,8 +1085,10 @@ call sp_AgregarClientes ('1542387485', 'oliver', 'sisimit', 'El basurero km. 22'
 
 call sp_AgregarProveedores ('54785145', 'richardo', 'posadas', 'zona 1','Fruit company', '45875221', 'fruit.gt');
 call sp_AgregarProveedores('54785236', 'jose', 'contreras', 'Mixco','The Cocacola Company', '21215498', 'cocacola.com');
+call sp_AgregarProveedores('98234567', 'maria', 'lopez', 'Guatemala City','PepsiCo', '33567901', 'pepsico.com');
 
 call sp_AgregarTelefonoProveedor('12345678', '87654321', 'telefono de casa y oficina', 1);
+call sp_AgregarTelefonoProveedor('90657890', '34656753', 'telefono de oficina 1 y oficina 2', 2);
 call sp_AgregarTelefonoProveedor('90657890', '34656753', 'telefono de oficina 1 y oficina 2', 2);
 
 call sp_AgregarEmailProveedor('asdasd@gmail.com', 'correo personal', 1);

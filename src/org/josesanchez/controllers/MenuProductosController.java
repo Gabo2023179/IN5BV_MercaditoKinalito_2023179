@@ -103,7 +103,6 @@ public class MenuProductosController implements Initializable {
     public void initialize(URL location, ResourceBundle resources) {
         cargaDatos();
         if (true) {
-            System.out.println("wesos michones");
             cmbCodigoTipoP.setItems(getTipoDeProductos());
             cmbCodProv.setItems(getProveedores());
         }

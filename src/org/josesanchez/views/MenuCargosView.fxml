@@ -21,7 +21,7 @@
             <Image url="@../Images/vistaCargo.png" />
          </image>
       </ImageView>
-      <GridPane layoutX="168.0" layoutY="174.0" prefHeight="373.0" prefWidth="228.0">
+      <GridPane layoutX="165.0" layoutY="174.0" prefHeight="381.0" prefWidth="235.0">
         <columnConstraints>
           <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
         </columnConstraints>
@@ -32,14 +32,14 @@
             <RowConstraints maxHeight="90.0" minHeight="10.0" prefHeight="86.0" vgrow="SOMETIMES" />
         </rowConstraints>
          <children>
-            <Button fx:id="btnAgregar" mnemonicParsing="false" onAction="#agregar" prefHeight="153.0" prefWidth="228.0" stylesheets="@../resources/KinalStoreCSS.css" text="Agregar" textFill="WHITE">
+            <Button fx:id="btnAgregar" mnemonicParsing="false" onAction="#agregar" prefHeight="153.0" prefWidth="304.0" stylesheets="@../resources/KinalStoreCSS.css" text="Agregar" textFill="WHITE">
                <styleClass>
                   <String fx:value="button4" />
                   <String fx:value="button3" />
                   <String fx:value="button2" />
                </styleClass>
             </Button>
-            <Button fx:id="btnEliminar" mnemonicParsing="false" onAction="#eliminar" prefHeight="130.0" prefWidth="228.0" stylesheets="@../resources/KinalStoreCSS.css" text="Eliminar" textFill="WHITE" GridPane.rowIndex="1">
+            <Button fx:id="btnEliminar" mnemonicParsing="false" onAction="#eliminar" prefHeight="133.0" prefWidth="282.0" stylesheets="@../resources/KinalStoreCSS.css" text="Eliminar" textFill="WHITE" GridPane.rowIndex="1">
                <styleClass>
                   <String fx:value="button4" />
                   <String fx:value="button3" />
@@ -53,7 +53,7 @@
                   <String fx:value="button2" />
                </styleClass>
             </Button>
-            <Button fx:id="btnReporte" mnemonicParsing="false" onAction="#reporte" prefHeight="126.0" prefWidth="248.0" stylesheets="@../resources/KinalStoreCSS.css" text="Reporte" textFill="WHITE" GridPane.rowIndex="3">
+            <Button fx:id="btnReporte" mnemonicParsing="false" onAction="#reporte" prefHeight="98.0" prefWidth="241.0" stylesheets="@../resources/KinalStoreCSS.css" text="Reporte" textFill="WHITE" GridPane.rowIndex="3">
                <styleClass>
                   <String fx:value="button4" />
                   <String fx:value="button3" />
@@ -82,9 +82,9 @@
             </ImageView>
          </children>
       </GridPane>
-      <Button fx:id="btnRegresar" layoutX="247.0" layoutY="569.0" mnemonicParsing="false" onAction="#regresar" prefHeight="56.0" prefWidth="70.0" stylesheets="@../resources/KinalStoreCSS.css">
+      <Button fx:id="btnRegresar" layoutX="236.0" layoutY="574.0" mnemonicParsing="false" onAction="#regresar" prefHeight="81.0" prefWidth="94.0" stylesheets="@../resources/KinalStoreCSS.css">
          <graphic>
-            <ImageView fitHeight="52.0" fitWidth="65.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="70.0" fitWidth="77.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../Images/home_circle_icon_137496.png" />
                </image>
@@ -96,14 +96,14 @@
             <String fx:value="button3" />
          </styleClass>
       </Button>
-      <TableView fx:id="tblCargos" layoutX="649.0" layoutY="447.0" onMouseClicked="#seleccionarElemento" prefHeight="200.0" prefWidth="404.0">
+      <TableView fx:id="tblCargos" layoutX="651.0" layoutY="374.0" onMouseClicked="#seleccionarElemento" prefHeight="200.0" prefWidth="404.0">
         <columns>
           <TableColumn fx:id="colCargoId" prefWidth="146.0" text="CargoId" />
           <TableColumn fx:id="colNombreCargo" prefWidth="126.0" text="NombreCargo" />
             <TableColumn fx:id="colDescripcionCargo" prefWidth="131.0" text="DescCargo" />
         </columns>
       </TableView>
-      <GridPane layoutX="559.0" layoutY="200.0" prefHeight="229.0" prefWidth="550.0">
+      <GridPane layoutX="589.0" layoutY="174.0" prefHeight="200.0" prefWidth="527.0">
         <columnConstraints>
           <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
           <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />

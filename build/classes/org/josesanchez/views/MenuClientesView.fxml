@@ -21,7 +21,7 @@
             <Image url="@../Images/Agregar%20un%20título.png" />
          </image>
       </ImageView>
-      <GridPane layoutX="163.0" layoutY="224.0" prefHeight="342.0" prefWidth="158.0">
+      <GridPane layoutX="217.0" layoutY="203.0" prefHeight="362.0" prefWidth="186.0">
         <columnConstraints>
           <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
         </columnConstraints>
@@ -32,25 +32,25 @@
             <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
         </rowConstraints>
          <children>
-            <Button fx:id="btnAgregar" mnemonicParsing="false" onAction="#agregar" prefHeight="104.0" prefWidth="158.0" stylesheets="@../resources/KinalStoreCSS.css" text="Agregar" textFill="WHITE">
+            <Button fx:id="btnAgregar" mnemonicParsing="false" onAction="#agregar" prefHeight="181.0" prefWidth="306.0" stylesheets="@../resources/KinalStoreCSS.css" text="Agregar" textFill="WHITE">
                <styleClass>
                   <String fx:value="button2" />
                   <String fx:value="button3" />
                </styleClass>
             </Button>
-            <Button fx:id="btnEditar" mnemonicParsing="false" onAction="#editar" prefHeight="86.0" prefWidth="184.0" stylesheets="@../resources/KinalStoreCSS.css" text="Editar" textFill="WHITE" GridPane.rowIndex="2">
+            <Button fx:id="btnEditar" mnemonicParsing="false" onAction="#editar" prefHeight="86.0" prefWidth="221.0" stylesheets="@../resources/KinalStoreCSS.css" text="Editar" textFill="WHITE" GridPane.rowIndex="2">
                <styleClass>
                   <String fx:value="button2" />
                   <String fx:value="button3" />
                </styleClass>
             </Button>
-            <Button fx:id="btnEliminar" mnemonicParsing="false" onAction="#eliminar" prefHeight="128.0" prefWidth="158.0" stylesheets="@../resources/KinalStoreCSS.css" text="Eliminar" textFill="WHITE" GridPane.rowIndex="1">
+            <Button fx:id="btnEliminar" mnemonicParsing="false" onAction="#eliminar" prefHeight="91.0" prefWidth="247.0" stylesheets="@../resources/KinalStoreCSS.css" text="Eliminar" textFill="WHITE" GridPane.rowIndex="1">
                <styleClass>
                   <String fx:value="button2" />
                   <String fx:value="button3" />
                </styleClass>
             </Button>
-            <Button fx:id="btnReporte" mnemonicParsing="false" onAction="#reporte" prefHeight="103.0" prefWidth="158.0" stylesheets="@../resources/KinalStoreCSS.css" text="Reportes" textFill="WHITE" GridPane.rowIndex="3">
+            <Button fx:id="btnReporte" mnemonicParsing="false" onAction="#reporte" prefHeight="90.0" prefWidth="295.0" stylesheets="@../resources/KinalStoreCSS.css" text="Reportes" textFill="WHITE" GridPane.rowIndex="3">
                <styleClass>
                   <String fx:value="button2" />
                   <String fx:value="button3" />
@@ -80,31 +80,26 @@
       </GridPane>
       <GridPane layoutX="453.0" layoutY="68.0" prefHeight="228.0" prefWidth="672.0">
         <columnConstraints>
-          <ColumnConstraints hgrow="SOMETIMES" maxWidth="109.0" minWidth="10.0" prefWidth="99.0" />
-            <ColumnConstraints hgrow="SOMETIMES" maxWidth="129.0" minWidth="10.0" prefWidth="129.0" />
+          <ColumnConstraints hgrow="SOMETIMES" maxWidth="109.0" minWidth="10.0" prefWidth="107.0" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="129.0" minWidth="10.0" prefWidth="123.0" />
             <ColumnConstraints hgrow="SOMETIMES" maxWidth="114.0" minWidth="0.0" prefWidth="59.0" />
-            <ColumnConstraints hgrow="SOMETIMES" maxWidth="204.0" minWidth="0.0" prefWidth="101.0" />
-            <ColumnConstraints hgrow="SOMETIMES" maxWidth="253.0" minWidth="10.0" prefWidth="104.0" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="204.0" minWidth="0.0" prefWidth="117.0" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="253.0" minWidth="10.0" prefWidth="98.0" />
             <ColumnConstraints hgrow="SOMETIMES" maxWidth="204.0" minWidth="10.0" prefWidth="164.0" />
         </columnConstraints>
         <rowConstraints>
-          <RowConstraints maxHeight="121.0" minHeight="10.0" prefHeight="102.0" vgrow="SOMETIMES" />
-          <RowConstraints maxHeight="101.0" minHeight="10.0" prefHeight="61.0" vgrow="SOMETIMES" />
+          <RowConstraints maxHeight="121.0" minHeight="10.0" prefHeight="99.0" vgrow="SOMETIMES" />
+          <RowConstraints maxHeight="101.0" minHeight="10.0" prefHeight="57.0" vgrow="SOMETIMES" />
             <RowConstraints maxHeight="101.0" minHeight="10.0" prefHeight="75.0" vgrow="SOMETIMES" />
         </rowConstraints>
          <children>
-            <Label text="codigoCliente">
+            <Label text="CodigoCliente">
                <font>
                   <Font name="Baskerville Old Face" size="18.0" />
                </font>
             </Label>
             <TextField fx:id="txtCodigoClienteC" editable="false" GridPane.columnIndex="1" />
-            <Label text="codigoCliente">
-               <font>
-                  <Font name="Baskerville Old Face" size="18.0" />
-               </font>
-            </Label>
-            <Label prefHeight="22.0" prefWidth="123.0" text="NIT" textFill="#78cf53" GridPane.columnIndex="2">
+            <Label prefHeight="22.0" prefWidth="46.0" text="NIT" textFill="#78cf53" GridPane.columnIndex="2">
                <font>
                   <Font name="Baskerville Old Face" size="18.0" />
                </font>
@@ -128,11 +123,6 @@
             </Label>
             <TextField fx:id="txtTelefonoC" GridPane.columnIndex="1" GridPane.rowIndex="1" />
             <TextField fx:id="txtApellidoC" GridPane.columnIndex="5" GridPane.rowIndex="1" />
-            <Label text="codigoCliente" textFill="#032870">
-               <font>
-                  <Font name="Baskerville Old Face" size="18.0" />
-               </font>
-            </Label>
             <Label text="Correo" textFill="#78cf53" GridPane.columnIndex="2" GridPane.rowIndex="1">
                <font>
                   <Font name="Baskerville Old Face" size="18.0" />
@@ -147,18 +137,18 @@
             <TextField fx:id="txtDireccionC" GridPane.columnIndex="1" GridPane.rowIndex="2" />
          </children>
       </GridPane>
-      <TableView fx:id="tblClientes" layoutX="371.0" layoutY="310.0" onMouseClicked="#seleccionarElemento" prefHeight="400.0" prefWidth="882.0">
+      <TableView fx:id="tblClientes" layoutX="419.0" layoutY="318.0" onMouseClicked="#seleccionarElemento" prefHeight="400.0" prefWidth="882.0">
         <columns>
-          <TableColumn fx:id="colCodigoC" prefWidth="131.0" text="CodigoCliente" />
-            <TableColumn fx:id="colNit" prefWidth="108.0" text="NITcliente" />
-            <TableColumn fx:id="colNombreC" prefWidth="121.0" text="nombreCliente" />
-            <TableColumn fx:id="colApellidoC" prefWidth="120.0" text="apellidoCliente" />
-            <TableColumn fx:id="colDireccionC" prefWidth="123.0" text="direccionCliente" />
-            <TableColumn fx:id="colTelefonoC" prefWidth="129.0" text="telefonoCliente" />
-            <TableColumn fx:id="colCorreoC" prefWidth="144.0" text="correoCliente" />
+          <TableColumn fx:id="colCodigoC" prefWidth="131.0" text="Codigo Del Cliente" />
+            <TableColumn fx:id="colNit" prefWidth="108.0" text="Nit del Cliente" />
+            <TableColumn fx:id="colNombreC" prefWidth="121.0" text="Nombre Del Cliente" />
+            <TableColumn fx:id="colApellidoC" prefWidth="120.0" text="Apellido Del Cliente" />
+            <TableColumn fx:id="colDireccionC" prefWidth="123.0" text="Direccion del Cliente" />
+            <TableColumn fx:id="colTelefonoC" prefWidth="129.0" text="Telefono del Cliente" />
+            <TableColumn fx:id="colCorreoC" prefWidth="144.0" text="Correo del Cliente" />
         </columns>
       </TableView>
-      <Button fx:id="btnRegresar" layoutX="196.0" layoutY="599.0" mnemonicParsing="false" onAction="#regresar" prefHeight="77.0" prefWidth="86.0" stylesheets="@../resources/KinalStoreCSS.css" textFill="#032870">
+      <Button fx:id="btnRegresar" layoutX="263.0" layoutY="599.0" mnemonicParsing="false" onAction="#regresar" prefHeight="77.0" prefWidth="86.0" stylesheets="@../resources/KinalStoreCSS.css" textFill="#032870">
          <font>
             <Font name="System Bold" size="15.0" />
          </font>
