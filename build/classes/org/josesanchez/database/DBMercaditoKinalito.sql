@@ -1,6 +1,7 @@
 drop database if exists DBMercaditoKinalito;
 create database DBMercaditoKinalito;
 use DBMercaditoKinalito;
+ALTER USER '2023179_IN5BV'@'localhost' IDENTIFIED WITH mysql_native_password BY 'abc123!!';
  
  set global time_Zone = '-6:00';
 -- Creacion de Entidades
@@ -1082,6 +1083,8 @@ delimiter ;
  
 call sp_AgregarClientes ('1245787856', 'harol', 'luna', 'El basurero zona 3', '21215498', 'harolxluna4ever.com');
 call sp_AgregarClientes ('1542387485', 'oliver', 'sisimit', 'El basurero km. 22', '45875221', 'xdxsdadasd.com');
+call sp_AgregarClientes ('8574125658', 'Joseph', 'Polancos', 'Zona 22', '45875221', 'jpolancos@gmail.com');
+call sp_AgregarClientes ('3698520145', 'Andres', 'Fariñas', 'Zona 24', '45875221', 'Andresfn@gmail.com');
 
 call sp_AgregarProveedores ('54785145', 'richardo', 'posadas', 'zona 1','Fruit company', '45875221', 'fruit.gt');
 call sp_AgregarProveedores('54785236', 'jose', 'contreras', 'Mixco','The Cocacola Company', '21215498', 'cocacola.com');

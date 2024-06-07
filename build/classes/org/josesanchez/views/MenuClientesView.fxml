@@ -18,7 +18,7 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="732.0" prefWidth="1048.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.josesanchez.controllers.MenuClientesController">
+<AnchorPane id="AnchorPane" prefHeight="732.0" prefWidth="1162.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.josesanchez.controllers.MenuClientesController">
    <children>
       <ImageView fitHeight="732.0" fitWidth="1302.0" onMouseClicked="#seleccionarElemento" pickOnBounds="true" preserveRatio="true">
          <image>
