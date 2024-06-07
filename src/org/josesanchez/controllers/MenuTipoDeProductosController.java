@@ -213,7 +213,7 @@ private enum operaciones {
                 btnReporte.setText("Reporte");
                 btnAgregar.setDisable(false);
                 btnEliminar.setDisable(false);
-                imgEditar.setImage(new Image("/org/josesanchez/Images/EditarCargo 2.png"));
+                    imgEditar.setImage(new Image("/org/josesanchez/Images/editartipodeproducto.png"));
                 imgReporte.setImage(new Image("/org/josesanchez/Images/Accounting_icon-icons.com_74682.png"));
                 desactivarControles();
                 limpiarControles();

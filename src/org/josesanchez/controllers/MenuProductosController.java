@@ -412,6 +412,7 @@ public class MenuProductosController implements Initializable {
     public void desactivarControles() {
         txtCodigoProd.setEditable(false);
         txtDescPro.setEditable(false);
+        txtImagenPro.setEditable(false);
         txtPrecioU.setEditable(false);
         txtPrecioD.setEditable(false);
         txtPrecioM.setEditable(false);
@@ -422,6 +423,7 @@ public class MenuProductosController implements Initializable {
 
     public void activarControles() {
         txtDescPro.setEditable(true);
+        txtImagenPro.setEditable(true);
         cmbCodProv.setDisable(false);
         cmbCodigoTipoP.setDisable(false);
     }

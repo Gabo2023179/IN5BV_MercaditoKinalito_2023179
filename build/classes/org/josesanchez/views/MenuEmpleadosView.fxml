@@ -7,6 +7,10 @@
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.Light.Distant?>
+<?import javafx.scene.effect.Lighting?>
+<?import javafx.scene.effect.Reflection?>
+<?import javafx.scene.effect.Shadow?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -17,7 +21,7 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="684.0" prefWidth="1208.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.josesanchez.controllers.MenuEmpleadosController">
    <children>
-      <ImageView fitHeight="705.0" fitWidth="1215.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="705.0" fitWidth="1215.0" layoutX="-3.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../Images/EmpleadosView.png" />
          </image>
@@ -57,10 +61,22 @@
                   <String fx:value="button3" />
                </styleClass>
             </Button>
-            <ImageView fx:id="imgAgregar" fitHeight="62.0" fitWidth="55.0" pickOnBounds="true" preserveRatio="true" />
-            <ImageView fx:id="imgEliminar" fitHeight="62.0" fitWidth="51.0" pickOnBounds="true" preserveRatio="true" GridPane.rowIndex="1" />
-            <ImageView fx:id="imgEditar" fitHeight="63.0" fitWidth="56.0" pickOnBounds="true" preserveRatio="true" GridPane.rowIndex="2" />
-            <ImageView fx:id="imgReporte" fitHeight="67.0" fitWidth="61.0" pickOnBounds="true" preserveRatio="true" GridPane.rowIndex="3" />
+            <ImageView fx:id="imgAgregar" fitHeight="62.0" fitWidth="55.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../Images/AgregarEmpleados.png" />
+               </image></ImageView>
+            <ImageView fx:id="imgEliminar" fitHeight="62.0" fitWidth="51.0" pickOnBounds="true" preserveRatio="true" GridPane.rowIndex="1">
+               <image>
+                  <Image url="@../Images/eliminarGeneral.png" />
+               </image></ImageView>
+            <ImageView fx:id="imgEditar" fitHeight="63.0" fitWidth="56.0" pickOnBounds="true" preserveRatio="true" GridPane.rowIndex="2">
+               <image>
+                  <Image url="@../Images/EditarEmpleados.png" />
+               </image></ImageView>
+            <ImageView fx:id="imgReporte" fitHeight="67.0" fitWidth="61.0" pickOnBounds="true" preserveRatio="true" GridPane.rowIndex="3">
+               <image>
+                  <Image url="@../Images/Accounting_icon-icons.com_74682.png" />
+               </image></ImageView>
          </children>
       </GridPane>
       <GridPane layoutX="510.0" layoutY="152.0" prefHeight="226.0" prefWidth="634.0">
@@ -84,41 +100,69 @@
             </Label>
             <Label text="nombreEmpleado" textFill="#78cf53" GridPane.rowIndex="1">
                <font>
-                  <Font size="18.0" />
+                  <Font size="16.0" />
                </font>
             </Label>
             <Label text="apellidosEmpleado" textFill="#78cf53" GridPane.rowIndex="2">
                <font>
-                  <Font size="17.0" />
+                  <Font size="16.0" />
                </font>
             </Label>
             <Label text="Sueldo" textFill="#78cf53" GridPane.rowIndex="3">
                <font>
-                  <Font size="20.0" />
+                  <Font size="16.0" />
                </font>
             </Label>
             <Label text="Direccion" textFill="#78cf53" GridPane.columnIndex="2">
                <font>
-                  <Font size="18.0" />
+                  <Font size="16.0" />
                </font>
             </Label>
             <Label text="Turno" textFill="#78cf53" GridPane.columnIndex="2" GridPane.rowIndex="1">
                <font>
-                  <Font size="22.0" />
+                  <Font size="16.0" />
                </font>
             </Label>
             <Label text="CargoEmpleado" textFill="#78cf53" GridPane.columnIndex="2" GridPane.rowIndex="2">
                <font>
-                  <Font size="18.0" />
+                  <Font size="16.0" />
                </font>
             </Label>
-            <TextField fx:id="txtCodEmpleado" editable="false" GridPane.columnIndex="1" />
-            <TextField fx:id="txtNomEmpleado" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-            <TextField fx:id="txtApeEmpleado" GridPane.columnIndex="1" GridPane.rowIndex="2" />
-            <TextField fx:id="txtSueldo" GridPane.columnIndex="1" GridPane.rowIndex="3" />
-            <TextField fx:id="txtDireccion" GridPane.columnIndex="3" />
-            <TextField fx:id="txtTurno" GridPane.columnIndex="3" GridPane.rowIndex="1" />
-            <ComboBox fx:id="cmbCargoId" prefWidth="150.0" GridPane.columnIndex="3" GridPane.rowIndex="2" />
+            <TextField fx:id="txtCodEmpleado" editable="false" GridPane.columnIndex="1">
+               <effect>
+                  <Lighting>
+                     <bumpInput>
+                        <Shadow />
+                     </bumpInput>
+                     <light>
+                        <Light.Distant />
+                     </light>
+                  </Lighting>
+               </effect></TextField>
+            <TextField fx:id="txtNomEmpleado" editable="false" GridPane.columnIndex="1" GridPane.rowIndex="1">
+               <effect>
+                  <Reflection />
+               </effect></TextField>
+            <TextField fx:id="txtApeEmpleado" editable="false" GridPane.columnIndex="1" GridPane.rowIndex="2">
+               <effect>
+                  <Reflection />
+               </effect></TextField>
+            <TextField fx:id="txtSueldo" editable="false" GridPane.columnIndex="1" GridPane.rowIndex="3">
+               <effect>
+                  <Reflection />
+               </effect></TextField>
+            <TextField fx:id="txtDireccion" editable="false" GridPane.columnIndex="3">
+               <effect>
+                  <Reflection />
+               </effect></TextField>
+            <TextField fx:id="txtTurno" editable="false" GridPane.columnIndex="3" GridPane.rowIndex="1">
+               <effect>
+                  <Reflection />
+               </effect></TextField>
+            <ComboBox fx:id="cmbCargoId" disable="true" prefWidth="150.0" GridPane.columnIndex="3" GridPane.rowIndex="2">
+               <effect>
+                  <Reflection />
+               </effect></ComboBox>
          </children>
       </GridPane>
       <TableView fx:id="tblEmpleados" layoutX="411.0" layoutY="404.0" onMouseClicked="#seleccionarElementos" prefHeight="243.0" prefWidth="783.0">

@@ -7,6 +7,10 @@
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.Light.Distant?>
+<?import javafx.scene.effect.Lighting?>
+<?import javafx.scene.effect.Reflection?>
+<?import javafx.scene.effect.Shadow?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -57,10 +61,22 @@
                   <String fx:value="button3" />
                </styleClass>
             </Button>
-            <ImageView fx:id="imgAgregar" fitHeight="54.0" fitWidth="49.0" pickOnBounds="true" preserveRatio="true" />
-            <ImageView fx:id="imgEliminar" fitHeight="49.0" fitWidth="58.0" pickOnBounds="true" preserveRatio="true" GridPane.rowIndex="1" />
-            <ImageView fx:id="imgEditar" fitHeight="53.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true" GridPane.rowIndex="2" />
-            <ImageView fx:id="imgReporte" fitHeight="62.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true" GridPane.rowIndex="3" />
+            <ImageView fx:id="imgAgregar" fitHeight="54.0" fitWidth="49.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../Images/AgregarDetalleFactura.png" />
+               </image></ImageView>
+            <ImageView fx:id="imgEliminar" fitHeight="49.0" fitWidth="58.0" pickOnBounds="true" preserveRatio="true" GridPane.rowIndex="1">
+               <image>
+                  <Image url="@../Images/ElimianarDetalleCompra.png" />
+               </image></ImageView>
+            <ImageView fx:id="imgEditar" fitHeight="53.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true" GridPane.rowIndex="2">
+               <image>
+                  <Image url="@../Images/EditarDetalleFactura.png" />
+               </image></ImageView>
+            <ImageView fx:id="imgReporte" fitHeight="62.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true" GridPane.rowIndex="3">
+               <image>
+                  <Image url="@../Images/Accounting_icon-icons.com_74682.png" />
+               </image></ImageView>
          </children>
       </GridPane>
       <GridPane layoutX="457.0" layoutY="126.0" prefHeight="174.0" prefWidth="523.0">
@@ -101,11 +117,33 @@
                   <Font size="18.0" />
                </font>
             </Label>
-            <TextField fx:id="txtCodigoDF" editable="false" GridPane.columnIndex="1" />
-            <TextField fx:id="txtprecioU" editable="false" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-            <TextField fx:id="txtCantidad" GridPane.columnIndex="1" GridPane.rowIndex="2" />
-            <ComboBox fx:id="cmbNumFactura" prefWidth="150.0" GridPane.columnIndex="3" />
-            <ComboBox fx:id="cmbProductoId" prefWidth="150.0" GridPane.columnIndex="3" GridPane.rowIndex="1" />
+            <TextField fx:id="txtCodigoDF" editable="false" GridPane.columnIndex="1">
+               <effect>
+                  <Lighting>
+                     <bumpInput>
+                        <Shadow />
+                     </bumpInput>
+                     <light>
+                        <Light.Distant />
+                     </light>
+                  </Lighting>
+               </effect></TextField>
+            <TextField fx:id="txtprecioU" editable="false" GridPane.columnIndex="1" GridPane.rowIndex="1">
+               <effect>
+                  <Reflection />
+               </effect></TextField>
+            <TextField fx:id="txtCantidad" editable="false" GridPane.columnIndex="1" GridPane.rowIndex="2">
+               <effect>
+                  <Reflection />
+               </effect></TextField>
+            <ComboBox fx:id="cmbNumFactura" disable="true" prefWidth="150.0" GridPane.columnIndex="3">
+               <effect>
+                  <Reflection />
+               </effect></ComboBox>
+            <ComboBox fx:id="cmbProductoId" disable="true" prefWidth="150.0" GridPane.columnIndex="3" GridPane.rowIndex="1">
+               <effect>
+                  <Reflection />
+               </effect></ComboBox>
          </children>
       </GridPane>
       <TableView fx:id="tblDetalleFactura" layoutX="457.0" layoutY="300.0" onMouseClicked="#seleccionarElementos" prefHeight="200.0" prefWidth="523.0">

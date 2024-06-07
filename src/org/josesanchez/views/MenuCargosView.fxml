@@ -6,6 +6,10 @@
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.Light.Distant?>
+<?import javafx.scene.effect.Lighting?>
+<?import javafx.scene.effect.Reflection?>
+<?import javafx.scene.effect.Shadow?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -16,7 +20,7 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="681.0" prefWidth="1212.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.josesanchez.controllers.MenuCargosController">
    <children>
-      <ImageView fitHeight="681.0" fitWidth="1236.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="687.0" fitWidth="1220.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../Images/vistaCargo.png" />
          </image>
@@ -129,9 +133,25 @@
                   <Font name="System Bold" size="31.0" />
                </font>
             </Label>
-            <TextField fx:id="txtCargoId" editable="false" GridPane.columnIndex="1" />
-            <TextField fx:id="txtNombreCargo" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-            <TextField fx:id="txtDescripcionCargo" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+            <TextField fx:id="txtCargoId" editable="false" GridPane.columnIndex="1">
+               <effect>
+                  <Lighting>
+                     <bumpInput>
+                        <Shadow />
+                     </bumpInput>
+                     <light>
+                        <Light.Distant />
+                     </light>
+                  </Lighting>
+               </effect></TextField>
+            <TextField fx:id="txtNombreCargo" editable="false" GridPane.columnIndex="1" GridPane.rowIndex="1">
+               <effect>
+                  <Reflection />
+               </effect></TextField>
+            <TextField fx:id="txtDescripcionCargo" editable="false" GridPane.columnIndex="1" GridPane.rowIndex="2">
+               <effect>
+                  <Reflection />
+               </effect></TextField>
          </children>
       </GridPane>
    </children>

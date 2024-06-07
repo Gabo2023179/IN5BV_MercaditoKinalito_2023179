@@ -185,8 +185,8 @@ public class MenuTelefonoProveedorController implements Initializable{
                 btnEliminar.setText("Eliminar");
                 btnEditar.setDisable(false);
                 btnReporte.setDisable(false);
-                imgAgregar.setImage(new Image("/org/josesanchez/Images/AgregarTipoDeProducto.png"));
-                imgEliminar.setImage(new Image("/org/josesanchez/Images/elimianrtipodeproducto.png"));
+                imgAgregar.setImage(new Image("/org/josesanchez/Images/AgregarTelefonoProveedor.png"));
+                imgEliminar.setImage(new Image("/org/josesanchez/Images/EliminarTelefonoProveedor.png"));
                 tipoDeOperaciones = operaciones.NINGUNO;
                 break;
         }
@@ -226,8 +226,8 @@ public class MenuTelefonoProveedorController implements Initializable{
                 btnEliminar.setText("Eliminar");
                 btnEditar.setDisable(false);
                 btnReporte.setDisable(false);
-                imgAgregar.setImage(new Image("/org/josesanchez/Images/AgregarTipoDeProducto.png"));
-                imgEliminar.setImage(new Image("/org/josesanchez/Images/elimianrtipodeproducto.png"));
+                imgAgregar.setImage(new Image("/org/josesanchez/Images/AgregarTelefonoProveedor.png"));
+                imgEliminar.setImage(new Image("/org/josesanchez/Images/EliminarTelefonoProveedor.png"));
                 tipoDeOperaciones = operaciones.NINGUNO;
                 break;
             default:
@@ -277,7 +277,7 @@ public class MenuTelefonoProveedorController implements Initializable{
                 btnReporte.setText("Reporte");
                 btnAgregar.setDisable(false);
                 btnEliminar.setDisable(false);
-                imgEditar.setImage(new Image("/org/josesanchez/Images/EditarCargo 2.png"));
+                imgEditar.setImage(new Image("/org/josesanchez/Images/EditarTelefonoProveedor.png"));
                 imgReporte.setImage(new Image("/org/josesanchez/Images/Accounting_icon-icons.com_74682.png"));
                 desactivarControles();
                 limpiarControles();
@@ -317,7 +317,7 @@ public class MenuTelefonoProveedorController implements Initializable{
                 btnReporte.setText("Reporte");
                 btnAgregar.setDisable(false);
                 btnEliminar.setDisable(false);
-                imgEditar.setImage(new Image("/org/josesanchez/Images/EditarCargo 2.png"));
+                imgEditar.setImage(new Image("/org/josesanchez/Images/EditarTelefonoProveedor.png"));
                 imgReporte.setImage(new Image("/org/josesanchez/Images/Accounting_icon-icons.com_74682.png"));
                 tipoDeOperaciones = operaciones.NINGUNO;
                 break;

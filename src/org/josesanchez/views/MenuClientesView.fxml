@@ -6,6 +6,10 @@
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.Light.Distant?>
+<?import javafx.scene.effect.Lighting?>
+<?import javafx.scene.effect.Reflection?>
+<?import javafx.scene.effect.Shadow?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -98,19 +102,35 @@
                   <Font name="Baskerville Old Face" size="18.0" />
                </font>
             </Label>
-            <TextField fx:id="txtCodigoClienteC" editable="false" GridPane.columnIndex="1" />
+            <TextField fx:id="txtCodigoClienteC" editable="false" GridPane.columnIndex="1">
+               <effect>
+                  <Lighting>
+                     <bumpInput>
+                        <Shadow />
+                     </bumpInput>
+                     <light>
+                        <Light.Distant />
+                     </light>
+                  </Lighting>
+               </effect></TextField>
             <Label prefHeight="22.0" prefWidth="46.0" text="NIT" textFill="#78cf53" GridPane.columnIndex="2">
                <font>
                   <Font name="Baskerville Old Face" size="18.0" />
                </font>
             </Label>
-            <TextField fx:id="txtNit" prefHeight="25.0" prefWidth="43.0" GridPane.columnIndex="3" />
+            <TextField fx:id="txtNit" editable="false" prefHeight="25.0" prefWidth="43.0" GridPane.columnIndex="3">
+               <effect>
+                  <Reflection />
+               </effect></TextField>
             <Label prefHeight="22.0" prefWidth="73.0" text="Nombre" textFill="#78cf53" GridPane.columnIndex="4">
                <font>
                   <Font name="Baskerville Old Face" size="18.0" />
                </font>
             </Label>
-            <TextField fx:id="txtNombreC" GridPane.columnIndex="5" />
+            <TextField fx:id="txtNombreC" editable="false" GridPane.columnIndex="5">
+               <effect>
+                  <Reflection />
+               </effect></TextField>
             <Label prefHeight="22.0" prefWidth="123.0" text="Telefono" textFill="#032870" GridPane.rowIndex="1">
                <font>
                   <Font name="Baskerville Old Face" size="18.0" />
@@ -121,20 +141,32 @@
                   <Font name="Baskerville Old Face" size="18.0" />
                </font>
             </Label>
-            <TextField fx:id="txtTelefonoC" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-            <TextField fx:id="txtApellidoC" GridPane.columnIndex="5" GridPane.rowIndex="1" />
+            <TextField fx:id="txtTelefonoC" editable="false" GridPane.columnIndex="1" GridPane.rowIndex="1">
+               <effect>
+                  <Reflection />
+               </effect></TextField>
+            <TextField fx:id="txtApellidoC" editable="false" GridPane.columnIndex="5" GridPane.rowIndex="1">
+               <effect>
+                  <Reflection />
+               </effect></TextField>
             <Label text="Correo" textFill="#78cf53" GridPane.columnIndex="2" GridPane.rowIndex="1">
                <font>
                   <Font name="Baskerville Old Face" size="18.0" />
                </font>
             </Label>
-            <TextField fx:id="txtCorreoC" GridPane.columnIndex="3" GridPane.rowIndex="1" />
+            <TextField fx:id="txtCorreoC" editable="false" GridPane.columnIndex="3" GridPane.rowIndex="1">
+               <effect>
+                  <Reflection />
+               </effect></TextField>
             <Label prefHeight="22.0" prefWidth="123.0" text="Direccion" textFill="#032870" GridPane.rowIndex="2">
                <font>
                   <Font name="Baskerville Old Face" size="18.0" />
                </font>
             </Label>
-            <TextField fx:id="txtDireccionC" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+            <TextField fx:id="txtDireccionC" editable="false" GridPane.columnIndex="1" GridPane.rowIndex="2">
+               <effect>
+                  <Reflection />
+               </effect></TextField>
          </children>
       </GridPane>
       <TableView fx:id="tblClientes" layoutX="419.0" layoutY="318.0" onMouseClicked="#seleccionarElemento" prefHeight="400.0" prefWidth="882.0">

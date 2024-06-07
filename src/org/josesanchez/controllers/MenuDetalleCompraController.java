@@ -234,8 +234,8 @@ public class MenuDetalleCompraController implements Initializable {
                 btnEliminar.setText("Eliminar");
                 btnEditar.setDisable(false);
                 btnReporte.setDisable(false);
-                imgAgregar.setImage(new Image("/org/josesanchez/Images/AgregarTipoDeProducto.png"));
-                imgEliminar.setImage(new Image("/org/josesanchez/Images/elimianrtipodeproducto.png"));
+                imgAgregar.setImage(new Image("/org/josesanchez/Images/AgregarDetalleCompra.png"));
+                imgEliminar.setImage(new Image("/org/josesanchez/Images/eliminarGeneral.png"));
                 tipoDeOperacion = operaciones.NINGUNO;
                 break;
         }
@@ -278,8 +278,8 @@ public class MenuDetalleCompraController implements Initializable {
                 btnEliminar.setText("Eliminar");
                 btnEditar.setDisable(false);
                 btnReporte.setDisable(false);
-                imgAgregar.setImage(new Image("/org/josesanchez/Images/AgregarTipoDeProducto.png"));
-                imgEliminar.setImage(new Image("/org/josesanchez/Images/elimianrtipodeproducto.png"));
+                imgAgregar.setImage(new Image("/org/josesanchez/Images/AgregarDetalleCompra.png"));
+                imgEliminar.setImage(new Image("/org/josesanchez/Images/eliminarGeneral.png"));
                 tipoDeOperacion = operaciones.NINGUNO;
                 break;
             default:
@@ -326,7 +326,7 @@ public class MenuDetalleCompraController implements Initializable {
                 btnReporte.setText("Reporte");
                 btnAgregar.setDisable(false);
                 btnEliminar.setDisable(false);
-                imgEditar.setImage(new Image("/org/josesanchez/Images/EditarCargo 2.png"));
+                imgEditar.setImage(new Image("/org/josesanchez/Images/EditarGeneral.png"));
                 imgReporte.setImage(new Image("/org/josesanchez/Images/Accounting_icon-icons.com_74682.png"));
                 desactivarControles();
                 limpiarControles();
@@ -365,7 +365,7 @@ public class MenuDetalleCompraController implements Initializable {
                 btnReporte.setText("Reporte");
                 btnAgregar.setDisable(false);
                 btnEliminar.setDisable(false);
-                imgEditar.setImage(new Image("/org/josesanchez/Images/EditarCargo 2.png"));
+                imgEditar.setImage(new Image("/org/josesanchez/Images/EditarGeneral.png"));
                 imgReporte.setImage(new Image("/org/josesanchez/Images/Accounting_icon-icons.com_74682.png"));
                 tipoDeOperacion = operaciones.NINGUNO;
                 break;
@@ -380,16 +380,16 @@ public class MenuDetalleCompraController implements Initializable {
         txtCodigoDC.setEditable(false);
         txtCostoU.setEditable(false);
         txtCantidad.setEditable(false);
-        cmbProCodPro.setEditable(true);
-        cmbComNumDoc.setEditable(true);
+        cmbProCodPro.setDisable(true);
+        cmbComNumDoc.setDisable(true);
 
     }
 
     public void activarControles() {
         txtCostoU.setEditable(true);
         txtCantidad.setEditable(true);
-        cmbProCodPro.setEditable(false);
-        cmbComNumDoc.setEditable(false);
+        cmbProCodPro.setDisable(false);
+        cmbComNumDoc.setDisable(false);
 
     }
 

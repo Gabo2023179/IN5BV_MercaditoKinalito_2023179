@@ -361,7 +361,7 @@ public class MenuEmpleadosController implements Initializable {
         txtSueldo.setEditable(true);
         txtDireccion.setEditable(true);
         txtTurno.setEditable(true);
-        cmbCargoId.setDisable(true);
+        cmbCargoId.setDisable(false);
     }
 
     public void limpiarControles() {

@@ -7,6 +7,10 @@
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.Light.Distant?>
+<?import javafx.scene.effect.Lighting?>
+<?import javafx.scene.effect.Reflection?>
+<?import javafx.scene.effect.Shadow?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -100,7 +104,7 @@
             <String fx:value="button3" />
          </styleClass>
       </Button>
-      <GridPane layoutX="474.0" layoutY="220.0" prefHeight="153.0" prefWidth="591.0">
+      <GridPane layoutX="484.0" layoutY="220.0" prefHeight="153.0" prefWidth="581.0">
         <columnConstraints>
           <ColumnConstraints hgrow="SOMETIMES" maxWidth="326.0" minWidth="10.0" prefWidth="299.0" />
           <ColumnConstraints hgrow="SOMETIMES" maxWidth="465.0" minWidth="10.0" prefWidth="363.0" />
@@ -132,10 +136,29 @@
                   <Font name="System Bold" size="25.0" />
                </font>
             </Label>
-            <TextField fx:id="txtCompraId" editable="false" GridPane.columnIndex="1" />
-            <TextField fx:id="txtdescripcion" editable="false" GridPane.columnIndex="1" GridPane.rowIndex="2" />
-            <TextField fx:id="txtTotalCompra" editable="false" GridPane.columnIndex="1" GridPane.rowIndex="3" />
-            <DatePicker fx:id="datepFc" editable="false" prefHeight="25.0" prefWidth="355.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+            <TextField fx:id="txtCompraId" editable="false" GridPane.columnIndex="1">
+               <effect>
+                  <Lighting>
+                     <bumpInput>
+                        <Shadow />
+                     </bumpInput>
+                     <light>
+                        <Light.Distant />
+                     </light>
+                  </Lighting>
+               </effect></TextField>
+            <TextField fx:id="txtdescripcion" editable="false" GridPane.columnIndex="1" GridPane.rowIndex="2">
+               <effect>
+                  <Reflection />
+               </effect></TextField>
+            <TextField fx:id="txtTotalCompra" editable="false" GridPane.columnIndex="1" GridPane.rowIndex="3">
+               <effect>
+                  <Reflection />
+               </effect></TextField>
+            <DatePicker fx:id="datepFc" editable="false" prefHeight="25.0" prefWidth="355.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
+               <effect>
+                  <Reflection />
+               </effect></DatePicker>
          </children>
       </GridPane>
    </children>
