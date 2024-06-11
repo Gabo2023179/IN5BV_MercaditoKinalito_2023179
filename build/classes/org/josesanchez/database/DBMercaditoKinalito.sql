@@ -1,7 +1,7 @@
 drop database if exists DBMercaditoKinalito;
 create database DBMercaditoKinalito;
 use DBMercaditoKinalito;
-ALTER USER '2023179_IN5BV'@'localhost' IDENTIFIED WITH mysql_native_password BY 'abc123!!';
+ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY 'RootKinal2024$';
  
  set global time_Zone = '-6:00';
 -- Creacion de Entidades
@@ -37,6 +37,7 @@ create table TelefonoProveedor(
     primary key PK_codigoTelefonoProveedor (codigoTelefonoProveedor),
     foreign key FK_telefonoCodigoProveedor (codigoProveedor)
 		references Proveedores(codigoProveedor)
+        on delete cascade
 );
 
 create table EmailProveedor(
@@ -47,6 +48,7 @@ create table EmailProveedor(
     primary key codigoEmailProveedor (codigoEmailProveedor),
     foreign key FK_emailCodigoProveedor (codigoProveedor)
 		references Proveedores(codigoProveedor)
+        on delete cascade
 );
  
 create table TipoDeProductos(
@@ -66,9 +68,11 @@ create table Productos (
     codigoTipoDeProducto int,
     primary key PK_productoId (productoId),
     foreign key FK_codigoProveedor (codigoProveedor)
-		references Proveedores(codigoProveedor),
+		references Proveedores(codigoProveedor)
+        on delete cascade,
 	foreign key FK_codigoTipoDeProducto (codigoTipoDeProducto )
 		references TipoDeProductos (codigoTipoDeProducto )
+        on delete cascade
 );
 
 create table Compras(
@@ -88,9 +92,11 @@ create table DetalleCompra(
     compraId int,
     primary key PK_codigoDetalleCompra (codigoDetalleCompra),
     foreign key FK_detalleCompraProductoId (productoId)
-		references Productos (productoId),
+		references Productos (productoId)
+        on delete cascade,
 	foreign key FK_compraId (compraId)
 		references Compras (compraId)
+        on delete cascade
 );
 
 create table Cargos(
@@ -111,6 +117,7 @@ create table Empleados(
     primary key PK_codigoEmpleado (codigoEmpleado),
     foreign key FK_cargo (cargoId)
 		references Cargos (cargoId)
+        on delete cascade
 );
 
 create table Facturas(
@@ -122,9 +129,11 @@ create table Facturas(
     codigoEmpleado int,
     primary key PK_numeroFactura (numeroFactura),
     foreign key FK_facturaClienteId (codigoCliente)
-		references Clientes (codigoCliente),
+		references Clientes (codigoCliente)
+        on delete cascade,
 	foreign key FK_facturaEmpleadoId (codigoEmpleado)
 		references Empleados (codigoEmpleado)
+        on delete cascade
 );
 
 create table Detallefactura (
@@ -135,9 +144,11 @@ create table Detallefactura (
     productoId int,
     Primary key PK_codigoDetalleFactura (codigoDetalleFactura),
     foreign key FK_detalleFacturaId (numeroFactura)
-		references Facturas (numeroFactura),
+		references Facturas (numeroFactura)
+        on delete cascade,
 	foreign key FK_detalleFacturaProductoId(productoId)
 		references Productos (productoId)
+        on delete cascade
 );
 
 -- -------------------------------------------------- CRUD --------------------------------------------------

@@ -137,12 +137,15 @@ public class MenuClientesController implements Initializable {
         switch (tipoDeOperaciones) {
             case NINGUNO:
                 activarControles();
+                limpiarControles();
                 btnAgregar.setText("guardar");
                 btnEliminar.setText("cancelar");
                 btnEditar.setDisable(true);
                 btnReporte.setDisable(true);
                 imgAgregar.setImage(new Image("/org/josesanchez/Images/guardar.png"));
                 imgEliminar.setImage(new Image("/org/josesanchez/Images/cancelar.png"));
+                imgReporte.setOpacity(0.5);
+                imgEditar.setOpacity(0.5);
                 tipoDeOperaciones = operaciones.ACTUALIZAR;
                 break;
             case ACTUALIZAR:
@@ -155,6 +158,8 @@ public class MenuClientesController implements Initializable {
                 btnReporte.setDisable(false);
                 imgAgregar.setImage(new Image("/org/josesanchez/Images/business_application_addmale_useradd_insert_add_user_client_2312.png"));
                 imgEliminar.setImage(new Image("/org/josesanchez/Images/delete_delete_deleteusers_delete_male_user_maleclient_2348.png"));
+                imgReporte.setOpacity(1);
+                imgEditar.setOpacity(1);
                 tipoDeOperaciones = operaciones.NINGUNO;
                 break;
         }
@@ -200,6 +205,8 @@ public class MenuClientesController implements Initializable {
                 btnReporte.setDisable(false);
                 imgAgregar.setImage(new Image("/org/josesanchez/Images/business_application_addmale_useradd_insert_add_user_client_2312.png"));
                 imgEliminar.setImage(new Image("/org/josesanchez/Images/delete_delete_deleteusers_delete_male_user_maleclient_2348.png"));
+                imgReporte.setOpacity(1);
+                imgEditar.setOpacity(1);
                 tipoDeOperaciones = operaciones.NINGUNO;
                 break;
             default:
@@ -230,12 +237,15 @@ public class MenuClientesController implements Initializable {
 
             case NINGUNO:
                 if (tblClientes.getSelectionModel().getSelectedItem() != null) {
+                    seleccionarElemento();
                     btnEditar.setText("Actualizar");
                     btnReporte.setText("Cancelar");
                     btnAgregar.setDisable(true);
                     btnEliminar.setDisable(true);
                     imgEditar.setImage(new Image("/org/josesanchez/Images/male-user-edit_25348.png"));
                     imgReporte.setImage(new Image("/org/josesanchez/Images/cancelar.png"));
+                    imgAgregar.setOpacity(0.5);
+                    imgEliminar.setOpacity(0.5);
                     activarControles();
                     txtCodigoClienteC.setEditable(false);
                     tipoDeOperaciones = operaciones.ACTUALIZAR;
@@ -251,6 +261,8 @@ public class MenuClientesController implements Initializable {
                 btnEliminar.setDisable(false);
                 imgEditar.setImage(new Image("/org/josesanchez/Images/business_application_addmale_useradd_insert_add_user_client_2312.png"));
                 imgReporte.setImage(new Image("/org/josesanchez/Images/users_12820.png"));
+                imgAgregar.setOpacity(1);
+                imgEliminar.setOpacity(1);
                 desactivarControles();
                 limpiarControles();
                 tipoDeOperaciones = operaciones.NINGUNO;
