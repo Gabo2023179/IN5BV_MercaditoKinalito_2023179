@@ -1,7 +1,9 @@
 drop database if exists DBMercaditoKinalito;
 create database DBMercaditoKinalito;
 use DBMercaditoKinalito;
-ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY 'RootKinal2024$';
+ ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY 'admin';
+-- ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY 'RootKinal2024$';
+-- ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY 'RootKinal2024$';
  
  set global time_Zone = '-6:00';
 -- Creacion de Entidades

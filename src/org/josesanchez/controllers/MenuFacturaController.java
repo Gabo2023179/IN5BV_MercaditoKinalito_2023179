@@ -3,7 +3,6 @@ package org.josesanchez.controllers;
 import java.net.URL;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
-import java.sql.SQLException;
 import java.sql.SQLIntegrityConstraintViolationException;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
@@ -26,11 +25,11 @@ import javax.swing.JOptionPane;
 import org.josesanchez.beans.Clientes;
 import org.josesanchez.beans.Empleados;
 import org.josesanchez.beans.Factura;
-import org.josesanchez.beans.Productos;
 import org.josesanchez.dbs.Conexion;
 import org.josesanchez.system.Main;
 
-public class MenuFacturaController implements Initializable{
+public class MenuFacturaController implements Initializable {
+
     private Main escenarioPrincipal;
 
     private enum operaciones {
@@ -132,13 +131,14 @@ public class MenuFacturaController implements Initializable{
                         registro.getString("telefonoCliente"),
                         registro.getString("correoCliente")
                 );
-                
+
             }
         } catch (Exception e) {
             e.printStackTrace();
         }
         return resultado;
     }
+
     public Empleados buscarEmpleados(int codigoEmpleado) {
         Empleados resultado = null;
         try {
@@ -160,7 +160,6 @@ public class MenuFacturaController implements Initializable{
         }
         return resultado;
     }
-    
 
     public ObservableList<Factura> getFactura() {
         ArrayList<Factura> lista = new ArrayList<Factura>();
@@ -181,7 +180,7 @@ public class MenuFacturaController implements Initializable{
         return listaFactura = FXCollections.observableArrayList(lista);
     }
 
-     public ObservableList<Clientes> getClientes() {
+    public ObservableList<Clientes> getClientes() {
         ArrayList<Clientes> lista = new ArrayList<>();
         try {
             PreparedStatement procedimiento = Conexion.getInstance().getConexion().prepareCall("{call sp_ListarClientes ()}");
@@ -203,8 +202,7 @@ public class MenuFacturaController implements Initializable{
         return listaClientes = FXCollections.observableArrayList(lista);
     }
 
-
-     public ObservableList<Empleados> getEmpleados() {
+    public ObservableList<Empleados> getEmpleados() {
         ArrayList<Empleados> lista = new ArrayList<Empleados>();
         try {
             PreparedStatement procedimiento = Conexion.getInstance().getConexion().prepareCall("{call sp_ListarEmpleados ()}");
@@ -234,6 +232,8 @@ public class MenuFacturaController implements Initializable{
                 btnReporte.setDisable(true);
                 imgAgregar.setImage(new Image("/org/josesanchez/Images/guardar.png"));
                 imgEliminar.setImage(new Image("/org/josesanchez/Images/cancelar.png"));
+                imgReporte.setOpacity(0.5);
+                imgEditar.setOpacity(0.5);
                 tipoDeOperacion = operaciones.ACTUALIZAR;
                 break;
             case ACTUALIZAR:
@@ -246,6 +246,8 @@ public class MenuFacturaController implements Initializable{
                 btnReporte.setDisable(false);
                 imgAgregar.setImage(new Image("/org/josesanchez/Images/AgregarFactura.png"));
                 imgEliminar.setImage(new Image("/org/josesanchez/Images/eLIMINARGENERALITY.png"));
+                imgReporte.setOpacity(1);
+                imgEditar.setOpacity(1);
                 tipoDeOperacion = operaciones.NINGUNO;
                 break;
         }
@@ -253,20 +255,20 @@ public class MenuFacturaController implements Initializable{
 
     public void guardar() {
         Factura registro = new Factura();
-        
+
         registro.setCodigoCliente(((Clientes) cmbCodigoCliente.getSelectionModel().getSelectedItem()).getCodigoCliente());
         registro.setCodigoEmpleado(((Empleados) cmbCodEmpleado.getSelectionModel().getSelectedItem()).getCodigoEmpleado());
         registro.setEstado(txtEstado.getText());
         registro.setFechaFactura(LocalDate.parse(txtFechaFac.getText(), formatter));
         try {
-             PreparedStatement procedimiento = Conexion.getInstance().getConexion().prepareCall("{call sp_AgregarFactura(?, ?, ?, ?)}");
+            PreparedStatement procedimiento = Conexion.getInstance().getConexion().prepareCall("{call sp_AgregarFactura(?, ?, ?, ?)}");
             procedimiento.setString(1, registro.getEstado());
             procedimiento.setDate(2, java.sql.Date.valueOf(registro.getFechaFactura()));
             procedimiento.setInt(3, registro.getCodigoCliente());
             procedimiento.setInt(4, registro.getCodigoEmpleado());
             procedimiento.execute();
             ResultSet generatedKeys = procedimiento.getGeneratedKeys();
-            if(generatedKeys.next()){
+            if (generatedKeys.next()) {
                 registro.setNumeroFactura(generatedKeys.getInt(1));
             }
             listaFactura.add(registro);
@@ -287,6 +289,8 @@ public class MenuFacturaController implements Initializable{
                 btnReporte.setDisable(false);
                 imgAgregar.setImage(new Image("/org/josesanchez/Images/AgregarFactura.png"));
                 imgEliminar.setImage(new Image("/org/josesanchez/Images/eLIMINARGENERALITY.png"));
+                imgReporte.setOpacity(1);
+                imgEditar.setOpacity(1);
                 tipoDeOperacion = operaciones.NINGUNO;
                 break;
             default:
@@ -323,6 +327,8 @@ public class MenuFacturaController implements Initializable{
                     btnEliminar.setDisable(true);
                     imgEditar.setImage(new Image("/org/josesanchez/Images/editartipodeproducto.png"));
                     imgReporte.setImage(new Image("/org/josesanchez/Images/cancelar.png"));
+                    imgAgregar.setOpacity(0.5);
+                    imgEliminar.setOpacity(0.5);
                     activarControles();
                     txtNumFactura.setEditable(false);
                     tipoDeOperacion = operaciones.ACTUALIZAR;
@@ -338,6 +344,8 @@ public class MenuFacturaController implements Initializable{
                 btnEliminar.setDisable(false);
                 imgEditar.setImage(new Image("/org/josesanchez/Images/EditarGeneral.png"));
                 imgReporte.setImage(new Image("/org/josesanchez/Images/Accounting_icon-icons.com_74682.png"));
+                imgAgregar.setOpacity(1);
+                imgEliminar.setOpacity(1);
                 desactivarControles();
                 limpiarControles();
                 tipoDeOperacion = operaciones.NINGUNO;
@@ -380,6 +388,8 @@ public class MenuFacturaController implements Initializable{
                 btnEliminar.setDisable(false);
                 imgEditar.setImage(new Image("/org/josesanchez/Images/EditarGeneral.png"));
                 imgReporte.setImage(new Image("/org/josesanchez/Images/Accounting_icon-icons.com_74682.png"));
+                imgAgregar.setOpacity(1);
+                imgEliminar.setOpacity(1);
                 tipoDeOperacion = operaciones.NINGUNO;
                 break;
         }

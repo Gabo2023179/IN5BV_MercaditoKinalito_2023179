@@ -37,7 +37,7 @@
 		<band height="802" splitType="Stretch">
 			<image scaleImage="FillFrame">
 				<reportElement x="0" y="0" width="555" height="802" uuid="04b123cd-b9a8-49ae-b46c-e58e54fe3e15"/>
-				<imageExpression><![CDATA["C:\\Users\\INFORMATICA\\Desktop\\CARBON\\IN5BV_MercaditoKinalito_2023179\\src\\org\\josesanchez\\Images\\Membrete.png"]]></imageExpression>
+				<imageExpression><![CDATA["C:\\Users\\INFORMATICA\\Desktop\\CARBON 2\\IN5BV_MercaditoKinalito_2023179\\src\\org\\josesanchez\\Images\\Membrete.png"]]></imageExpression>
 			</image>
 		</band>
 	</background>

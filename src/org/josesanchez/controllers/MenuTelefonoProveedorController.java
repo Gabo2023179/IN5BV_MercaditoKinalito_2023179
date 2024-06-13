@@ -25,7 +25,8 @@ import org.josesanchez.beans.TelefonoProveedor;
 import org.josesanchez.dbs.Conexion;
 import org.josesanchez.system.Main;
 
-public class MenuTelefonoProveedorController implements Initializable{
+public class MenuTelefonoProveedorController implements Initializable {
+
     private enum operaciones {
         AGREGAR, ELIMINAR, EDITAR, ACTUALIZAR, CANCELAR, NINGUNO
     }
@@ -175,6 +176,8 @@ public class MenuTelefonoProveedorController implements Initializable{
                 btnReporte.setDisable(true);
                 imgAgregar.setImage(new Image("/org/josesanchez/Images/guardar.png"));
                 imgEliminar.setImage(new Image("/org/josesanchez/Images/cancelar.png"));
+                imgReporte.setOpacity(0.5);
+                imgEditar.setOpacity(0.5);
                 tipoDeOperaciones = operaciones.ACTUALIZAR;
                 break;
             case ACTUALIZAR:
@@ -187,6 +190,8 @@ public class MenuTelefonoProveedorController implements Initializable{
                 btnReporte.setDisable(false);
                 imgAgregar.setImage(new Image("/org/josesanchez/Images/AgregarTelefonoProveedor.png"));
                 imgEliminar.setImage(new Image("/org/josesanchez/Images/EliminarTelefonoProveedor.png"));
+                imgReporte.setOpacity(1);
+                imgEditar.setOpacity(1);
                 tipoDeOperaciones = operaciones.NINGUNO;
                 break;
         }
@@ -207,7 +212,7 @@ public class MenuTelefonoProveedorController implements Initializable{
             procedimiento.setInt(4, registro.getCodigoProveedor());
             procedimiento.execute();
             ResultSet generatedKeys = procedimiento.getGeneratedKeys();
-            if(generatedKeys.next()){
+            if (generatedKeys.next()) {
                 registro.setCodigoTelefonoProveedor(generatedKeys.getInt(1));
             }
             listaTelPro.add(registro);
@@ -228,6 +233,8 @@ public class MenuTelefonoProveedorController implements Initializable{
                 btnReporte.setDisable(false);
                 imgAgregar.setImage(new Image("/org/josesanchez/Images/AgregarTelefonoProveedor.png"));
                 imgEliminar.setImage(new Image("/org/josesanchez/Images/EliminarTelefonoProveedor.png"));
+                imgReporte.setOpacity(1);
+                imgEditar.setOpacity(1);
                 tipoDeOperaciones = operaciones.NINGUNO;
                 break;
             default:
@@ -255,7 +262,6 @@ public class MenuTelefonoProveedorController implements Initializable{
 
     public void editar() {
         switch (tipoDeOperaciones) {
-
             case NINGUNO:
                 if (tblTelPro.getSelectionModel().getSelectedItem() != null) {
                     btnEditar.setText("Actualizar");
@@ -264,6 +270,8 @@ public class MenuTelefonoProveedorController implements Initializable{
                     btnEliminar.setDisable(true);
                     imgEditar.setImage(new Image("/org/josesanchez/Images/editartipodeproducto.png"));
                     imgReporte.setImage(new Image("/org/josesanchez/Images/cancelar.png"));
+                    imgAgregar.setOpacity(0.5);
+                    imgEliminar.setOpacity(0.5);
                     activarControles();
                     txtCodTelPro.setEditable(false);
                     tipoDeOperaciones = operaciones.ACTUALIZAR;
@@ -279,6 +287,8 @@ public class MenuTelefonoProveedorController implements Initializable{
                 btnEliminar.setDisable(false);
                 imgEditar.setImage(new Image("/org/josesanchez/Images/EditarTelefonoProveedor.png"));
                 imgReporte.setImage(new Image("/org/josesanchez/Images/Accounting_icon-icons.com_74682.png"));
+                imgAgregar.setOpacity(1);
+                imgEliminar.setOpacity(1);
                 desactivarControles();
                 limpiarControles();
                 tipoDeOperaciones = operaciones.NINGUNO;
@@ -319,6 +329,8 @@ public class MenuTelefonoProveedorController implements Initializable{
                 btnEliminar.setDisable(false);
                 imgEditar.setImage(new Image("/org/josesanchez/Images/EditarTelefonoProveedor.png"));
                 imgReporte.setImage(new Image("/org/josesanchez/Images/Accounting_icon-icons.com_74682.png"));
+                imgAgregar.setOpacity(1);
+                imgEliminar.setOpacity(1);
                 tipoDeOperaciones = operaciones.NINGUNO;
                 break;
         }
@@ -357,5 +369,5 @@ public class MenuTelefonoProveedorController implements Initializable{
             escenarioPrincipal.menuPrincipalView();
         }
     }
-    
+
 }

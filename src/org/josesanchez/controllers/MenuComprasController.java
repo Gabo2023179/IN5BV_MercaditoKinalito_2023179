@@ -135,6 +135,8 @@ public class MenuComprasController implements Initializable {
                 btnReporte.setDisable(true);
                 imgAgregar.setImage(new Image("/org/josesanchez/Images/guardar.png"));
                 imgEliminar.setImage(new Image("/org/josesanchez/Images/cancelar.png"));
+                imgReporte.setOpacity(0.5);
+                imgEditar.setOpacity(0.5);
                 tipoDeOperaciones = operaciones.ACTUALIZAR;
                 break;
             case ACTUALIZAR:
@@ -147,6 +149,8 @@ public class MenuComprasController implements Initializable {
                 btnReporte.setDisable(false);
                 imgAgregar.setImage(new Image("/org/josesanchez/Images/AgregarTipoDeProducto.png"));
                 imgEliminar.setImage(new Image("/org/josesanchez/Images/elimianrtipodeproducto.png"));
+                imgReporte.setOpacity(1);
+                imgEditar.setOpacity(1);
                 tipoDeOperaciones = operaciones.NINGUNO;
                 break;
         }
@@ -163,7 +167,7 @@ public class MenuComprasController implements Initializable {
             procedimiento.setString(2, registro.getDescripcion());
             procedimiento.execute();
             ResultSet generatedKeys = procedimiento.getGeneratedKeys();
-            if(generatedKeys.next()){
+            if (generatedKeys.next()) {
                 registro.setCompraId(generatedKeys.getInt(1));
             }
             listaCompras.add(registro);
@@ -185,6 +189,8 @@ public class MenuComprasController implements Initializable {
                 btnReporte.setDisable(false);
                 imgAgregar.setImage(new Image("/org/josesanchez/Images/AgregarTipoDeProducto.png"));
                 imgEliminar.setImage(new Image("/org/josesanchez/Images/elimianrtipodeproducto.png"));
+                imgReporte.setOpacity(1);
+                imgEditar.setOpacity(1);
                 tipoDeOperaciones = operaciones.NINGUNO;
                 break;
             default:
@@ -221,6 +227,8 @@ public class MenuComprasController implements Initializable {
                     btnEliminar.setDisable(true);
                     imgEditar.setImage(new Image("/org/josesanchez/Images/editartipodeproducto.png"));
                     imgReporte.setImage(new Image("/org/josesanchez/Images/cancelar.png"));
+                    imgAgregar.setOpacity(0.5);
+                    imgEliminar.setOpacity(0.5);
                     activarControles();
                     txtCompraId.setEditable(false);
                     tipoDeOperaciones = operaciones.ACTUALIZAR;
@@ -236,6 +244,8 @@ public class MenuComprasController implements Initializable {
                 btnEliminar.setDisable(false);
                 imgEditar.setImage(new Image("/org/josesanchez/Images/EditarCargo 2.png"));
                 imgReporte.setImage(new Image("/org/josesanchez/Images/Accounting_icon-icons.com_74682.png"));
+                imgAgregar.setOpacity(1);
+                imgEliminar.setOpacity(1);
                 desactivarControles();
                 limpiarControles();
                 tipoDeOperaciones = operaciones.NINGUNO;
@@ -274,6 +284,8 @@ public class MenuComprasController implements Initializable {
                 btnEliminar.setDisable(false);
                 imgEditar.setImage(new Image("/org/josesanchez/Images/EditarCargo 2.png"));
                 imgReporte.setImage(new Image("/org/josesanchez/Images/Accounting_icon-icons.com_74682.png"));
+                imgAgregar.setOpacity(1);
+                imgEliminar.setOpacity(1);
                 tipoDeOperaciones = operaciones.NINGUNO;
                 break;
         }
@@ -282,14 +294,13 @@ public class MenuComprasController implements Initializable {
     public void desactivarControles() {
         txtCompraId.setEditable(false);
         datepFc.setEditable(false);
-        txtdescripcion.setEditable(false);    
+        txtdescripcion.setEditable(false);
         txtTotalCompra.setEditable(false);
     }
 
     public void activarControles() {
         datepFc.setEditable(true);
         txtdescripcion.setEditable(true);
-        
 
     }
 

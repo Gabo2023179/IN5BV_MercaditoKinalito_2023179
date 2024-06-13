@@ -234,7 +234,6 @@ public class MenuClientesController implements Initializable {
 
     public void editar() {
         switch (tipoDeOperaciones) {
-
             case NINGUNO:
                 if (tblClientes.getSelectionModel().getSelectedItem() != null) {
                     seleccionarElemento();
@@ -307,6 +306,8 @@ public class MenuClientesController implements Initializable {
                 btnEliminar.setDisable(false);
                 imgEditar.setImage(new Image("/org/josesanchez/Images/business_application_addmale_useradd_insert_add_user_client_2312.png"));
                 imgReporte.setImage(new Image("/org/josesanchez/Images/users_12820.png"));
+                imgAgregar.setOpacity(1);
+                imgEliminar.setOpacity(1);
                 tipoDeOperaciones = operaciones.NINGUNO;
                 break;
         }

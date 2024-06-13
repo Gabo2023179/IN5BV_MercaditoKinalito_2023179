@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="reportProductos" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="c6d9d98e-e436-4000-bc3a-10e5cd662dfe">
+	<property name="ireport.zoom" value="1.3310000000000015"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<queryString>
+		<![CDATA[call sp_ListarProductos ()]]>
+	</queryString>
+	<field name="productoId" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="descripcionProducto" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="precioUnitario" class="java.math.BigDecimal">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="precioDocena" class="java.math.BigDecimal">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="precioMayor" class="java.math.BigDecimal">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="imagenProducto" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="existencia" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="codigoProveedor" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="codigoTipoDeProducto" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<background>
+		<band height="802" splitType="Stretch">
+			<image scaleImage="FillFrame">
+				<reportElement x="0" y="0" width="555" height="802" uuid="2b111d33-ec12-4895-98c6-44dde0bb8ae1"/>
+				<imageExpression><![CDATA["C:\\Users\\INFORMATICA\\Desktop\\CARBON 2\\IN5BV_MercaditoKinalito_2023179\\src\\org\\josesanchez\\Images\\Membrete.png"]]></imageExpression>
+			</image>
+		</band>
+	</background>
+	<title>
+		<band height="79" splitType="Stretch"/>
+	</title>
+	<pageHeader>
+		<band height="35" splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="61" splitType="Stretch">
+			<staticText>
+				<reportElement x="30" y="41" width="100" height="20" uuid="55f7a28c-0612-416d-9ae0-f72d7bdc068b"/>
+				<text><![CDATA[descripcionProducto]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="130" y="40" width="100" height="20" uuid="ac7eb5c2-f6ab-4e75-b7cb-11fbb9401ee0"/>
+				<text><![CDATA[productoId]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="230" y="40" width="100" height="20" uuid="cf224367-93b7-4ac0-b12e-b0cf98935151"/>
+				<text><![CDATA[precioUnitario]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="330" y="40" width="100" height="20" uuid="50ed042c-58be-4629-b084-dd1af7a5cd44"/>
+				<text><![CDATA[existencia]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="430" y="40" width="100" height="20" uuid="6ef00be7-2d11-4a0a-8ba2-c348fea053be"/>
+				<text><![CDATA[productoId]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="125" splitType="Stretch">
+			<textField>
+				<reportElement x="30" y="60" width="100" height="20" uuid="27339e83-31be-46e9-a800-7c838ce42a21"/>
+				<textFieldExpression><![CDATA[$F{descripcionProducto}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="130" y="60" width="100" height="20" uuid="ee480707-b376-4e01-9836-ccb5c5a6c964"/>
+				<textFieldExpression><![CDATA[$F{productoId}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="230" y="60" width="100" height="20" uuid="0ba21816-4aa3-4f82-bc0d-550e686ed8a6"/>
+				<textFieldExpression><![CDATA[$F{precioUnitario}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="330" y="60" width="100" height="20" uuid="c75b80de-b6e1-4e2b-ae11-af3b5663ce94"/>
+				<textFieldExpression><![CDATA[$F{existencia}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="430" y="60" width="100" height="20" uuid="3f533ab5-c737-4b6e-96c3-e1acb5dc0421"/>
+				<textFieldExpression><![CDATA[$F{productoId}]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement x="19" y="0" width="511" height="1" uuid="6bc0d845-1449-4257-be8a-f70d137a810f"/>
+			</line>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="45" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="54" splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="42" splitType="Stretch"/>
+	</summary>
+</jasperReport>

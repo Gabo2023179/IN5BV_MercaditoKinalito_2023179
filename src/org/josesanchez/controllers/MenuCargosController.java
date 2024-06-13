@@ -8,8 +8,6 @@ package org.josesanchez.controllers;
 import java.net.URL;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.SQLIntegrityConstraintViolationException;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
 import javafx.collections.FXCollections;
@@ -125,6 +123,8 @@ public class MenuCargosController implements Initializable {
                 btnReporte.setDisable(true);
                 imgAgregar.setImage(new Image("/org/josesanchez/Images/guardar.png"));
                 imgEliminar.setImage(new Image("/org/josesanchez/Images/cancelar.png"));
+                imgReporte.setOpacity(0.5);
+                imgEditar.setOpacity(0.5);
                 tipoDeOperaciones = operaciones.ACTUALIZAR;
                 break;
             case ACTUALIZAR:
@@ -137,6 +137,8 @@ public class MenuCargosController implements Initializable {
                 btnReporte.setDisable(false);
                 imgAgregar.setImage(new Image("/org/josesanchez/Images/AgregarCargo.png"));
                 imgEliminar.setImage(new Image("/org/josesanchez/Images/EliminarCargo.png"));
+                imgReporte.setOpacity(1);
+                imgEditar.setOpacity(1);
                 tipoDeOperaciones = operaciones.NINGUNO;
                 break;
         }
@@ -174,6 +176,8 @@ public class MenuCargosController implements Initializable {
                 btnReporte.setDisable(false);
                 imgAgregar.setImage(new Image("/org/josesanchez/Images/AgregarCargo.png"));
                 imgEliminar.setImage(new Image("/org/josesanchez/Images/EliminarCargo.png"));
+                imgReporte.setOpacity(1);
+                imgEditar.setOpacity(1);
                 tipoDeOperaciones = operaciones.NINGUNO;
                 break;
             default:
@@ -208,6 +212,8 @@ public class MenuCargosController implements Initializable {
                     btnEliminar.setDisable(true);
                     imgEditar.setImage(new Image("/org/josesanchez/Images/EditarCargo.png"));
                     imgReporte.setImage(new Image("/org/josesanchez/Images/cancelar.png"));
+                    imgAgregar.setOpacity(0.5);
+                    imgEliminar.setOpacity(0.5);
                     activarControles();
                     txtCargoId.setEditable(false);
                     tipoDeOperaciones = operaciones.ACTUALIZAR;
@@ -223,6 +229,8 @@ public class MenuCargosController implements Initializable {
                 btnEliminar.setDisable(false);
                 imgEditar.setImage(new Image("/org/josesanchez/Images/EditarCargo 2.png"));
                 imgReporte.setImage(new Image("/org/josesanchez/Images/Accounting_icon-icons.com_74682.png"));
+                imgAgregar.setOpacity(1);
+                imgEliminar.setOpacity(1);
                 desactivarControles();
                 limpiarControles();
                 tipoDeOperaciones = operaciones.NINGUNO;
@@ -258,6 +266,8 @@ public class MenuCargosController implements Initializable {
                 btnEliminar.setDisable(false);
                 imgEditar.setImage(new Image("/org/josesanchez/Images/EditarCargo 2.png"));
                 imgReporte.setImage(new Image("/org/josesanchez/Images/Accounting_icon-icons.com_74682.png"));
+                imgAgregar.setOpacity(1);
+                imgEliminar.setOpacity(1);
                 tipoDeOperaciones = operaciones.NINGUNO;
                 break;
         }

@@ -226,6 +226,8 @@ public class MenuDetalleFacturaController implements Initializable {
                 btnReporte.setDisable(true);
                 imgAgregar.setImage(new Image("/org/josesanchez/Images/guardar.png"));
                 imgEliminar.setImage(new Image("/org/josesanchez/Images/cancelar.png"));
+                imgReporte.setOpacity(0.5);
+                imgEditar.setOpacity(0.5);
                 tipoDeOperacion = operaciones.ACTUALIZAR;
                 break;
             case ACTUALIZAR:
@@ -238,6 +240,8 @@ public class MenuDetalleFacturaController implements Initializable {
                 btnReporte.setDisable(false);
                 imgAgregar.setImage(new Image("/org/josesanchez/Images/AgregarDetalleFactura.png"));
                 imgEliminar.setImage(new Image("/org/josesanchez/Images/ElimianarDetalleCompra.png"));
+                imgReporte.setOpacity(1);
+                imgEditar.setOpacity(1);
                 tipoDeOperacion = operaciones.NINGUNO;
                 break;
         }
@@ -278,6 +282,8 @@ public class MenuDetalleFacturaController implements Initializable {
                 btnReporte.setDisable(false);
                 imgAgregar.setImage(new Image("/org/josesanchez/Images/AgregarDetalleFactura.png"));
                 imgEliminar.setImage(new Image("/org/josesanchez/Images/ElimianarDetalleCompra.png"));
+                imgReporte.setOpacity(1);
+                imgEditar.setOpacity(1);
                 tipoDeOperacion = operaciones.NINGUNO;
                 break;
             default:
@@ -314,6 +320,8 @@ public class MenuDetalleFacturaController implements Initializable {
                     btnEliminar.setDisable(true);
                     imgEditar.setImage(new Image("/org/josesanchez/Images/editartipodeproducto.png"));
                     imgReporte.setImage(new Image("/org/josesanchez/Images/cancelar.png"));
+                    imgAgregar.setOpacity(0.5);
+                    imgEliminar.setOpacity(0.5);
                     activarControles();
                     txtCodigoDF.setEditable(false);
                     tipoDeOperacion = operaciones.ACTUALIZAR;
@@ -329,6 +337,8 @@ public class MenuDetalleFacturaController implements Initializable {
                 btnEliminar.setDisable(false);
                 imgEditar.setImage(new Image("/org/josesanchez/Images/EditarDetalleFactura.png"));
                 imgReporte.setImage(new Image("/org/josesanchez/Images/Accounting_icon-icons.com_74682.png"));
+                imgAgregar.setOpacity(1);
+                imgEliminar.setOpacity(1);
                 desactivarControles();
                 limpiarControles();
                 tipoDeOperacion = operaciones.NINGUNO;
@@ -368,6 +378,8 @@ public class MenuDetalleFacturaController implements Initializable {
                 btnEliminar.setDisable(false);
                 imgEditar.setImage(new Image("/org/josesanchez/Images/EditarDetalleFactura.png"));
                 imgReporte.setImage(new Image("/org/josesanchez/Images/Accounting_icon-icons.com_74682.png"));
+                imgAgregar.setOpacity(1);
+                imgEliminar.setOpacity(1);
                 tipoDeOperacion = operaciones.NINGUNO;
                 break;
         }

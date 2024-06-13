@@ -4,7 +4,6 @@ import java.net.URL;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.sql.SQLIntegrityConstraintViolationException;
 import java.sql.SQLSyntaxErrorException;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
@@ -224,6 +223,8 @@ public class MenuDetalleCompraController implements Initializable {
                 btnReporte.setDisable(true);
                 imgAgregar.setImage(new Image("/org/josesanchez/Images/guardar.png"));
                 imgEliminar.setImage(new Image("/org/josesanchez/Images/cancelar.png"));
+                imgReporte.setOpacity(0.5);
+                imgEditar.setOpacity(0.5);
                 tipoDeOperacion = operaciones.ACTUALIZAR;
                 break;
             case ACTUALIZAR:
@@ -236,6 +237,8 @@ public class MenuDetalleCompraController implements Initializable {
                 btnReporte.setDisable(false);
                 imgAgregar.setImage(new Image("/org/josesanchez/Images/AgregarDetalleCompra.png"));
                 imgEliminar.setImage(new Image("/org/josesanchez/Images/eliminarGeneral.png"));
+                imgReporte.setOpacity(1);
+                imgEditar.setOpacity(1);
                 tipoDeOperacion = operaciones.NINGUNO;
                 break;
         }
@@ -280,6 +283,8 @@ public class MenuDetalleCompraController implements Initializable {
                 btnReporte.setDisable(false);
                 imgAgregar.setImage(new Image("/org/josesanchez/Images/AgregarDetalleCompra.png"));
                 imgEliminar.setImage(new Image("/org/josesanchez/Images/eliminarGeneral.png"));
+                imgReporte.setOpacity(1);
+                imgEditar.setOpacity(1);
                 tipoDeOperacion = operaciones.NINGUNO;
                 break;
             default:
@@ -313,6 +318,8 @@ public class MenuDetalleCompraController implements Initializable {
                     btnEliminar.setDisable(true);
                     imgEditar.setImage(new Image("/org/josesanchez/Images/editartipodeproducto.png"));
                     imgReporte.setImage(new Image("/org/josesanchez/Images/cancelar.png"));
+                    imgAgregar.setOpacity(0.5);
+                    imgEliminar.setOpacity(0.5);
                     activarControles();
                     txtCodigoDC.setEditable(false);
                     tipoDeOperacion = operaciones.ACTUALIZAR;
@@ -328,6 +335,8 @@ public class MenuDetalleCompraController implements Initializable {
                 btnEliminar.setDisable(false);
                 imgEditar.setImage(new Image("/org/josesanchez/Images/EditarGeneral.png"));
                 imgReporte.setImage(new Image("/org/josesanchez/Images/Accounting_icon-icons.com_74682.png"));
+                imgAgregar.setOpacity(1);
+                imgEliminar.setOpacity(1);
                 desactivarControles();
                 limpiarControles();
                 tipoDeOperacion = operaciones.NINGUNO;
@@ -367,6 +376,8 @@ public class MenuDetalleCompraController implements Initializable {
                 btnEliminar.setDisable(false);
                 imgEditar.setImage(new Image("/org/josesanchez/Images/EditarGeneral.png"));
                 imgReporte.setImage(new Image("/org/josesanchez/Images/Accounting_icon-icons.com_74682.png"));
+                imgAgregar.setOpacity(1);
+                imgEliminar.setOpacity(1);
                 tipoDeOperacion = operaciones.NINGUNO;
                 break;
         }

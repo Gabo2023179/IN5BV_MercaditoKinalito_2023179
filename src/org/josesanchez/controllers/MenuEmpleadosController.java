@@ -1,4 +1,4 @@
-    /*
+/*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
@@ -183,7 +183,6 @@ public class MenuEmpleadosController implements Initializable {
         return listaCargos = FXCollections.observableArrayList(lista);
     }
 
-
     public void agregar() {
         switch (tipoDeOperacion) {
             case NINGUNO:
@@ -194,6 +193,8 @@ public class MenuEmpleadosController implements Initializable {
                 btnReporte.setDisable(true);
                 imgAgregar.setImage(new Image("/org/josesanchez/Images/guardar.png"));
                 imgEliminar.setImage(new Image("/org/josesanchez/Images/cancelar.png"));
+                imgReporte.setOpacity(0.5);
+                imgEditar.setOpacity(0.5);
                 tipoDeOperacion = operaciones.ACTUALIZAR;
                 break;
             case ACTUALIZAR:
@@ -206,6 +207,8 @@ public class MenuEmpleadosController implements Initializable {
                 btnReporte.setDisable(false);
                 imgAgregar.setImage(new Image("/org/josesanchez/Images/AgregarTipoDeProducto.png"));
                 imgEliminar.setImage(new Image("/org/josesanchez/Images/elimianrtipodeproducto.png"));
+                imgReporte.setOpacity(1);
+                imgEditar.setOpacity(1);
                 tipoDeOperacion = operaciones.NINGUNO;
                 break;
         }
@@ -230,7 +233,7 @@ public class MenuEmpleadosController implements Initializable {
             procedimiento.setInt(6, registro.getCargoId());
             procedimiento.execute();
             ResultSet generatedKeys = procedimiento.getGeneratedKeys();
-            if(generatedKeys.next()){
+            if (generatedKeys.next()) {
                 registro.setCodigoEmpleado(generatedKeys.getInt(1));
             }
             listaEmpleados.add(registro);
@@ -251,6 +254,8 @@ public class MenuEmpleadosController implements Initializable {
                 btnReporte.setDisable(false);
                 imgAgregar.setImage(new Image("/org/josesanchez/Images/AgregarTipoDeProducto.png"));
                 imgEliminar.setImage(new Image("/org/josesanchez/Images/elimianrtipodeproducto.png"));
+                imgReporte.setOpacity(1);
+                imgEditar.setOpacity(1);
                 tipoDeOperacion = operaciones.NINGUNO;
                 break;
             default:
@@ -284,6 +289,8 @@ public class MenuEmpleadosController implements Initializable {
                     btnEliminar.setDisable(true);
                     imgEditar.setImage(new Image("/org/josesanchez/Images/editartipodeproducto.png"));
                     imgReporte.setImage(new Image("/org/josesanchez/Images/cancelar.png"));
+                    imgAgregar.setOpacity(0.5);
+                    imgEliminar.setOpacity(0.5);
                     activarControles();
                     txtCodEmpleado.setEditable(false);
                     tipoDeOperacion = operaciones.ACTUALIZAR;
@@ -299,6 +306,8 @@ public class MenuEmpleadosController implements Initializable {
                 btnEliminar.setDisable(false);
                 imgEditar.setImage(new Image("/org/josesanchez/Images/EditarCargo 2.png"));
                 imgReporte.setImage(new Image("/org/josesanchez/Images/Accounting_icon-icons.com_74682.png"));
+                imgAgregar.setOpacity(1);
+                imgEliminar.setOpacity(1);
                 desactivarControles();
                 limpiarControles();
                 tipoDeOperacion = operaciones.NINGUNO;
@@ -336,6 +345,8 @@ public class MenuEmpleadosController implements Initializable {
                 btnEliminar.setDisable(false);
                 imgEditar.setImage(new Image("/org/josesanchez/Images/EditarCargo 2.png"));
                 imgReporte.setImage(new Image("/org/josesanchez/Images/Accounting_icon-icons.com_74682.png"));
+                imgAgregar.setOpacity(1);
+                imgEliminar.setOpacity(1);
                 tipoDeOperacion = operaciones.NINGUNO;
                 break;
         }
@@ -382,5 +393,3 @@ public class MenuEmpleadosController implements Initializable {
     }
 
 }
-
-

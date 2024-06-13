@@ -34,7 +34,8 @@ import org.josesanchez.system.Main;
  *
  * @author joseg
  */
-public class MenuEmailProveedorController implements Initializable{
+public class MenuEmailProveedorController implements Initializable {
+
     private enum operaciones {
         AGREGAR, ELIMINAR, EDITAR, ACTUALIZAR, CANCELAR, NINGUNO
     }
@@ -177,6 +178,8 @@ public class MenuEmailProveedorController implements Initializable{
                 btnReporte.setDisable(true);
                 imgAgregar.setImage(new Image("/org/josesanchez/Images/guardar.png"));
                 imgEliminar.setImage(new Image("/org/josesanchez/Images/cancelar.png"));
+                imgReporte.setOpacity(0.5);
+                imgEditar.setOpacity(0.5);
                 tipoDeOperaciones = operaciones.ACTUALIZAR;
                 break;
             case ACTUALIZAR:
@@ -189,6 +192,8 @@ public class MenuEmailProveedorController implements Initializable{
                 btnReporte.setDisable(false);
                 imgAgregar.setImage(new Image("/org/josesanchez/Images/AgregarEmailProveedor.png"));
                 imgEliminar.setImage(new Image("/org/josesanchez/Images/EliminarEmailProveedor.png"));
+                imgReporte.setOpacity(1);
+                imgEditar.setOpacity(1);
                 tipoDeOperaciones = operaciones.NINGUNO;
                 break;
         }
@@ -207,7 +212,7 @@ public class MenuEmailProveedorController implements Initializable{
             procedimiento.setInt(3, registro.getCodigoProveedor());
             procedimiento.execute();
             ResultSet generatedKeys = procedimiento.getGeneratedKeys();
-            if(generatedKeys.next()){
+            if (generatedKeys.next()) {
                 registro.setCodigoEmailProveedor(generatedKeys.getInt(1));
             }
             listaEmPro.add(registro);
@@ -228,6 +233,8 @@ public class MenuEmailProveedorController implements Initializable{
                 btnReporte.setDisable(false);
                 imgAgregar.setImage(new Image("/org/josesanchez/Images/AgregarEmailProveedor.png"));
                 imgEliminar.setImage(new Image("/org/josesanchez/Images/EliminarEmailProveedor.png"));
+                imgReporte.setOpacity(1);
+                imgEditar.setOpacity(1);
                 tipoDeOperaciones = operaciones.NINGUNO;
                 break;
             default:
@@ -264,6 +271,8 @@ public class MenuEmailProveedorController implements Initializable{
                     btnEliminar.setDisable(true);
                     imgEditar.setImage(new Image("/org/josesanchez/Images/editartipodeproducto.png"));
                     imgReporte.setImage(new Image("/org/josesanchez/Images/cancelar.png"));
+                    imgAgregar.setOpacity(0.5);
+                    imgEliminar.setOpacity(0.5);
                     activarControles();
                     txtCodEmPro.setEditable(false);
                     tipoDeOperaciones = operaciones.ACTUALIZAR;
@@ -279,6 +288,8 @@ public class MenuEmailProveedorController implements Initializable{
                 btnEliminar.setDisable(false);
                 imgEditar.setImage(new Image("/org/josesanchez/Images/EditarEmailProveedor.png"));
                 imgReporte.setImage(new Image("/org/josesanchez/Images/Accounting_icon-icons.com_74682.png"));
+                imgAgregar.setOpacity(1);
+                imgEliminar.setOpacity(1);
                 desactivarControles();
                 limpiarControles();
                 tipoDeOperaciones = operaciones.NINGUNO;
@@ -317,6 +328,8 @@ public class MenuEmailProveedorController implements Initializable{
                 btnEliminar.setDisable(false);
                 imgEditar.setImage(new Image("/org/josesanchez/Images/EditarEmailProveedor.png"));
                 imgReporte.setImage(new Image("/org/josesanchez/Images/Accounting_icon-icons.com_74682.png"));
+                imgAgregar.setOpacity(1);
+                imgEliminar.setOpacity(1);
                 tipoDeOperaciones = operaciones.NINGUNO;
                 break;
         }

@@ -32,17 +32,18 @@ import org.josesanchez.system.Main;
  *
  * @author informatica
  */
-public class MenuTipoDeProductosController implements Initializable{
-private enum operaciones {
+public class MenuTipoDeProductosController implements Initializable {
+
+    private enum operaciones {
         AGREGAR, ELIMINAR, EDITAR, ACTUALIZAR, CANCELAR, NINGUNO
     }
-    
+
     private operaciones tipoDeOperaciones = operaciones.NINGUNO;
-    
+
     private ObservableList<TipoDeProductos> listaTdp;
-    
+
     private Main escenarioPrincipal;
-    
+
     @FXML
     private Button btnRegresar;
     @FXML
@@ -116,6 +117,8 @@ private enum operaciones {
                 btnReporte.setDisable(true);
                 imgAgregar.setImage(new Image("/org/josesanchez/Images/guardar.png"));
                 imgEliminar.setImage(new Image("/org/josesanchez/Images/cancelar.png"));
+                imgReporte.setOpacity(0.5);
+                imgEditar.setOpacity(0.5);
                 tipoDeOperaciones = operaciones.ACTUALIZAR;
                 break;
             case ACTUALIZAR:
@@ -128,6 +131,8 @@ private enum operaciones {
                 btnReporte.setDisable(false);
                 imgAgregar.setImage(new Image("/org/josesanchez/Images/AgregarTipoDeProducto.png"));
                 imgEliminar.setImage(new Image("/org/josesanchez/Images/elimianrtipodeproducto.png"));
+                imgReporte.setOpacity(1);
+                imgEditar.setOpacity(1);
                 tipoDeOperaciones = operaciones.NINGUNO;
                 break;
         }
@@ -141,7 +146,7 @@ private enum operaciones {
             procedimiento.setString(1, registro.getDescripcion());
             procedimiento.execute();
             ResultSet generatedKeys = procedimiento.getGeneratedKeys();
-            if(generatedKeys.next()){
+            if (generatedKeys.next()) {
                 registro.setCodigoTipoDeProducto(generatedKeys.getInt(1));
             }
             listaTdp.add(registro);
@@ -164,6 +169,8 @@ private enum operaciones {
                 btnReporte.setDisable(false);
                 imgAgregar.setImage(new Image("/org/josesanchez/Images/AgregarTipoDeProducto.png"));
                 imgEliminar.setImage(new Image("/org/josesanchez/Images/elimianrtipodeproducto.png"));
+                imgReporte.setOpacity(1);
+                imgEditar.setOpacity(1);
                 tipoDeOperaciones = operaciones.NINGUNO;
                 break;
             default:
@@ -176,9 +183,9 @@ private enum operaciones {
                             procedimiento.execute();
                             limpiarControles();
                             listaTdp.remove(tblTdp.getSelectionModel().getSelectedItem());
-                        }catch (SQLIntegrityConstraintViolationException e) {
+                        } catch (SQLIntegrityConstraintViolationException e) {
                             JOptionPane.showMessageDialog(null, "No puedes eliminar este registro, esta referenciado en otra clase");
-                        }catch (Exception e) {
+                        } catch (Exception e) {
                             e.printStackTrace();
                             JOptionPane.showMessageDialog(null, "Se produjo un error: " + e.getMessage());
                         }
@@ -200,6 +207,8 @@ private enum operaciones {
                     btnEliminar.setDisable(true);
                     imgEditar.setImage(new Image("/org/josesanchez/Images/editartipodeproducto.png"));
                     imgReporte.setImage(new Image("/org/josesanchez/Images/cancelar.png"));
+                    imgAgregar.setOpacity(0.5);
+                    imgEliminar.setOpacity(0.5);
                     activarControles();
                     txtTdp.setEditable(false);
                     tipoDeOperaciones = operaciones.ACTUALIZAR;
@@ -213,8 +222,10 @@ private enum operaciones {
                 btnReporte.setText("Reporte");
                 btnAgregar.setDisable(false);
                 btnEliminar.setDisable(false);
-                    imgEditar.setImage(new Image("/org/josesanchez/Images/editartipodeproducto.png"));
+                imgEditar.setImage(new Image("/org/josesanchez/Images/editartipodeproducto.png"));
                 imgReporte.setImage(new Image("/org/josesanchez/Images/Accounting_icon-icons.com_74682.png"));
+                imgAgregar.setOpacity(1);
+                imgEliminar.setOpacity(1);
                 desactivarControles();
                 limpiarControles();
                 tipoDeOperaciones = operaciones.NINGUNO;
@@ -248,6 +259,8 @@ private enum operaciones {
                 btnEliminar.setDisable(false);
                 imgEditar.setImage(new Image("/org/josesanchez/Images/EditarCargo 2.png"));
                 imgReporte.setImage(new Image("/org/josesanchez/Images/Accounting_icon-icons.com_74682.png"));
+                imgAgregar.setOpacity(1);
+                imgEliminar.setOpacity(1);
                 tipoDeOperaciones = operaciones.NINGUNO;
                 break;
         }
@@ -280,9 +293,3 @@ private enum operaciones {
     }
 
 }
-
-
-
- 
-    
-

@@ -138,12 +138,15 @@ public class MenuProveedoresController implements Initializable {
         switch (tipoDeOperaciones) {
             case NINGUNO:
                 activarControles();
+                limpiarControles();
                 btnAgregarP.setText("Guardar");
                 btnEliminarP.setText("Cancelar");
                 btnEditarP.setDisable(true);
                 btnReporteP.setDisable(true);
                 imgAgregarP.setImage(new Image("/org/josesanchez/Images/guardar.png"));
                 imgEliminarP.setImage(new Image("/org/josesanchez/Images/cancelar.png"));
+                imgReporteP.setOpacity(0.5);
+                imgEditarP.setOpacity(0.5);
                 tipoDeOperaciones = operaciones.ACTUALIZAR;
                 break;
             case ACTUALIZAR:
@@ -156,6 +159,8 @@ public class MenuProveedoresController implements Initializable {
                 btnReporteP.setDisable(false);
                 imgAgregarP.setImage(new Image("/org/josesanchez/Images/business_application_addmale_useradd_insert_add_user_client_2312.png"));
                 imgEliminarP.setImage(new Image("/org/josesanchez/Images/delete_delete_deleteusers_delete_male_user_maleclient_2348.png"));
+                imgReporteP.setOpacity(0.5);
+                imgEditarP.setOpacity(0.5);
                 tipoDeOperaciones = operaciones.NINGUNO;
                 break;
         }
@@ -181,7 +186,7 @@ public class MenuProveedoresController implements Initializable {
             procedimiento.setString(7, registro.getPaginaWeb());
             procedimiento.execute();
             ResultSet generatedKeys = procedimiento.getGeneratedKeys();
-            if(generatedKeys.next()){
+            if (generatedKeys.next()) {
                 registro.setCodigoProveedor(generatedKeys.getInt(1));
             }
             listaProveedores.add(registro);
@@ -203,6 +208,8 @@ public class MenuProveedoresController implements Initializable {
                 btnReporteP.setDisable(false);
                 imgAgregarP.setImage(new Image("/org/josesanchez/Images/business_application_addmale_useradd_insert_add_user_client_2312.png"));
                 imgEliminarP.setImage(new Image("/org/josesanchez/Images/delete_delete_deleteusers_delete_male_user_maleclient_2348.png"));
+                imgReporteP.setOpacity(1);
+                imgEditarP.setOpacity(1);
                 tipoDeOperaciones = operaciones.NINGUNO;
                 break;
             default:
@@ -232,12 +239,15 @@ public class MenuProveedoresController implements Initializable {
 
             case NINGUNO:
                 if (tblProveedor.getSelectionModel().getSelectedItem() != null) {
+                    seleccionarElemento();
                     btnEditarP.setText("Actualizar");
                     btnReporteP.setText("Cancelar");
                     btnAgregarP.setDisable(true);
                     btnEliminarP.setDisable(true);
                     imgEditarP.setImage(new Image("/org/josesanchez/Images/male-user-edit_25348.png"));
                     imgReporteP.setImage(new Image("/org/josesanchez/Images/cancelar.png"));
+                    imgAgregarP.setOpacity(0.5);
+                    imgEliminarP.setOpacity(0.5);
                     activarControles();
                     txtCodigoP.setEditable(false);
                     tipoDeOperaciones = operaciones.ACTUALIZAR;
@@ -253,7 +263,9 @@ public class MenuProveedoresController implements Initializable {
                 btnEliminarP.setDisable(false);
                 imgEditarP.setImage(new Image("/org/josesanchez/Images/business_application_addmale_useradd_insert_add_user_client_2312.png"));
                 imgReporteP.setImage(new Image("/org/josesanchez/Images/users_12820.png"));
-                desactivarControles();
+                imgAgregarP.setOpacity(1);
+                imgEliminarP.setOpacity(1);
+                desactivarControles();   
                 limpiarControles();
                 tipoDeOperaciones = operaciones.NINGUNO;
                 cargarDatos();
@@ -299,6 +311,8 @@ public class MenuProveedoresController implements Initializable {
                 btnEliminarP.setDisable(false);
                 imgEditarP.setImage(new Image("/org/josesanchez/Images/business_application_addmale_useradd_insert_add_user_client_2312.png"));
                 imgReporteP.setImage(new Image("/org/josesanchez/Images/users_12820.png"));
+                imgAgregarP.setOpacity(1);
+                imgEliminarP.setOpacity(1);
                 tipoDeOperaciones = operaciones.NINGUNO;
                 break;
         }
