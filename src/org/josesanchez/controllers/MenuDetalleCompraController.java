@@ -218,8 +218,8 @@ public class MenuDetalleCompraController implements Initializable {
         switch (tipoDeOperacion) {
             case NINGUNO:
                 activarControles();
-                btnAgregar.setText("guardar");
-                btnEliminar.setText("cancelar");
+                btnAgregar.setText("Guardar");
+                btnEliminar.setText("Cancelar");
                 btnEditar.setDisable(true);
                 btnReporte.setDisable(true);
                 imgAgregar.setImage(new Image("/org/josesanchez/Images/guardar.png"));

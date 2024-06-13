@@ -138,8 +138,8 @@ public class MenuProveedoresController implements Initializable {
         switch (tipoDeOperaciones) {
             case NINGUNO:
                 activarControles();
-                btnAgregarP.setText("guardar");
-                btnEliminarP.setText("cancelar");
+                btnAgregarP.setText("Guardar");
+                btnEliminarP.setText("Cancelar");
                 btnEditarP.setDisable(true);
                 btnReporteP.setDisable(true);
                 imgAgregarP.setImage(new Image("/org/josesanchez/Images/guardar.png"));

@@ -36,29 +36,41 @@
             <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
         </rowConstraints>
          <children>
-            <Button fx:id="btnAgregar" mnemonicParsing="false" onAction="#agregar" prefHeight="181.0" prefWidth="306.0" stylesheets="@../resources/KinalStoreCSS.css" text="Agregar" textFill="WHITE">
+            <Button fx:id="btnAgregar" mnemonicParsing="false" onAction="#agregar" prefHeight="181.0" prefWidth="306.0" stylesheets="@../resources/KinalStoreCSS.css" text="Agregar" textFill="#032870">
                <styleClass>
                   <String fx:value="button2" />
                   <String fx:value="button3" />
                </styleClass>
+               <font>
+                  <Font size="16.0" />
+               </font>
             </Button>
-            <Button fx:id="btnEditar" mnemonicParsing="false" onAction="#editar" prefHeight="86.0" prefWidth="221.0" stylesheets="@../resources/KinalStoreCSS.css" text="Editar" textFill="WHITE" GridPane.rowIndex="2">
+            <Button fx:id="btnEditar" mnemonicParsing="false" onAction="#editar" prefHeight="86.0" prefWidth="221.0" stylesheets="@../resources/KinalStoreCSS.css" text="Editar" textFill="#032870" GridPane.rowIndex="2">
                <styleClass>
                   <String fx:value="button2" />
                   <String fx:value="button3" />
                </styleClass>
+               <font>
+                  <Font size="16.0" />
+               </font>
             </Button>
-            <Button fx:id="btnEliminar" mnemonicParsing="false" onAction="#eliminar" prefHeight="91.0" prefWidth="247.0" stylesheets="@../resources/KinalStoreCSS.css" text="Eliminar" textFill="WHITE" GridPane.rowIndex="1">
+            <Button fx:id="btnEliminar" mnemonicParsing="false" onAction="#eliminar" prefHeight="91.0" prefWidth="247.0" stylesheets="@../resources/KinalStoreCSS.css" text="Eliminar" textFill="#032870" GridPane.rowIndex="1">
                <styleClass>
                   <String fx:value="button2" />
                   <String fx:value="button3" />
                </styleClass>
+               <font>
+                  <Font size="16.0" />
+               </font>
             </Button>
-            <Button fx:id="btnReporte" mnemonicParsing="false" onAction="#reporte" prefHeight="90.0" prefWidth="295.0" stylesheets="@../resources/KinalStoreCSS.css" text="Reportes" textFill="WHITE" GridPane.rowIndex="3">
+            <Button fx:id="btnReporte" mnemonicParsing="false" onAction="#reporte" prefHeight="90.0" prefWidth="295.0" stylesheets="@../resources/KinalStoreCSS.css" text="Reportes" textFill="#032870" GridPane.rowIndex="3">
                <styleClass>
                   <String fx:value="button2" />
                   <String fx:value="button3" />
                </styleClass>
+               <font>
+                  <Font size="16.0" />
+               </font>
             </Button>
             <ImageView fx:id="imgAgregar" fitHeight="38.0" fitWidth="37.0" pickOnBounds="true" preserveRatio="true">
                <image>
@@ -97,7 +109,7 @@
             <RowConstraints maxHeight="101.0" minHeight="10.0" prefHeight="75.0" vgrow="SOMETIMES" />
         </rowConstraints>
          <children>
-            <Label text="CodigoCliente">
+            <Label text="CodigoCliente" textFill="#032870">
                <font>
                   <Font name="Baskerville Old Face" size="18.0" />
                </font>

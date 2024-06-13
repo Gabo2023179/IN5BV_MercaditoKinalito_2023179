@@ -25,11 +25,20 @@ and open the template in the editor.
 
 }
 
+.button:hover{
+    -fx-background-color: #032A76;
+    -fx-font-size: 22px;
+    -fx-text-fill:#7ED957;
+    -fx-effect: dropshadow(three-pass-box, black, 20,0,0,0);
+}
+
 .button3:hover{
     -fx-background-color: #032A76;
     -fx-font-size: 22px;
+    -fx-text-fill:#7ED957;
     -fx-effect: dropshadow(three-pass-box, black, 20,0,0,0);
 }
+
 .table-view .column-header,
 .table-view .column-header-backgroud.filler{
     -fx-cell-size: 20;
@@ -37,7 +46,7 @@ and open the template in the editor.
 
 }
 .button4{
-    -fx-background-color: #032A76;
+    -fx-background-color:#032A76;
     -fx-border-color: black;
     -fx-background-radius: 10;
     -fx-border-radius: 10;
