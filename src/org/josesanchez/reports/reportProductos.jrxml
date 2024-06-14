@@ -36,8 +36,8 @@
 	<background>
 		<band height="802" splitType="Stretch">
 			<image scaleImage="FillFrame">
-				<reportElement x="0" y="0" width="555" height="802" uuid="2b111d33-ec12-4895-98c6-44dde0bb8ae1"/>
-				<imageExpression><![CDATA["C:\\Users\\INFORMATICA\\Desktop\\CARBON 2\\IN5BV_MercaditoKinalito_2023179\\src\\org\\josesanchez\\Images\\Membrete.png"]]></imageExpression>
+				<reportElement x="0" y="0" width="555" height="802" uuid="2bdea885-6cc7-430a-807f-681a3c75b7db"/>
+				<imageExpression><![CDATA["C:\\Users\\joseg\\Desktop\\CABRON 3\\IN5BV_MercaditoKinalito_2023179\\src\\org\\josesanchez\\Images\\Membrete.png"]]></imageExpression>
 			</image>
 		</band>
 	</background>

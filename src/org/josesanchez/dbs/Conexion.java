@@ -12,8 +12,8 @@ public class Conexion {
     public Conexion() {
         try {
             Class.forName("com.mysql.cj.jdbc.Driver").newInstance();
-            conexion = DriverManager.getConnection("jdbc:mysql://localhost:3306/DBMercaditoKinalito?useSSL=false&serverTimezone=America/Guatemala", "2023179_IN5BV", "abc123!!");
-          //    conexion = DriverManager.getConnection("jdbc:mysql://localhost:3306/DBMercaditoKinalito?useSSL=false&serverTimezone=America/Guatemala", "root", "admin");
+           // conexion = DriverManager.getConnection("jdbc:mysql://localhost:3306/DBMercaditoKinalito?useSSL=false&serverTimezone=America/Guatemala", "2023179_IN5BV", "abc123!!");
+              conexion = DriverManager.getConnection("jdbc:mysql://localhost:3306/DBMercaditoKinalito?useSSL=false&serverTimezone=America/Guatemala", "root", "admin");
          //   conexion = DriverManager.getConnection("jdbc:mysql://localhost:3306/DBMercaditoKinalito?useSSL=false&serverTimezone=America/Guatemala", "root", "RootKinal2024$");
         } catch (ClassNotFoundException e) {
             e.printStackTrace();

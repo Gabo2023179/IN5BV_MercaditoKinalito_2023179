@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="reportFacturas" language="groovy" pageWidth="842" pageHeight="595" orientation="Landscape" columnWidth="802" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="d8966c83-10d1-4dc5-989d-8910e3418426">
+	<property name="ireport.zoom" value="2.357947691000002"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="43"/>
+	<queryString>
+		<![CDATA[call sp_ListarFacturas()]]>
+	</queryString>
+	<field name="numeroFactura" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="estado" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="totalFactura" class="java.math.BigDecimal">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="fechaFactura" class="java.sql.Date">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="codigoCliente" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="codigoEmpleado" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="102" splitType="Stretch">
+			<image scaleImage="FillFrame">
+				<reportElement x="0" y="0" width="104" height="79" uuid="605332b7-f048-4979-9b93-d7365d053e11"/>
+				<imageExpression><![CDATA["C:\\Users\\joseg\\Desktop\\CABRON 3\\IN5BV_MercaditoKinalito_2023179\\src\\org\\josesanchez\\Images\\LogoMercaditoKinalito.png"]]></imageExpression>
+			</image>
+			<staticText>
+				<reportElement x="4" y="82" width="100" height="20" uuid="8dcf9c6c-53ed-4364-9e12-ca17b26075ba"/>
+				<textElement>
+					<font fontName="Century Gothic" size="10"/>
+				</textElement>
+				<text><![CDATA[Mercadito Kinalito]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="35" splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="61" splitType="Stretch">
+			<staticText>
+				<reportElement x="104" y="2" width="100" height="20" uuid="9f88e028-e059-4d72-90c8-2621f0d06bc4"/>
+				<text><![CDATA[totalFactura]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="204" y="0" width="100" height="20" uuid="895ab508-11ef-481f-b001-e3850a711745"/>
+				<text><![CDATA[fechaFactura]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="304" y="2" width="100" height="20" uuid="a60e6979-e41d-4b23-bcc0-2122a112e2de"/>
+				<text><![CDATA[totalFactura]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="404" y="2" width="100" height="20" uuid="05d0d34c-03f9-47e1-a799-0083a15a0886"/>
+				<text><![CDATA[codigoCliente]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="504" y="2" width="100" height="20" uuid="cddd4dbe-89f9-419e-a5d9-785e070c0951"/>
+				<text><![CDATA[numeroFactura]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="125" splitType="Stretch">
+			<textField>
+				<reportElement x="104" y="63" width="100" height="20" uuid="db0ac930-2988-489f-8f59-62f1e268efb4"/>
+				<textFieldExpression><![CDATA[$F{totalFactura}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="204" y="63" width="100" height="20" uuid="4975b1ac-dc94-4299-baae-dd74a0f2bfaa"/>
+				<textFieldExpression><![CDATA[$F{fechaFactura}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="304" y="63" width="100" height="20" uuid="cd1c2e85-2c0c-4c04-b502-d7f46343b8d0"/>
+				<textFieldExpression><![CDATA[$F{totalFactura}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="404" y="63" width="100" height="20" uuid="951f48aa-562a-49c6-bba8-78a70b6634bd"/>
+				<textFieldExpression><![CDATA[$F{codigoCliente}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="504" y="63" width="100" height="20" uuid="b692ba85-46c8-488a-a574-b0e04556f109"/>
+				<textFieldExpression><![CDATA[$F{numeroFactura}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="45" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="54" splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="42" splitType="Stretch"/>
+	</summary>
+</jasperReport>

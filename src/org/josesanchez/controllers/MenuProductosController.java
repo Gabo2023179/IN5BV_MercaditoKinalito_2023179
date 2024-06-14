@@ -5,6 +5,8 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLIntegrityConstraintViolationException;
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.ResourceBundle;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -24,6 +26,7 @@ import org.josesanchez.beans.Productos;
 import org.josesanchez.beans.Proveedores;
 import org.josesanchez.beans.TipoDeProductos;
 import org.josesanchez.dbs.Conexion;
+import org.josesanchez.reports.GenerarReportes;
 import org.josesanchez.system.Main;
 
 /**
@@ -401,6 +404,9 @@ public class MenuProductosController implements Initializable {
 
     public void reporte() {
         switch (tipoDeOperacion) {
+            case NINGUNO:
+                imprimirReporte();
+                break;
             case ACTUALIZAR:
                 desactivarControles();
                 limpiarControles();
@@ -415,6 +421,12 @@ public class MenuProductosController implements Initializable {
                 tipoDeOperacion = operaciones.NINGUNO;
                 break;
         }
+    }
+    
+     public void imprimirReporte(){
+        Map parametros = new HashMap();
+        parametros.put("descripcionProducto", null);
+        GenerarReportes.mostrarReportes("reportProductos.jasper", "Reporte de los Clientes", parametros);
     }
 
     public void setEscenarioPrincipal(Main escenarioPrincipal) {

@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="reportFacturas" language="groovy" pageWidth="842" pageHeight="595" orientation="Landscape" columnWidth="802" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="f8256079-01a6-478b-a4a9-dcb1dbc85d97">
+	<property name="ireport.zoom" value="1.2100000000000002"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<queryString>
+		<![CDATA[call sp_ListarFacturas()]]>
+	</queryString>
+	<field name="numeroFactura" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="estado" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="totalFactura" class="java.math.BigDecimal">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="fechaFactura" class="java.sql.Date">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="codigoCliente" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="codigoEmpleado" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<background>
+		<band height="555" splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="79" splitType="Stretch"/>
+	</title>
+	<pageHeader>
+		<band height="35" splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="61" splitType="Stretch">
+			<staticText>
+				<reportElement x="111" y="1" width="100" height="20" uuid="8b9291ef-4106-44e8-be42-75df0e40f17b"/>
+				<text><![CDATA[totalFactura]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="211" y="1" width="100" height="20" uuid="4eab8ffe-b5c6-4f93-a8f0-dff970e2ff34"/>
+				<text><![CDATA[fechaFactura]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="311" y="1" width="100" height="20" uuid="bd54e771-1f2c-4031-9404-d61ccdfae51b"/>
+				<text><![CDATA[codigoCliente]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="411" y="1" width="100" height="20" uuid="56c8d691-456d-4387-8c47-1c2cf2a779a7"/>
+				<text><![CDATA[numeroFactura]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="125" splitType="Stretch">
+			<textField>
+				<reportElement x="111" y="64" width="100" height="20" uuid="2ee69d76-b5c7-402a-a55d-18c25263dd8c"/>
+				<textFieldExpression><![CDATA[$F{totalFactura}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="211" y="64" width="100" height="20" uuid="5500a70c-87bc-4a01-a1b9-7386b8413f31"/>
+				<textFieldExpression><![CDATA[$F{fechaFactura}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="345" y="64" width="100" height="20" uuid="07b01790-baec-40da-ace3-643cdc2fb4fd"/>
+				<textFieldExpression><![CDATA[$F{codigoCliente}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="463" y="64" width="100" height="20" uuid="89aaae81-6fb6-45c6-b9b7-31a0c607259b"/>
+				<textFieldExpression><![CDATA[$F{numeroFactura}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="45" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="54" splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="42" splitType="Stretch"/>
+	</summary>
+</jasperReport>

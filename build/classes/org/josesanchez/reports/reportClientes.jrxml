@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="reportClientes" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="09199113-fd05-4aab-a365-82131452c67d">
-	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.zoom" value="1.6105100000000019"/>
 	<property name="ireport.x" value="0"/>
 	<property name="ireport.y" value="0"/>
 	<queryString>
@@ -36,13 +36,18 @@
 	<background>
 		<band height="802" splitType="Stretch">
 			<image scaleImage="FillFrame">
-				<reportElement x="0" y="0" width="555" height="802" uuid="04b123cd-b9a8-49ae-b46c-e58e54fe3e15"/>
-				<imageExpression><![CDATA["C:\\Users\\INFORMATICA\\Desktop\\CARBON 2\\IN5BV_MercaditoKinalito_2023179\\src\\org\\josesanchez\\Images\\Membrete.png"]]></imageExpression>
+				<reportElement x="0" y="0" width="555" height="802" uuid="415367ae-467f-457d-bb81-ea2ae5823979"/>
+				<imageExpression><![CDATA["C:\\Users\\joseg\\Desktop\\CABRON 3\\IN5BV_MercaditoKinalito_2023179\\src\\org\\josesanchez\\Images\\Membrete.png"]]></imageExpression>
 			</image>
 		</band>
 	</background>
 	<title>
-		<band height="79" splitType="Stretch"/>
+		<band height="79" splitType="Stretch">
+			<textField>
+				<reportElement x="98" y="32" width="100" height="20" uuid="d7df173e-c91b-4561-9e95-23e9a736c71d"/>
+				<textFieldExpression><![CDATA[ola]]></textFieldExpression>
+			</textField>
+		</band>
 	</title>
 	<pageHeader>
 		<band height="1" splitType="Stretch"/>

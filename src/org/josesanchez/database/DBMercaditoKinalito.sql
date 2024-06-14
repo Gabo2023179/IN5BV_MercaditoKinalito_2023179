@@ -1092,6 +1092,12 @@ begin
 end $$
 delimiter ;
 
+select * from DetalleFactura
+    join Factura on DetalleFactura.numeroFactura = Factura.numeroFactura
+    join Clientes on Factura.codigoCliente = Clientes.codigoCliente
+    join Productos on DetalleFactura.codigoProducto = Productos.codigoProducto
+where Factura.numeroFactura = 1;
+
 -- ------------------------------------------------- Inserciones -------------------------------------------------
  
 call sp_AgregarClientes ('1245787856', 'harol', 'luna', 'El basurero zona 3', '21215498', 'harolxluna4ever.com');
