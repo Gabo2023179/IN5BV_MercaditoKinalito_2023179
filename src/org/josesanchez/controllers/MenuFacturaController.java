@@ -7,6 +7,8 @@ import java.sql.SQLIntegrityConstraintViolationException;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.ResourceBundle;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -26,6 +28,7 @@ import org.josesanchez.beans.Clientes;
 import org.josesanchez.beans.Empleados;
 import org.josesanchez.beans.Factura;
 import org.josesanchez.dbs.Conexion;
+import org.josesanchez.reports.GenerarReportes;
 import org.josesanchez.system.Main;
 
 public class MenuFacturaController implements Initializable {
@@ -379,6 +382,9 @@ public class MenuFacturaController implements Initializable {
 
     public void reporte() {
         switch (tipoDeOperacion) {
+            case NINGUNO:
+                imprimirReporte();
+                break;
             case ACTUALIZAR:
                 desactivarControles();
                 limpiarControles();
@@ -394,6 +400,13 @@ public class MenuFacturaController implements Initializable {
                 break;
         }
     }
+    
+    public void imprimirReporte(){
+        Map parametros = new HashMap();
+        parametros.put("numeroFactura", null);
+        GenerarReportes.mostrarReportes("reportFacturas.jasper", "Reporte de los facturas", parametros);
+    }
+    
 
     public void setEscenarioPrincipal(Main escenarioPrincipal) {
         this.escenarioPrincipal = escenarioPrincipal;

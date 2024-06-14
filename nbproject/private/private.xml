@@ -3,11 +3,10 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/INFORMATICA/Desktop/CARBON%202/IN5BV_MercaditoKinalito_2023179/src/org/josesanchez/controllers/MenuTelefonoProveedorController.java</file>
-            <file>file:/C:/Users/INFORMATICA/Desktop/CARBON%202/IN5BV_MercaditoKinalito_2023179/src/org/josesanchez/controllers/MenuClientesController.java</file>
-            <file>file:/C:/Users/INFORMATICA/Desktop/CARBON%202/IN5BV_MercaditoKinalito_2023179/src/org/josesanchez/dbs/Conexion.java</file>
-            <file>file:/C:/Users/INFORMATICA/Desktop/CARBON%202/IN5BV_MercaditoKinalito_2023179/src/org/josesanchez/controllers/MenuCargosController.java</file>
-            <file>file:/C:/Users/INFORMATICA/Desktop/CARBON%202/IN5BV_MercaditoKinalito_2023179/src/org/josesanchez/controllers/MenuFacturaController.java</file>
+            <file>file:/C:/Users/joseg/Desktop/CABRON%203/IN5BV_MercaditoKinalito_2023179/src/org/josesanchez/controllers/MenuProveedoresController.java</file>
+            <file>file:/C:/Users/joseg/Desktop/CABRON%203/IN5BV_MercaditoKinalito_2023179/src/org/josesanchez/controllers/MenuFacturaController.java</file>
+            <file>file:/C:/Users/joseg/Desktop/CABRON%203/IN5BV_MercaditoKinalito_2023179/src/org/josesanchez/controllers/MenuClientesController.java</file>
+            <file>file:/C:/Users/joseg/Desktop/CABRON%203/IN5BV_MercaditoKinalito_2023179/src/org/josesanchez/database/DBMercaditoKinalito.sql</file>
         </group>
     </open-files>
 </project-private>

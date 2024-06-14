@@ -1092,11 +1092,13 @@ begin
 end $$
 delimiter ;
 
+/*use DBMercaditoKinalito;
+
 select * from DetalleFactura
-    join Factura on DetalleFactura.numeroFactura = Factura.numeroFactura
-    join Clientes on Factura.codigoCliente = Clientes.codigoCliente
-    join Productos on DetalleFactura.codigoProducto = Productos.codigoProducto
-where Factura.numeroFactura = 1;
+	join Facturas on DetalleFactura.codigoDetalleFactura = Facturas.numeroFactura
+	join Clientes on Facturas.codigoCliente = Clientes.codigoCliente
+    join Productos on DetalleFactura.productoId = Productos.productoId
+where Facturas.numeroFactura = 1;*/
 
 -- ------------------------------------------------- Inserciones -------------------------------------------------
  

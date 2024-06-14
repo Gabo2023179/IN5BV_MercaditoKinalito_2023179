@@ -1092,6 +1092,14 @@ begin
 end $$
 delimiter ;
 
+/*use DBMercaditoKinalito;
+
+select * from DetalleFactura
+	join Facturas on DetalleFactura.codigoDetalleFactura = Facturas.numeroFactura
+	join Clientes on Facturas.codigoCliente = Clientes.codigoCliente
+    join Productos on DetalleFactura.productoId = Productos.productoId
+where Facturas.numeroFactura = 1;*/
+
 -- ------------------------------------------------- Inserciones -------------------------------------------------
  
 call sp_AgregarClientes ('1245787856', 'harol', 'luna', 'El basurero zona 3', '21215498', 'harolxluna4ever.com');
