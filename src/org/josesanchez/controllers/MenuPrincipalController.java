@@ -6,13 +6,17 @@
 package org.josesanchez.controllers;
 
 import java.net.URL;
+import javafx.util.Duration;
 import java.util.ResourceBundle;
+import javafx.animation.RotateTransition;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import org.josesanchez.system.Main;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.MenuItem;
+import javafx.scene.shape.Circle;
+
 
 public class MenuPrincipalController implements Initializable {
 
@@ -45,9 +49,17 @@ public class MenuPrincipalController implements Initializable {
     MenuItem btnMenuFactura;
     @FXML
     MenuItem btnMenuTelefonoProveedor;
+    @FXML
+    private Circle c1;
+    @FXML
+    private Circle c2;
+    @FXML
+    private Button play;
 
+   
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+            play();
     }
 
     public Main getEscenarioPrincipal() {
@@ -57,6 +69,26 @@ public class MenuPrincipalController implements Initializable {
     public void setEscenarioPrincipal(Main escenarioPrincipal) {
         this.escenarioPrincipal = escenarioPrincipal;
     }
+    
+     @FXML
+    private void play() {
+        setRotate(c1,true,360,10);
+        setRotate(c2,true,360,18);
+    }
+    
+    
+
+    private void setRotate(Circle c, boolean reverse, int angle, int duration) {
+        RotateTransition rt = new RotateTransition(Duration.seconds(duration),c);
+
+        rt.setAutoReverse(reverse);
+        rt.setByAngle(angle);
+        rt.setDelay(Duration.seconds(0));
+        rt.setRate(3);
+        rt.setCycleCount(18);
+        rt.play();
+    }
+
 
     @FXML
     public void clicClientes(ActionEvent event) {

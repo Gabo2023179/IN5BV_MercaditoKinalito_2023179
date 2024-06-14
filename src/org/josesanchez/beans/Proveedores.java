@@ -93,7 +93,7 @@ private int codigoProveedor;
     
     @Override
     public String toString(){
-        return getCodigoProveedor() + " | " + getNITproveedor();
+        return getCodigoProveedor() + " | " + getRazonSocial();
     }
 
 }

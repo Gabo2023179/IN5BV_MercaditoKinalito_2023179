@@ -319,8 +319,15 @@ public class MenuEmpleadosController implements Initializable {
 
     public void actualizar() {
         try {
-            PreparedStatement procedimiento = Conexion.getInstance().getConexion().prepareCall("{call sp_EditarEmpleados (?, ?, ?, ?, ?, ?, ?)}");
+            PreparedStatement procedimiento = Conexion.getInstance().getConexion().prepareCall("{call sp_EditarEmpleado (?, ?, ?, ?, ?, ?, ?)}");
             Empleados registro = (Empleados) tblEmpleados.getSelectionModel().getSelectedItem();
+            registro.setCodigoEmpleado(Integer.parseInt(txtCodEmpleado.getText()));
+            registro.setNombresEmpleado(txtNomEmpleado.getText());
+            registro.setApellidosEmpleado(txtApeEmpleado.getText());
+            registro.setSueldo(Double.parseDouble(txtSueldo.getText()));
+            registro.setDireccion(txtDireccion.getText());
+            registro.setTurno(txtTurno.getText());
+            registro.setCargoId(((Cargos) cmbCargoId.getValue()).getCargoId());
             procedimiento.setInt(1, registro.getCodigoEmpleado());
             procedimiento.setString(2, registro.getNombresEmpleado());
             procedimiento.setString(3, registro.getApellidosEmpleado());

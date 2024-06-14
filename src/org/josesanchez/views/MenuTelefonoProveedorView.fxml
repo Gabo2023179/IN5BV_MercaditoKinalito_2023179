@@ -92,17 +92,17 @@
           <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
         </rowConstraints>
          <children>
-            <Label text="codigoTelefonoProveedor" textFill="#032a76">
+            <Label text="ID" textFill="#032a76">
                <font>
                   <Font name="Arial Narrow" size="15.0" />
                </font>
             </Label>
-            <Label text="numeroPrincipal" textFill="#032a76" GridPane.rowIndex="1">
+            <Label text="Numero Principal" textFill="#032a76" GridPane.rowIndex="1">
                <font>
                   <Font name="Arial Narrow" size="15.0" />
                </font>
             </Label>
-            <Label text="numeroSecundario" textFill="#032a76" GridPane.rowIndex="2">
+            <Label text="Numero Secundario" textFill="#032a76" GridPane.rowIndex="2">
                <font>
                   <Font name="Arial Narrow" size="15.0" />
                </font>
@@ -112,7 +112,7 @@
                   <Font name="Arial Narrow" size="15.0" />
                </font>
             </Label>
-            <Label text="codigoProveedor" textFill="#032a76" GridPane.columnIndex="2" GridPane.rowIndex="1">
+            <Label text="Codigo del Proveedor" textFill="#032a76" GridPane.columnIndex="2" GridPane.rowIndex="1">
                <font>
                   <Font name="Arial Narrow" size="15.0" />
                </font>
@@ -148,11 +148,11 @@
       </GridPane>
       <TableView fx:id="tblTelPro" layoutX="463.0" layoutY="388.0" onMouseClicked="#seleccionarElementos" prefHeight="200.0" prefWidth="687.0">
         <columns>
-          <TableColumn fx:id="colCodTelPro" prefWidth="156.0" text="codigoTelefonoPro" />
-          <TableColumn fx:id="colNumPrin" prefWidth="86.0" text="numPrin" />
-            <TableColumn fx:id="colNumSecun" prefWidth="127.0" text="numSec" />
-            <TableColumn fx:id="colObserv" prefWidth="113.0" text="Obsevaciones" />
-            <TableColumn fx:id="colCodProv" prefWidth="203.0" text="CodigoProveedor" />
+          <TableColumn fx:id="colCodTelPro" prefWidth="27.0" text="ID" />
+          <TableColumn fx:id="colNumPrin" prefWidth="107.0" text="Numero Principal" />
+            <TableColumn fx:id="colNumSecun" prefWidth="123.0" text="Numero Secundario" />
+            <TableColumn fx:id="colObserv" prefWidth="299.0" text="Obsevaciones" />
+            <TableColumn fx:id="colCodProv" prefWidth="129.0" text="Codigo del Proveedor" />
         </columns>
       </TableView>
       <Button fx:id="btnRegresar" layoutX="211.0" layoutY="479.0" mnemonicParsing="false" onAction="#regresar" prefHeight="82.0" prefWidth="95.0" stylesheets="@../resources/KinalStoreCSS.css">

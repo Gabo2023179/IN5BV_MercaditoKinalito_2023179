@@ -90,29 +90,29 @@
           <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
         </rowConstraints>
          <children>
-            <Label text="codigoDetalleCompra" textFill="#032a76">
+            <Label text="ID" textFill="#032a76">
                <font>
-                  <Font name="System Bold" size="12.0" />
+                  <Font name="System Bold" size="17.0" />
                </font>
             </Label>
-            <Label text="costoUnitaro" textFill="#032a76" GridPane.rowIndex="1">
+            <Label text="Costo Unitario" textFill="#032a76" GridPane.rowIndex="1">
                <font>
-                  <Font name="System Bold" size="20.0" />
+                  <Font name="System Bold" size="17.0" />
                </font>
             </Label>
             <Label text="Cantidad" textFill="#032a76" GridPane.rowIndex="2">
                <font>
-                  <Font name="System Bold" size="22.0" />
+                  <Font name="System Bold" size="17.0" />
                </font>
             </Label>
             <Label text="productoId" textFill="#032a76" GridPane.columnIndex="2">
                <font>
-                  <Font name="System Bold" size="13.0" />
+                  <Font name="System Bold" size="17.0" />
                </font>
             </Label>
             <Label text="DetalleCompra" textFill="#032a76" GridPane.columnIndex="2" GridPane.rowIndex="1">
                <font>
-                  <Font name="System Bold" size="11.0" />
+                  <Font name="System Bold" size="16.0" />
                </font>
             </Label>
             <Label GridPane.columnIndex="2" GridPane.rowIndex="2" />
@@ -140,11 +140,11 @@
       </GridPane>
       <TableView fx:id="tblDetalleProducto" layoutX="463.0" layoutY="362.0" onMouseClicked="#seleccionarElementos" prefHeight="200.0" prefWidth="561.0">
         <columns>
-          <TableColumn fx:id="colCodigoDc" prefWidth="126.0" text="codDetCompra" />
-          <TableColumn fx:id="colCostoU" prefWidth="94.0" text="costoU" />
-            <TableColumn fx:id="colCantidad" prefWidth="86.0" text="Cantidad" />
-            <TableColumn fx:id="colProCodPro" prefWidth="97.0" text="productoId" />
-            <TableColumn fx:id="colComNumDoc" prefWidth="157.0" text="CompraId" />
+          <TableColumn fx:id="colCodigoDc" prefWidth="37.0" text="ID" />
+          <TableColumn fx:id="colCostoU" prefWidth="157.0" text="Costo Unitaro" />
+            <TableColumn fx:id="colCantidad" prefWidth="108.0" text="Cantidad" />
+            <TableColumn fx:id="colProCodPro" prefWidth="139.0" text="productoId" />
+            <TableColumn fx:id="colComNumDoc" prefWidth="119.0" text="CompraId" />
         </columns>
          <effect>
             <Glow level="0.31" />

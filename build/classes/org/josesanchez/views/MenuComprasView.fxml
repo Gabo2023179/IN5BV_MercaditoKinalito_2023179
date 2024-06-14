@@ -83,12 +83,12 @@
             </ImageView>
          </children>
       </GridPane>
-      <TableView fx:id="tblCompras" layoutX="557.0" layoutY="384.0" onMouseClicked="#seleccionarElemento" prefHeight="200.0" prefWidth="511.0">
+      <TableView fx:id="tblCompras" layoutX="410.0" layoutY="384.0" onMouseClicked="#seleccionarElemento" prefHeight="200.0" prefWidth="742.0">
         <columns>
-          <TableColumn fx:id="colCompraId" editable="false" prefWidth="96.0" sortable="false" text="ID de la Compra" />
-          <TableColumn fx:id="colFechaCompra" prefWidth="129.0" text="Fecha de la Compra" />
-            <TableColumn fx:id="colDescripcion" prefWidth="167.0" text="Descripcion" />
-            <TableColumn fx:id="colTotalCompra" prefWidth="118.0" text="Total de la Compra" />
+          <TableColumn fx:id="colCompraId" editable="false" prefWidth="36.0" sortable="false" text="ID" />
+          <TableColumn fx:id="colFechaCompra" prefWidth="46.0" text="Fecha" />
+            <TableColumn fx:id="colDescripcion" prefWidth="580.0" text="Descripcion" />
+            <TableColumn fx:id="colTotalCompra" prefWidth="78.0" text="Total" />
         </columns>
       </TableView>
       <Button fx:id="btnRegresar" layoutX="190.0" layoutY="538.0" mnemonicParsing="false" onAction="#regresar" prefHeight="84.0" prefWidth="84.0" stylesheets="@../resources/KinalStoreCSS.css">
@@ -116,24 +116,24 @@
             <RowConstraints maxHeight="51.0" minHeight="10.0" prefHeight="51.0" vgrow="SOMETIMES" />
         </rowConstraints>
          <children>
-            <Label text="CompraId" textFill="#78cf53">
+            <Label text="ID" textFill="#78cf53">
                <font>
-                  <Font name="System Bold" size="25.0" />
+                  <Font name="System Bold" size="15.0" />
                </font>
             </Label>
-            <Label text="FechaCompra" textFill="#78cf53" GridPane.rowIndex="1">
+            <Label prefHeight="30.0" prefWidth="144.0" text="Fecha de la Compra" textFill="#78cf53" GridPane.rowIndex="1">
                <font>
-                  <Font name="System Bold" size="25.0" />
+                  <Font name="System Bold" size="15.0" />
                </font>
             </Label>
             <Label text="Descripcion" textFill="#78cf53" GridPane.rowIndex="2">
                <font>
-                  <Font name="System Bold" size="25.0" />
+                  <Font name="System Bold" size="15.0" />
                </font>
             </Label>
-            <Label text="TotalCompra" textFill="#78cf53" GridPane.rowIndex="3">
+            <Label text="Total" textFill="#78cf53" GridPane.rowIndex="3">
                <font>
-                  <Font name="System Bold" size="25.0" />
+                  <Font name="System Bold" size="15.0" />
                </font>
             </Label>
             <TextField fx:id="txtCompraId" editable="false" GridPane.columnIndex="1">

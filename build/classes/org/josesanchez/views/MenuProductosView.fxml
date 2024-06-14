@@ -94,15 +94,15 @@
          </styleClass></Button>
       <TableView fx:id="tblProductos" layoutX="427.0" layoutY="378.0" onMouseClicked="#seleccionarElementos" prefHeight="227.0" prefWidth="871.0">
         <columns>
-          <TableColumn fx:id="colCodProd" prefWidth="75.0" text="ID Producto" />
-          <TableColumn fx:id="colDesProd" prefWidth="71.0" text="Decripcion" />
-            <TableColumn fx:id="colPrecioU" prefWidth="111.0" text="Precio Unitario" />
+          <TableColumn fx:id="colCodProd" prefWidth="23.0" text="ID" />
+          <TableColumn fx:id="colDesProd" prefWidth="192.0" text="Decripcion" />
+            <TableColumn fx:id="colPrecioU" prefWidth="87.0" text="Precio Unitario" />
             <TableColumn fx:id="colPrecioD" prefWidth="89.0" text="Precio Docena" />
-            <TableColumn fx:id="colPrecioM" prefWidth="101.0" text="Precio Mayor" />
+            <TableColumn fx:id="colPrecioM" prefWidth="87.0" text="Precio Mayor" />
             <TableColumn fx:id="colImagenPro" prefWidth="105.0" text="Imagen Producto" />
-            <TableColumn fx:id="colExistencia" prefWidth="64.0" text="Existencia" />
-            <TableColumn fx:id="colCodProv" prefWidth="110.0" text="ID del Proveedor" />
-            <TableColumn fx:id="colCodTipoProd" prefWidth="141.0" text="ID Tipo De Producto" />
+            <TableColumn fx:id="colExistencia" prefWidth="62.0" text="Existencia" />
+            <TableColumn fx:id="colCodProv" prefWidth="102.0" text="ID del Proveedor" />
+            <TableColumn fx:id="colCodTipoProd" prefWidth="120.0" text="ID Tipo De Producto" />
         </columns>
       </TableView>
       <GridPane layoutX="489.0" layoutY="128.0" prefHeight="192.0" prefWidth="774.0">
@@ -120,7 +120,7 @@
           <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
         </rowConstraints>
          <children>
-            <Label text="ProductoId" textFill="#78cf53">
+            <Label text="ID" textFill="#78cf53">
                <font>
                   <Font name="System Bold" size="15.0" />
                </font>
@@ -130,22 +130,22 @@
                   <Font name="System Bold" size="15.0" />
                </font>
             </Label>
-            <Label text="precioUnitario" textFill="#78cf53" GridPane.columnIndex="4">
+            <Label text="Precio Unitario" textFill="#78cf53" GridPane.columnIndex="4">
                <font>
                   <Font name="System Bold" size="15.0" />
                </font>
             </Label>
-            <Label text="PrecioDocena" textFill="#78cf53" GridPane.rowIndex="1">
+            <Label text="Precio en Docena" textFill="#78cf53" GridPane.rowIndex="1">
                <font>
                   <Font name="System Bold" size="15.0" />
                </font>
             </Label>
-            <Label text="PrecioMayor" textFill="#78cf53" GridPane.columnIndex="2" GridPane.rowIndex="1">
+            <Label text="Precio Mayor" textFill="#78cf53" GridPane.columnIndex="2" GridPane.rowIndex="1">
                <font>
                   <Font name="System Bold" size="15.0" />
                </font>
             </Label>
-            <Label text="ImagenProducto" textFill="#78cf53" GridPane.columnIndex="4" GridPane.rowIndex="1">
+            <Label text="Imagen Producto" textFill="#78cf53" GridPane.columnIndex="4" GridPane.rowIndex="1">
                <font>
                   <Font name="System Bold" size="15.0" />
                </font>
@@ -155,7 +155,7 @@
                   <Font name="System Bold" size="15.0" />
                </font>
             </Label>
-            <Label text="CodigoProveedor" textFill="#78cf53" GridPane.columnIndex="2" GridPane.rowIndex="2">
+            <Label text="Proveedor" textFill="#78cf53" GridPane.columnIndex="2" GridPane.rowIndex="2">
                <font>
                   <Font name="System Bold" size="15.0" />
                </font>

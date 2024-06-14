@@ -109,7 +109,7 @@
             <RowConstraints maxHeight="101.0" minHeight="10.0" prefHeight="75.0" vgrow="SOMETIMES" />
         </rowConstraints>
          <children>
-            <Label text="CodigoCliente" textFill="#032870">
+            <Label text="ID" textFill="#032870">
                <font>
                   <Font name="Baskerville Old Face" size="18.0" />
                </font>
@@ -183,13 +183,13 @@
       </GridPane>
       <TableView fx:id="tblClientes" layoutX="419.0" layoutY="318.0" onMouseClicked="#seleccionarElemento" prefHeight="400.0" prefWidth="882.0">
         <columns>
-          <TableColumn fx:id="colCodigoC" prefWidth="131.0" text="Codigo Del Cliente" />
-            <TableColumn fx:id="colNit" prefWidth="108.0" text="Nit del Cliente" />
-            <TableColumn fx:id="colNombreC" prefWidth="121.0" text="Nombre Del Cliente" />
-            <TableColumn fx:id="colApellidoC" prefWidth="120.0" text="Apellido Del Cliente" />
-            <TableColumn fx:id="colDireccionC" prefWidth="123.0" text="Direccion del Cliente" />
-            <TableColumn fx:id="colTelefonoC" prefWidth="129.0" text="Telefono del Cliente" />
-            <TableColumn fx:id="colCorreoC" prefWidth="144.0" text="Correo del Cliente" />
+          <TableColumn fx:id="colCodigoC" prefWidth="31.0" text="ID" />
+            <TableColumn fx:id="colNit" prefWidth="119.0" text="Nit del Cliente" />
+            <TableColumn fx:id="colNombreC" prefWidth="128.0" text="Nombre Del Cliente" />
+            <TableColumn fx:id="colApellidoC" prefWidth="135.0" text="Apellido Del Cliente" />
+            <TableColumn fx:id="colDireccionC" prefWidth="236.0" text="Direccion del Cliente" />
+            <TableColumn fx:id="colTelefonoC" prefWidth="120.0" text="Telefono del Cliente" />
+            <TableColumn fx:id="colCorreoC" prefWidth="107.0" text="Correo del Cliente" />
         </columns>
       </TableView>
       <Button fx:id="btnRegresar" layoutX="263.0" layoutY="599.0" mnemonicParsing="false" onAction="#regresar" prefHeight="77.0" prefWidth="86.0" stylesheets="@../resources/KinalStoreCSS.css" textFill="#032870">

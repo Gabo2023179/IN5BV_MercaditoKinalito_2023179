@@ -402,8 +402,8 @@ public class MenuFacturaController implements Initializable {
     }
     
     public void imprimirReporte(){
-        Map parametros = new HashMap();
-        parametros.put("numeroFactura", null);
+        Map<String, Object> parametros = new HashMap<>();
+        parametros.put("factID", (Integer.parseInt(txtNumFactura.getText())));
         GenerarReportes.mostrarReportes("reportFacturas.jasper", "Reporte de los facturas", parametros);
     }
     

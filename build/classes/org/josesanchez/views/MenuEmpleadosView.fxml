@@ -93,19 +93,19 @@
             <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
         </rowConstraints>
          <children>
-            <Label text="codigoEmpleado" textFill="#78cf53">
+            <Label text="ID" textFill="#78cf53">
                <font>
                   <Font name="Century Gothic" size="16.0" />
                </font>
             </Label>
-            <Label text="nombreEmpleado" textFill="#78cf53" GridPane.rowIndex="1">
+            <Label text="Nombre del Empleado" textFill="#78cf53" GridPane.rowIndex="1">
                <font>
-                  <Font size="16.0" />
+                  <Font size="15.0" />
                </font>
             </Label>
-            <Label text="apellidosEmpleado" textFill="#78cf53" GridPane.rowIndex="2">
+            <Label text="Apellido del Empleado" textFill="#78cf53" GridPane.rowIndex="2">
                <font>
-                  <Font size="16.0" />
+                  <Font size="15.0" />
                </font>
             </Label>
             <Label text="Sueldo" textFill="#78cf53" GridPane.rowIndex="3">
@@ -123,7 +123,7 @@
                   <Font size="16.0" />
                </font>
             </Label>
-            <Label text="CargoEmpleado" textFill="#78cf53" GridPane.columnIndex="2" GridPane.rowIndex="2">
+            <Label text="Cargo del Empleado" textFill="#78cf53" GridPane.columnIndex="2" GridPane.rowIndex="2">
                <font>
                   <Font size="16.0" />
                </font>
@@ -165,15 +165,15 @@
                </effect></ComboBox>
          </children>
       </GridPane>
-      <TableView fx:id="tblEmpleados" layoutX="411.0" layoutY="404.0" onMouseClicked="#seleccionarElementos" prefHeight="243.0" prefWidth="783.0">
+      <TableView fx:id="tblEmpleados" layoutX="393.0" layoutY="404.0" onMouseClicked="#seleccionarElementos" prefHeight="243.0" prefWidth="819.0">
         <columns>
-          <TableColumn fx:id="colCodEmp" prefWidth="114.0" text="CodigoEmpleado" />
-          <TableColumn fx:id="colNomEmpleado" prefWidth="111.0" text="NomEmpleado" />
-            <TableColumn fx:id="colApeEmpleado" prefWidth="148.0" text="ApellidoEmpelado" />
-            <TableColumn fx:id="colSueldo" prefWidth="57.0" text="Sueldo" />
-            <TableColumn fx:id="colDireccion" prefWidth="116.0" text="Direccion" />
-            <TableColumn fx:id="colTurno" prefWidth="128.0" text="Turno" />
-            <TableColumn fx:id="colCargoId" prefWidth="108.0" text="CargoEmpleado" />
+          <TableColumn fx:id="colCodEmp" prefWidth="29.0" text="ID" />
+          <TableColumn fx:id="colNomEmpleado" prefWidth="147.0" text="Nombre del Empleado" />
+            <TableColumn fx:id="colApeEmpleado" prefWidth="137.0" text="Apellido del Empleado" />
+            <TableColumn fx:id="colSueldo" prefWidth="84.0" text="Sueldo" />
+            <TableColumn fx:id="colDireccion" prefWidth="234.0" text="Direccion" />
+            <TableColumn fx:id="colTurno" prefWidth="64.0" text="Turno" />
+            <TableColumn fx:id="colCargoId" prefWidth="123.0" text="Cargo del Empleado" />
         </columns>
       </TableView>
       <Button fx:id="btnRegresar" layoutX="224.0" layoutY="546.0" mnemonicParsing="false" onAction="#regresar" prefHeight="69.0" prefWidth="75.0" stylesheets="@../resources/KinalStoreCSS.css">

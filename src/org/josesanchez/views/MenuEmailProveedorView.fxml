@@ -107,24 +107,24 @@
             <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
         </rowConstraints>
          <children>
-            <Label text="codigoEmailProveedor" textFill="#032a76">
+            <Label text="ID" textFill="#032a76">
                <font>
                   <Font name="Book Antiqua" size="21.0" />
                </font>
             </Label>
-            <Label text="EmailProveedor" textFill="#032a76" GridPane.rowIndex="1">
+            <Label text="Email del Proveedor" textFill="#032a76" GridPane.rowIndex="1">
                <font>
                   <Font name="Book Antiqua" size="22.0" />
                </font>
             </Label>
             <Label text="Descripcion" textFill="#032a76" GridPane.rowIndex="2">
                <font>
-                  <Font size="25.0" />
+                  <Font size="22.0" />
                </font>
             </Label>
-            <Label text="codigoProveedor" textFill="#032a76" GridPane.rowIndex="3">
+            <Label text="Codigo del Proveedor" textFill="#032a76" GridPane.rowIndex="3">
                <font>
-                  <Font name="Book Antiqua" size="24.0" />
+                  <Font name="Book Antiqua" size="22.0" />
                </font>
             </Label>
             <TextField fx:id="txtCodEmPro" editable="false" GridPane.columnIndex="1">
@@ -152,12 +152,12 @@
                </effect></ComboBox>
          </children>
       </GridPane>
-      <TableView fx:id="tblEmPro" layoutX="499.0" layoutY="332.0" onMouseClicked="#seleccionarElementos" prefHeight="200.0" prefWidth="497.0">
+      <TableView fx:id="tblEmPro" layoutX="394.0" layoutY="332.0" onMouseClicked="#seleccionarElementos" prefHeight="200.0" prefWidth="680.0">
         <columns>
-          <TableColumn fx:id="colCodEmPro" prefWidth="107.0" text="CodigoEmPro" />
-            <TableColumn fx:id="colEmailPro" prefWidth="118.0" text="EmailProveedor" />
-            <TableColumn fx:id="colDescripcion" prefWidth="168.0" text="Descripcion" />
-            <TableColumn fx:id="colCodPro" prefWidth="103.0" text="CodigoProveedor" />
+          <TableColumn fx:id="colCodEmPro" prefWidth="41.0" text="ID" />
+            <TableColumn fx:id="colEmailPro" prefWidth="120.0" text="Email del proveedor" />
+            <TableColumn fx:id="colDescripcion" prefWidth="391.0" text="Descripcion" />
+            <TableColumn fx:id="colCodPro" prefWidth="127.0" text="Codigo del Proveedor" />
         </columns>
       </TableView>
       <Button fx:id="btnRegresar" layoutX="203.0" layoutY="485.0" mnemonicParsing="false" onAction="#regresar" prefHeight="65.0" prefWidth="85.0" stylesheets="@../resources/KinalStoreCSS.css">

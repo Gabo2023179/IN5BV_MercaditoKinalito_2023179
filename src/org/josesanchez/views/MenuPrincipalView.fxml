@@ -6,6 +6,7 @@
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Circle?>
 
 <AnchorPane id="AnchorPane" prefHeight="789.0" prefWidth="1320.0" style="-fx-background-color: #7ED957;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.josesanchez.controllers.MenuPrincipalController">
    <children>
@@ -39,18 +40,6 @@
                   </ImageView>
                </graphic>
           </Menu>
-          <Menu mnemonicParsing="false" text="Reportes">
-            <items>
-              <MenuItem mnemonicParsing="false" text="Compra y Venta" />
-            </items>
-               <graphic>
-                  <ImageView fitHeight="41.0" fitWidth="54.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@../Images/iconfinder-documents01-1622837_121952.png" />
-                     </image>
-                  </ImageView>
-               </graphic>
-          </Menu>
           <Menu mnemonicParsing="false" text="Acerca de">
             <items>
               <MenuItem fx:id="btnMenuProgramador" mnemonicParsing="false" onAction="#clicClientes" text="Programador" />
@@ -65,9 +54,16 @@
           </Menu>
         </menus>
       </MenuBar>
-      <ImageView fitHeight="457.0" fitWidth="903.0" layoutX="219.0" layoutY="170.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="457.0" fitWidth="903.0" layoutX="219.0" layoutY="49.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../Images/SUPERMICHIONES.png" />
+         </image>
+      </ImageView>
+      <Circle fx:id="c1" fill="#78cf53" layoutX="671.0" layoutY="571.0" radius="146.0" stroke="#032870" strokeType="INSIDE" strokeWidth="15.0" style="-fx-stroke-dash-array: 50;" />
+      <Circle fx:id="c2" fill="#78cf53" layoutX="671.0" layoutY="566.0" radius="107.0" stroke="#032870" strokeType="INSIDE" strokeWidth="15.0" style="-fx-stroke-dash-array: 50;" />
+      <ImageView fitHeight="286.0" fitWidth="280.0" layoutX="530.0" layoutY="432.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../Images/Logotransparent.png" />
          </image>
       </ImageView>
    </children>

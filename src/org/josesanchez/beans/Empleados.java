@@ -81,7 +81,7 @@ public class Empleados {
 
 @Override
     public String toString(){
-        return "| " + getCargoId();
+        return "| " + getCargoId() + " | " + getNombresEmpleado() ;
     }
     
     

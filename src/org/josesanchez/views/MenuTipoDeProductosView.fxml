@@ -82,10 +82,10 @@
             </ImageView>
          </children>
       </GridPane>
-      <TableView fx:id="tblTdp" layoutX="682.0" layoutY="395.0" onMouseClicked="#seleccionarElemento" prefHeight="200.0" prefWidth="388.0">
+      <TableView fx:id="tblTdp" layoutX="466.0" layoutY="395.0" onMouseClicked="#seleccionarElemento" prefHeight="200.0" prefWidth="756.0">
         <columns>
-          <TableColumn fx:id="colTdp" prefWidth="196.0" text="ID del Producto" />
-          <TableColumn fx:id="colDescripcion" prefWidth="191.0" text="Descripcion del Producto" />
+          <TableColumn fx:id="colTdp" prefWidth="104.0" text="ID del Producto" />
+          <TableColumn fx:id="colDescripcion" prefWidth="651.0" text="Descripcion del Producto" />
         </columns>
       </TableView>
       <GridPane layoutX="631.0" layoutY="194.0" prefHeight="159.0" prefWidth="475.0">
@@ -98,7 +98,7 @@
           <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
         </rowConstraints>
          <children>
-            <Label text="IdTipoDeProductos" textFill="#78cf53">
+            <Label text="ID" textFill="#78cf53">
                <font>
                   <Font name="System Bold" size="25.0" />
                </font>

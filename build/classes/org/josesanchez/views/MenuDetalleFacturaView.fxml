@@ -92,24 +92,24 @@
           <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
         </rowConstraints>
          <children>
-            <Label text="codigoDetalleFactura" textFill="#032a76">
+            <Label text="ID" textFill="#032a76">
                <font>
                   <Font name="Barlow Condensed Regular" size="18.0" />
                </font>
             </Label>
-            <Label text="precioUnitario" textFill="#032a76" GridPane.rowIndex="1">
+            <Label text="Precio Unitario" textFill="#032a76" GridPane.rowIndex="1">
                <font>
-                  <Font name="Barlow Condensed Regular" size="24.0" />
+                  <Font size="20.0" />
                </font>
             </Label>
             <Label text="Cantidad" textFill="#032a76" GridPane.rowIndex="2">
                <font>
-                  <Font name="Barlow Condensed Regular" size="23.0" />
+                  <Font size="20.0" />
                </font>
             </Label>
             <Label text="numeroFactura" textFill="#032a76" GridPane.columnIndex="2">
                <font>
-                  <Font name="Barlow Condensed Regular" size="23.0" />
+                  <Font size="18.0" />
                </font>
             </Label>
             <Label text="codigoProducto" textFill="#032a76" GridPane.columnIndex="2" GridPane.rowIndex="1">
@@ -148,11 +148,11 @@
       </GridPane>
       <TableView fx:id="tblDetalleFactura" layoutX="457.0" layoutY="300.0" onMouseClicked="#seleccionarElementos" prefHeight="200.0" prefWidth="523.0">
         <columns>
-          <TableColumn fx:id="colCodigoDF" prefWidth="114.0" text="codigoDetalleFac" />
-          <TableColumn fx:id="colPrecioU" prefWidth="103.0" text="PrecioU" />
-            <TableColumn fx:id="colCantidad" prefWidth="79.0" text="Cantidad" />
-            <TableColumn fx:id="colNumFac" prefWidth="100.0" text="numeroFactura" />
-            <TableColumn fx:id="colproductoId" prefWidth="124.0" text="codigoProducto" />
+          <TableColumn fx:id="colCodigoDF" prefWidth="40.0" text="ID" />
+          <TableColumn fx:id="colPrecioU" prefWidth="121.0" text="Precio Unitario" />
+            <TableColumn fx:id="colCantidad" prefWidth="96.0" text="Cantidad" />
+            <TableColumn fx:id="colNumFac" prefWidth="139.0" text="Numero de Factura" />
+            <TableColumn fx:id="colproductoId" prefWidth="124.0" text="Codigo de Producto" />
         </columns>
       </TableView>
       <Button fx:id="btnRegresar" layoutX="204.0" layoutY="464.0" mnemonicParsing="false" onAction="#regresar" prefHeight="73.0" prefWidth="86.0" stylesheets="@../resources/KinalStoreCSS.css">

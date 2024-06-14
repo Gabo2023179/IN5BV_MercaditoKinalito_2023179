@@ -1107,34 +1107,80 @@ call sp_AgregarClientes ('1542387485', 'oliver', 'sisimit', 'El basurero km. 22'
 call sp_AgregarClientes ('8574125658', 'Joseph', 'Polancos', 'Zona 22', '45875221', 'jpolancos@gmail.com');
 call sp_AgregarClientes ('3698520145', 'Andres', 'Fariñas', 'Zona 24', '45875221', 'Andresfn@gmail.com');
 
+
 call sp_AgregarProveedores ('54785145', 'richardo', 'posadas', 'zona 1','Fruit company', '45875221', 'fruit.gt');
 call sp_AgregarProveedores('54785236', 'jose', 'contreras', 'Mixco','The Cocacola Company', '21215498', 'cocacola.com');
 call sp_AgregarProveedores('98234567', 'maria', 'lopez', 'Guatemala City','PepsiCo', '33567901', 'pepsico.com');
+call sp_AgregarProveedores('1234567890', 'Juan', 'Pérez', 'Av. Central 123, Ciudad', 'Distribuidora Pérez', '123456789', 'www.perez.com');
+call sp_AgregarProveedores('0987654321', 'María', 'Gómez', 'Calle Falsa 456, Ciudad', 'Proveedora Gómez', '987654321', 'www.gomez.com');
+call sp_AgregarProveedores('1122334455', 'Carlos', 'López', 'Boulevard Principal 789, Ciudad', 'López y Cía', '112233445', 'www.lopez.com');
+call sp_AgregarProveedores('6677889900', 'Luis', 'Fernández', 'Ruta 66 Km 50, Ciudad', 'Fernández Proveeduría', '667788990', 'www.fernandez.com');
 
-call sp_AgregarTelefonoProveedor('12345678', '87654321', 'telefono de casa y oficina', 1);
-call sp_AgregarTelefonoProveedor('90657890', '34656753', 'telefono de oficina 1 y oficina 2', 2);
-call sp_AgregarTelefonoProveedor('90657890', '34656753', 'telefono de oficina 1 y oficina 2', 2);
+
+call sp_AgregarTelefonoProveedor('12345678', '87654321', 'Contacto principal', 1);
+call sp_AgregarTelefonoProveedor('23456789', '98765432', 'Horario comercial', 2);
+call sp_AgregarTelefonoProveedor('34567890', '09876543', 'Atención 24h', 3);
+call sp_AgregarTelefonoProveedor('45678901', '10987654', 'Soporte técnico', 4);
+call sp_AgregarTelefonoProveedor('56789012', '21098765', 'Ventas', 5);
+call sp_AgregarTelefonoProveedor('67890123', '32109876', 'Postventa', 6);
+call sp_AgregarTelefonoProveedor('78901234', '43210987', 'Consultas generales', 7);
 
 call sp_AgregarEmailProveedor('asdasd@gmail.com', 'correo personal', 1);
 call sp_AgregarEmailProveedor('esotilin@gmail.com', 'correo de empresa', 2);
+call sp_AgregarEmailProveedor('soporte@lopez.com', 'Email de soporte técnico', 3);
+call sp_AgregarEmailProveedor('info@martinez.com', 'Información general', 4);
+call sp_AgregarEmailProveedor('postventa@fernandez.com', 'Email de postventa', 5);
+call sp_AgregarEmailProveedor('administracion@perez.com', 'Email de administración', 6);
+call sp_AgregarEmailProveedor('marketing@gomez.com', 'Email de marketing', 7);
 
-call sp_AgregarTipoDeProducto ('Cereal dietetico');
-call sp_AgregarTipoDeProducto ('PROTEIN POWDER');
+call sp_AgregarTipoDeProducto('Cereales');
+call sp_AgregarTipoDeProducto('Gimnasio');
+call sp_AgregarTipoDeProducto('Frutas y Verduras');
+call sp_AgregarTipoDeProducto('Carnes y Pescados');
+call sp_AgregarTipoDeProducto('Lácteos y Derivados');
+call sp_AgregarTipoDeProducto('Panadería y Pastelería');
+call sp_AgregarTipoDeProducto('Bebidas y Refrescos');
 
-call sp_AgregarProductos ('Cereal alto en proteinas', '1000101010101010101', 1, 1);
-call sp_AgregarProductos ('Leche chocolatada alto en azucares', '10101010101010', 2, 2);
+call sp_AgregarProductos('Cereal alto en proteinas', '1000101010101010101', 1, 1);
+call sp_AgregarProductos('Proteina marca whey', '1010100001010', 2, 2);
+call sp_AgregarProductos('Manzana Roja', '10001010010011',3 , 3);
+call sp_AgregarProductos('Filete de Res', '10001010100010',4, 4);
+call sp_AgregarProductos('Queso Cheddar', '10001010110',5, 5);
+call sp_AgregarProductos('Pan Integral', '10000100010101', 6, 6);
+call sp_AgregarProductos('CocaCola', '100010101001', 7, 7);
 
-call sp_AgregarCompras ('10-05-24','5 cereales, 10 atunes');
-call sp_AgregarCompras ('04-12-23','bote de proteina en polvo');
+call sp_AgregarCompras ('10-05-24','Compra de cereales');
+call sp_AgregarCompras ('04-12-23','Compra de botes de proteina en polvo');
+call sp_AgregarCompras('14-01-24', 'Compra de suministros de frutas');
+call sp_AgregarCompras('25-02-24', 'Compra de carnes y pescados');
+call sp_AgregarCompras('31-03-24', 'Compra de quesos y leches');
+call sp_AgregarCompras('13-04-24', 'Compra de Panes y Pasteles');
+call sp_AgregarCompras('02-05-24', 'Compra de Bebidas carbonatadas');
 
-call sp_AgregarDetalleCompra(12.5, 2, 1, 1);
-call sp_AgregarDetalleCompra(10.5, 3, 2, 2);
+call sp_AgregarDetalleCompra(30.2, 3, 1, 1);
+call sp_AgregarDetalleCompra(80.5, 1, 2, 2);
+call sp_AgregarDetalleCompra(15.5, 6, 3, 3);
+call sp_AgregarDetalleCompra(40.3, 3, 4, 4);
+call sp_AgregarDetalleCompra(24.3, 4, 5, 5);
+call sp_AgregarDetalleCompra(40.5, 3, 6, 6);
+call sp_AgregarDetalleCompra(24.1, 2, 7, 7);
 
-call sp_AgregarCargos ('gerente', 'gerente de ventas');
+
+call sp_AgregarCargos ('Gerente de Supermercado', 'Responsable de la dirección general del supermercado');
 call sp_AgregarCargos ('ingeniero artillero', 'experto en explosivos');
+call sp_AgregarCargos('Seguridad', 'Responsable de la seguridad del establecimiento');
+call sp_AgregarCargos('Jefe de Caja', 'Encargado de supervisar las actividades de los cajeros');
+call sp_AgregarCargos('Encargado de Compras', 'Responsable de la adquisición de productos y suministros');
+call sp_AgregarCargos('Supervisor de Inventario', 'Gestiona y controla el inventario del supermercado');
+call sp_AgregarCargos('Asistente Administrativo', 'Apoya en las tareas administrativas y de oficina del supermercado');
 
-call sp_AgregarEmpleado('Sebastian', 'mendez', 5324, 'zona 18', '12 PM - 6 PM', 1);
-call sp_AgregarEmpleado('Jim', 'Del Cid', 7324, 'zona 5', '9 AM - 3 PM', 2);
+CALL sp_Agregar_Empleado('Juan', 'Pérez', 3500.00, 'Av. Central 123, Ciudad', 'Diurno', 1);
+CALL sp_Agregar_Empleado('Carlos', 'García', 4500.00, 'Calle Falsa 456, Ciudad', 'Nocturno', 2);
+CALL sp_Agregar_Empleado('María', 'López', 2500.00, 'Boulevard Principal 789, Ciudad', 'Diurno', 3);
+CALL sp_Agregar_Empleado('Ana', 'Martínez', 3000.00, 'Carrera 10 #20-30, Ciudad', 'Nocturno', 4);
+CALL sp_Agregar_Empleado('Luis', 'Fernández', 2800.00, 'Ruta 66 Km 50, Ciudad', 'Diurno', 5);
+CALL sp_Agregar_Empleado('Pedro', 'Ramírez', 2600.00, 'Av. Secundaria 321, Ciudad', 'Nocturno', 6);
+CALL sp_Agregar_Empleado('Laura', 'Gómez', 2400.00, 'Calle Principal 123, Ciudad', 'Diurno', 7);
 
 call sp_AgregarFactura('acitva', '2012-12-12', 1, 1);
 call sp_AgregarFactura('acitva', '2023-6-1', 2, 2);
