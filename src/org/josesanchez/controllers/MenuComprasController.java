@@ -12,6 +12,8 @@ import java.sql.SQLException;
 import java.sql.SQLIntegrityConstraintViolationException;
 import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.ResourceBundle;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -29,6 +31,7 @@ import javafx.scene.image.ImageView;
 import javax.swing.JOptionPane;
 import org.josesanchez.beans.Compras;
 import org.josesanchez.dbs.Conexion;
+import org.josesanchez.reports.GenerarReportes;
 import org.josesanchez.system.Main;
 
 /**
@@ -275,6 +278,9 @@ public class MenuComprasController implements Initializable {
 
     public void reporte() {
         switch (tipoDeOperaciones) {
+            case NINGUNO:
+                imprimirReporte();
+                break;
             case ACTUALIZAR:
                 desactivarControles();
                 limpiarControles();
@@ -290,6 +296,13 @@ public class MenuComprasController implements Initializable {
                 break;
         }
     }
+    
+     public void imprimirReporte(){
+        Map parametros = new HashMap();
+        parametros.put("descripcion", null);
+        GenerarReportes.mostrarReportes("reportCompras.jasper", "Reporte de las Compras", parametros);
+    }
+    
 
     public void desactivarControles() {
         txtCompraId.setEditable(false);
@@ -301,6 +314,7 @@ public class MenuComprasController implements Initializable {
     public void activarControles() {
         datepFc.setEditable(true);
         txtdescripcion.setEditable(true);
+        txtTotalCompra.setEditable(true);
 
     }
 

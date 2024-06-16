@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="reportCompras" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="44ca5d10-1195-491d-ae36-e41c9eeae314">
+	<property name="ireport.zoom" value="1.771561000000003"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<queryString>
+		<![CDATA[call sp_ListarCompras ()]]>
+	</queryString>
+	<field name="compraId" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="fechaCompra" class="java.sql.Date">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="descripcion" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="totalCompra" class="java.math.BigDecimal">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<background>
+		<band height="802" splitType="Stretch">
+			<image scaleImage="FillFrame">
+				<reportElement x="0" y="0" width="555" height="802" uuid="68ac9d32-b27f-43a8-9c23-ea55bc938d8c"/>
+				<imageExpression><![CDATA["C:\\Users\\joseg\\Desktop\\CABRON DEFINITIVO\\IN5BV_MercaditoKinalito_2023179\\src\\org\\josesanchez\\Images\\Membrete.png"]]></imageExpression>
+			</image>
+		</band>
+	</background>
+	<title>
+		<band height="112" splitType="Stretch">
+			<staticText>
+				<reportElement x="67" y="73" width="100" height="39" uuid="ff7e9ce7-7497-4410-ad8a-7c5868d6e98f"/>
+				<textElement>
+					<font fontName="Barlow Condensed Medium" size="24"/>
+				</textElement>
+				<text><![CDATA[Compras]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="82" splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="61" splitType="Stretch">
+			<staticText>
+				<reportElement x="81" y="41" width="38" height="20" uuid="adce2d8f-7014-4bea-a073-4412d46c3d5a"/>
+				<text><![CDATA[ID]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="139" y="41" width="57" height="20" uuid="e1010161-f250-4928-a77b-a145aa206cdf"/>
+				<text><![CDATA[Fecha]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="251" y="41" width="138" height="20" uuid="f4d25eaf-f7ee-4b83-b204-fdfa524bf026"/>
+				<text><![CDATA[Descripcion]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="413" y="41" width="54" height="20" uuid="e8c2bfe1-3b8e-489c-a88e-3b95336310e1"/>
+				<text><![CDATA[Total]]></text>
+			</staticText>
+			<line>
+				<reportElement x="67" y="40" width="401" height="1" uuid="9d79a493-b497-4127-be6a-27a5abd96a84"/>
+			</line>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="29" splitType="Stretch">
+			<textField>
+				<reportElement x="81" y="0" width="38" height="20" uuid="37d1dcb6-71a8-49f5-94ca-04647c54fe3f"/>
+				<textFieldExpression><![CDATA[$F{compraId}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="195" y="0" width="194" height="20" uuid="be24e8ee-b9f3-4cf3-a2d9-3c051a988d9b"/>
+				<textFieldExpression><![CDATA[$F{descripcion}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="412" y="0" width="54" height="20" uuid="73e0eeaa-924d-4bdc-ab0b-a3b29c3df32f"/>
+				<textFieldExpression><![CDATA[$F{totalCompra}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="119" y="0" width="76" height="20" uuid="9063499c-7a8e-4720-92ed-94cbdeb5c693"/>
+				<textFieldExpression><![CDATA[$F{fechaCompra}]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement x="66" y="0" width="400" height="1" uuid="3a12f625-859c-483d-8eb0-fdebabae3a62"/>
+			</line>
+			<line>
+				<reportElement x="466" y="-20" width="1" height="40" uuid="972a04ba-06a7-416f-8e31-55113bc806ef"/>
+			</line>
+			<line>
+				<reportElement x="195" y="-20" width="1" height="40" uuid="04cfdfba-1d41-44c3-ad0a-67fb708d5d41"/>
+			</line>
+			<line>
+				<reportElement x="118" y="-20" width="1" height="40" uuid="5d2deeec-79b5-495d-8c75-18694de85f79"/>
+			</line>
+			<line>
+				<reportElement x="389" y="-20" width="1" height="40" uuid="15c1b88a-6761-4656-a645-e0ed42b9bb22"/>
+			</line>
+			<line>
+				<reportElement x="66" y="-20" width="1" height="39" uuid="15169a34-6e49-4a3b-bee0-ad0888f18525"/>
+			</line>
+			<line>
+				<reportElement x="66" y="18" width="400" height="1" uuid="afd5fc55-4362-421f-8d82-5580aee6181f"/>
+			</line>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="45" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="54" splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="42" splitType="Stretch"/>
+	</summary>
+</jasperReport>

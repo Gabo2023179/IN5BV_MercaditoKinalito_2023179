@@ -205,10 +205,10 @@ delimiter ;
  
 -- Eliminar
 Delimiter $$
-	create procedure sp_EliminarClientes (in codigoCliente int)
+	create procedure sp_EliminarClientes (in _codigoCliente int)
 		begin 
 			delete from Clientes 
-            where codigoCliente = codigoCliente;
+            where codigoCliente = _codigoCliente;
 	end $$
 Delimiter;
 
@@ -283,10 +283,10 @@ delimiter ;
 
 -- Eliminar
 delimiter $$
-create procedure sp_EliminarProveedor(in codigoProveedor int)
+create procedure sp_EliminarProveedor(in _codigoProveedor int)
 	begin
 		delete from Proveedores
-        where codigoProveedor = codigoProveedor;
+        where codigoProveedor = _codigoProveedor;
 	end $$
 delimiter ;
 
@@ -480,10 +480,10 @@ delimiter ;
 
 -- Eliminar
 delimiter $$
-create procedure sp_EliminarTipoDeProducto(in codigoTipoDeProducto int)
+create procedure sp_EliminarTipoDeProducto(in _codigoTipoDeProducto int)
 begin
     delete from TipoDeProductos 
-    where codigoTipoDeProducto = codigoTipoDeProducto;
+    where codigoTipoDeProducto = _codigoTipoDeProducto;
 end $$
 delimiter ;
 
@@ -559,10 +559,10 @@ delimiter ;
 
 -- Eliminar
 delimiter $$
-create procedure sp_EliminarProducto(in productoId int)
+create procedure sp_EliminarProducto(in _productoId int)
 begin
     delete from Productos 
-    where productoId = productoId;
+    where productoId = _productoId;
 end $$
 delimiter ;
         
@@ -576,6 +576,7 @@ create procedure sp_EditarProducto(
     in precioDocena decimal(10,2),
     in precioMayor decimal(10,2),
     in imagenProducto varchar(45),
+	existencia int,
     in codigoProveedor int,
     in codigoTipoDeProducto int)
 begin 
@@ -633,10 +634,10 @@ delimiter ;
 
 -- Eliminar
 delimiter $$
-create procedure sp_EliminarCompras(in compraId int)
+create procedure sp_EliminarCompras(in _compraId int)
 begin
     delete from Compras
-    where compraId = compraId;
+    where compraId = _compraId;
 end $$
 delimiter ;
 
@@ -765,10 +766,10 @@ delimiter ;
 
 -- Eliminar
 delimiter $$
-create procedure sp_EliminarCargo(in cargoId int)
+create procedure sp_EliminarCargo(in _cargoId int)
 begin
     delete from Cargos 
-    where cargoId = cargoId;
+    where cargoId = _cargoId;
 end $$
 delimiter ;
 
@@ -840,10 +841,10 @@ delimiter ;
 -- Eliminar
 delimiter $$
 create procedure sp_EliminarEmpleado(
-    in codigoEmpleado int
+    in _codigoEmpleado int
 )
 begin
-    delete from Empleados where codigoEmpleado = codigoEmpleado;
+    delete from Empleados where codigoEmpleado = _codigoEmpleado;
 end $$
 delimiter ;
 
@@ -919,10 +920,10 @@ delimiter ;
 -- Elimnar
 delimiter $$
 create procedure sp_EliminarFactura(
-    in numeroFactura int
+    in _numeroFactura int
 )
 begin
-    delete from Facturas where numeroFactura = numeroFactura;
+    delete from Facturas where numeroFactura = _numeroFactura;
 end $$
 delimiter ;
 
@@ -990,10 +991,10 @@ delimiter ;
 -- Eliminar
 delimiter $$
 create procedure sp_EliminarDetalleFactura(
-    in codigoDetalleFactura int
+    in _codigoDetalleFactura int
 )
 begin
-    delete from DetalleFactura where codigoDetalleFactura = codigoDetalleFactura;
+    delete from DetalleFactura where codigoDetalleFactura = _codigoDetalleFactura;
 end $$
 delimiter ;
 
@@ -1102,15 +1103,15 @@ where Facturas.numeroFactura = 1;*/
 
 -- ------------------------------------------------- Inserciones -------------------------------------------------
  
-call sp_AgregarClientes ('1245787856', 'harol', 'luna', 'El basurero zona 3', '21215498', 'harolxluna4ever.com');
+call sp_AgregarClientes ('1245787856', 'Harol', 'luna', 'El basurero zona 3', '21215498', 'harolxluna4ever.com');
 call sp_AgregarClientes ('1542387485', 'oliver', 'sisimit', 'El basurero km. 22', '45875221', 'xdxsdadasd.com');
 call sp_AgregarClientes ('8574125658', 'Joseph', 'Polancos', 'Zona 22', '45875221', 'jpolancos@gmail.com');
 call sp_AgregarClientes ('3698520145', 'Andres', 'Fariñas', 'Zona 24', '45875221', 'Andresfn@gmail.com');
 
 
-call sp_AgregarProveedores ('54785145', 'richardo', 'posadas', 'zona 1','Fruit company', '45875221', 'fruit.gt');
-call sp_AgregarProveedores('54785236', 'jose', 'contreras', 'Mixco','The Cocacola Company', '21215498', 'cocacola.com');
-call sp_AgregarProveedores('98234567', 'maria', 'lopez', 'Guatemala City','PepsiCo', '33567901', 'pepsico.com');
+call sp_AgregarProveedores ('5478514525', 'richardo', 'posadas', 'zona 1','Fruit company', '45875221', 'fruit.gt');
+call sp_AgregarProveedores('5478523615', 'jose', 'contreras', 'Mixco','The Cocacola Company', '21215498', 'cocacola.com');
+call sp_AgregarProveedores('9823456725', 'maria', 'lopez', 'Guatemala City','PepsiCo', '33567901', 'pepsico.com');
 call sp_AgregarProveedores('1234567890', 'Juan', 'Pérez', 'Av. Central 123, Ciudad', 'Distribuidora Pérez', '123456789', 'www.perez.com');
 call sp_AgregarProveedores('0987654321', 'María', 'Gómez', 'Calle Falsa 456, Ciudad', 'Proveedora Gómez', '987654321', 'www.gomez.com');
 call sp_AgregarProveedores('1122334455', 'Carlos', 'López', 'Boulevard Principal 789, Ciudad', 'López y Cía', '112233445', 'www.lopez.com');
@@ -1141,13 +1142,13 @@ call sp_AgregarTipoDeProducto('Lácteos y Derivados');
 call sp_AgregarTipoDeProducto('Panadería y Pastelería');
 call sp_AgregarTipoDeProducto('Bebidas y Refrescos');
 
-call sp_AgregarProductos('Cereal alto en proteinas', '1000101010101010101', 1, 1);
-call sp_AgregarProductos('Proteina marca whey', '1010100001010', 2, 2);
-call sp_AgregarProductos('Manzana Roja', '10001010010011',3 , 3);
-call sp_AgregarProductos('Filete de Res', '10001010100010',4, 4);
-call sp_AgregarProductos('Queso Cheddar', '10001010110',5, 5);
-call sp_AgregarProductos('Pan Integral', '10000100010101', 6, 6);
-call sp_AgregarProductos('CocaCola', '100010101001', 7, 7);
+call sp_AgregarProductos('Cereal alto en proteinas', 'cereal.png', 1, 1);
+call sp_AgregarProductos('Proteina marca whey', 'proteina.png', 2, 2);
+call sp_AgregarProductos('Manzana Roja', 'manzana.png',3 , 3);
+call sp_AgregarProductos('Filete de Res', 'filete.png',4, 4);
+call sp_AgregarProductos('Queso Cheddar', 'quesoCh.png',5, 5);
+call sp_AgregarProductos('Pan Integral', 'panI.png', 6, 6);
+call sp_AgregarProductos('CocaCola', 'cc.png', 7, 7);
 
 call sp_AgregarCompras ('10-05-24','Compra de cereales');
 call sp_AgregarCompras ('04-12-23','Compra de botes de proteina en polvo');
@@ -1174,13 +1175,13 @@ call sp_AgregarCargos('Encargado de Compras', 'Responsable de la adquisición de
 call sp_AgregarCargos('Supervisor de Inventario', 'Gestiona y controla el inventario del supermercado');
 call sp_AgregarCargos('Asistente Administrativo', 'Apoya en las tareas administrativas y de oficina del supermercado');
 
-CALL sp_Agregar_Empleado('Juan', 'Pérez', 3500.00, 'Av. Central 123, Ciudad', 'Diurno', 1);
-CALL sp_Agregar_Empleado('Carlos', 'García', 4500.00, 'Calle Falsa 456, Ciudad', 'Nocturno', 2);
-CALL sp_Agregar_Empleado('María', 'López', 2500.00, 'Boulevard Principal 789, Ciudad', 'Diurno', 3);
-CALL sp_Agregar_Empleado('Ana', 'Martínez', 3000.00, 'Carrera 10 #20-30, Ciudad', 'Nocturno', 4);
-CALL sp_Agregar_Empleado('Luis', 'Fernández', 2800.00, 'Ruta 66 Km 50, Ciudad', 'Diurno', 5);
-CALL sp_Agregar_Empleado('Pedro', 'Ramírez', 2600.00, 'Av. Secundaria 321, Ciudad', 'Nocturno', 6);
-CALL sp_Agregar_Empleado('Laura', 'Gómez', 2400.00, 'Calle Principal 123, Ciudad', 'Diurno', 7);
+CALL sp_AgregarEmpleado('Juan', 'Pérez', 3500.00, 'Av. Central 123, Ciudad', 'Diurno', 1);
+CALL sp_AgregarEmpleado('Carlos', 'García', 4500.00, 'Calle Falsa 456, Ciudad', 'Nocturno', 2);
+CALL sp_AgregarEmpleado('María', 'López', 2500.00, 'Boulevard Principal 789, Ciudad', 'Diurno', 3);
+CALL sp_AgregarEmpleado('Ana', 'Martínez', 3000.00, 'Carrera 10 #20-30, Ciudad', 'Nocturno', 4);
+CALL sp_AgregarEmpleado('Luis', 'Fernández', 2800.00, 'Ruta 66 Km 50, Ciudad', 'Diurno', 5);
+CALL sp_AgregarEmpleado('Pedro', 'Ramírez', 2600.00, 'Av. Secundaria 321, Ciudad', 'Nocturno', 6);
+CALL sp_AgregarEmpleado('Laura', 'Gómez', 2400.00, 'Calle Principal 123, Ciudad', 'Diurno', 7);
 
 call sp_AgregarFactura('acitva', '2012-12-12', 1, 1);
 call sp_AgregarFactura('acitva', '2023-6-1', 2, 2);

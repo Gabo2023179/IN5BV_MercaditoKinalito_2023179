@@ -323,11 +323,8 @@ public class MenuProductosController implements Initializable {
                             procedimiento.execute();
                             limpiarControles();
                             listaTdp.remove(tblProductos.getSelectionModel().getSelectedItem());
-                        } catch (SQLIntegrityConstraintViolationException e) {
-                            JOptionPane.showMessageDialog(null, "No puedes eliminar este registro, esta referenciado en otra clase");
-                        } catch (Exception e) {
+                         } catch (Exception e) {
                             e.printStackTrace();
-                            JOptionPane.showMessageDialog(null, "Se produjo un error: " + e.getMessage());
                         }
                     }
                 } else {
@@ -377,7 +374,7 @@ public class MenuProductosController implements Initializable {
 
     public void actualizar() {
         try {
-            PreparedStatement procedimiento = Conexion.getInstance().getConexion().prepareCall("{call sp_EditarProductos (?, ?, ?, ?, ?, ?, ?, ?, ?)}");
+            PreparedStatement procedimiento = Conexion.getInstance().getConexion().prepareCall("{call sp_EditarProducto (?, ?, ?, ?, ?, ?, ?, ?, ?)}");
             Productos registro = (Productos) tblProductos.getSelectionModel().getSelectedItem();
             registro.setProductoId(Integer.parseInt(txtCodigoProd.getText()));
             registro.setDescripcionProducto(txtDescPro.getText());

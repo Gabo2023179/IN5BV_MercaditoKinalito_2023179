@@ -79,8 +79,6 @@ public class MenuDetalleFacturaController implements Initializable {
     private ImageView imgEliminar;
     @FXML
     private ImageView imgEditar;
-    @FXML
-    private ImageView imgReporte;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -226,7 +224,6 @@ public class MenuDetalleFacturaController implements Initializable {
                 btnReporte.setDisable(true);
                 imgAgregar.setImage(new Image("/org/josesanchez/Images/guardar.png"));
                 imgEliminar.setImage(new Image("/org/josesanchez/Images/cancelar.png"));
-                imgReporte.setOpacity(0.5);
                 imgEditar.setOpacity(0.5);
                 tipoDeOperacion = operaciones.ACTUALIZAR;
                 break;
@@ -240,7 +237,6 @@ public class MenuDetalleFacturaController implements Initializable {
                 btnReporte.setDisable(false);
                 imgAgregar.setImage(new Image("/org/josesanchez/Images/AgregarDetalleFactura.png"));
                 imgEliminar.setImage(new Image("/org/josesanchez/Images/ElimianarDetalleCompra.png"));
-                imgReporte.setOpacity(1);
                 imgEditar.setOpacity(1);
                 tipoDeOperacion = operaciones.NINGUNO;
                 break;
@@ -282,7 +278,6 @@ public class MenuDetalleFacturaController implements Initializable {
                 btnReporte.setDisable(false);
                 imgAgregar.setImage(new Image("/org/josesanchez/Images/AgregarDetalleFactura.png"));
                 imgEliminar.setImage(new Image("/org/josesanchez/Images/ElimianarDetalleCompra.png"));
-                imgReporte.setOpacity(1);
                 imgEditar.setOpacity(1);
                 tipoDeOperacion = operaciones.NINGUNO;
                 break;
@@ -319,7 +314,6 @@ public class MenuDetalleFacturaController implements Initializable {
                     btnAgregar.setDisable(true);
                     btnEliminar.setDisable(true);
                     imgEditar.setImage(new Image("/org/josesanchez/Images/editartipodeproducto.png"));
-                    imgReporte.setImage(new Image("/org/josesanchez/Images/cancelar.png"));
                     imgAgregar.setOpacity(0.5);
                     imgEliminar.setOpacity(0.5);
                     activarControles();
@@ -332,11 +326,10 @@ public class MenuDetalleFacturaController implements Initializable {
             case ACTUALIZAR:
                 actualizar();
                 btnEditar.setText("Editar");
-                btnReporte.setText("Reporte");
+                btnReporte.setText("deseleccionar");
                 btnAgregar.setDisable(false);
                 btnEliminar.setDisable(false);
                 imgEditar.setImage(new Image("/org/josesanchez/Images/EditarDetalleFactura.png"));
-                imgReporte.setImage(new Image("/org/josesanchez/Images/Accounting_icon-icons.com_74682.png"));
                 imgAgregar.setOpacity(1);
                 imgEliminar.setOpacity(1);
                 desactivarControles();
@@ -369,15 +362,17 @@ public class MenuDetalleFacturaController implements Initializable {
 
     public void reporte() {
         switch (tipoDeOperacion) {
+            case NINGUNO:
+                limpiarControles();
+                break;
             case ACTUALIZAR:
                 desactivarControles();
                 limpiarControles();
                 btnEditar.setText("Editar");
-                btnReporte.setText("Reporte");
+                btnReporte.setText("deseleccionar");
                 btnAgregar.setDisable(false);
                 btnEliminar.setDisable(false);
                 imgEditar.setImage(new Image("/org/josesanchez/Images/EditarDetalleFactura.png"));
-                imgReporte.setImage(new Image("/org/josesanchez/Images/Accounting_icon-icons.com_74682.png"));
                 imgAgregar.setOpacity(1);
                 imgEliminar.setOpacity(1);
                 tipoDeOperacion = operaciones.NINGUNO;

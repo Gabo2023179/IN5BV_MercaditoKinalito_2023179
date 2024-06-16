@@ -9,6 +9,8 @@ import java.net.URL;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.ResourceBundle;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -25,6 +27,7 @@ import javafx.scene.image.ImageView;
 import javax.swing.JOptionPane;
 import org.josesanchez.beans.Cargos;
 import org.josesanchez.dbs.Conexion;
+import org.josesanchez.reports.GenerarReportes;
 import org.josesanchez.system.Main;
 
 /**
@@ -257,6 +260,9 @@ public class MenuCargosController implements Initializable {
 
     public void reporte() {
         switch (tipoDeOperaciones) {
+             case NINGUNO:
+                imprimirReporte();
+                break;
             case ACTUALIZAR:
                 desactivarControles();
                 limpiarControles();
@@ -271,6 +277,12 @@ public class MenuCargosController implements Initializable {
                 tipoDeOperaciones = operaciones.NINGUNO;
                 break;
         }
+    }
+    
+    public void imprimirReporte(){
+        Map parametros = new HashMap();
+        parametros.put("descripcionCargo", null);
+        GenerarReportes.mostrarReportes("reportCargos.jasper", "Reporte de los Cargos", parametros);
     }
 
     public void desactivarControles() {

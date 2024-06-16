@@ -78,9 +78,6 @@ public class MenuEmailProveedorController implements Initializable {
     private ImageView imgEliminar;
     @FXML
     private ImageView imgEditar;
-    @FXML
-    private ImageView imgReporte;
-
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         cargaDatos();
@@ -178,7 +175,6 @@ public class MenuEmailProveedorController implements Initializable {
                 btnReporte.setDisable(true);
                 imgAgregar.setImage(new Image("/org/josesanchez/Images/guardar.png"));
                 imgEliminar.setImage(new Image("/org/josesanchez/Images/cancelar.png"));
-                imgReporte.setOpacity(0.5);
                 imgEditar.setOpacity(0.5);
                 tipoDeOperaciones = operaciones.ACTUALIZAR;
                 break;
@@ -192,7 +188,6 @@ public class MenuEmailProveedorController implements Initializable {
                 btnReporte.setDisable(false);
                 imgAgregar.setImage(new Image("/org/josesanchez/Images/AgregarEmailProveedor.png"));
                 imgEliminar.setImage(new Image("/org/josesanchez/Images/EliminarEmailProveedor.png"));
-                imgReporte.setOpacity(1);
                 imgEditar.setOpacity(1);
                 tipoDeOperaciones = operaciones.NINGUNO;
                 break;
@@ -233,7 +228,6 @@ public class MenuEmailProveedorController implements Initializable {
                 btnReporte.setDisable(false);
                 imgAgregar.setImage(new Image("/org/josesanchez/Images/AgregarEmailProveedor.png"));
                 imgEliminar.setImage(new Image("/org/josesanchez/Images/EliminarEmailProveedor.png"));
-                imgReporte.setOpacity(1);
                 imgEditar.setOpacity(1);
                 tipoDeOperaciones = operaciones.NINGUNO;
                 break;
@@ -270,7 +264,6 @@ public class MenuEmailProveedorController implements Initializable {
                     btnAgregar.setDisable(true);
                     btnEliminar.setDisable(true);
                     imgEditar.setImage(new Image("/org/josesanchez/Images/editartipodeproducto.png"));
-                    imgReporte.setImage(new Image("/org/josesanchez/Images/cancelar.png"));
                     imgAgregar.setOpacity(0.5);
                     imgEliminar.setOpacity(0.5);
                     activarControles();
@@ -283,11 +276,10 @@ public class MenuEmailProveedorController implements Initializable {
             case ACTUALIZAR:
                 actualizar();
                 btnEditar.setText("Editar");
-                btnReporte.setText("Reporte");
+                btnReporte.setText("deseleccionar");
                 btnAgregar.setDisable(false);
                 btnEliminar.setDisable(false);
                 imgEditar.setImage(new Image("/org/josesanchez/Images/EditarEmailProveedor.png"));
-                imgReporte.setImage(new Image("/org/josesanchez/Images/Accounting_icon-icons.com_74682.png"));
                 imgAgregar.setOpacity(1);
                 imgEliminar.setOpacity(1);
                 desactivarControles();
@@ -319,15 +311,17 @@ public class MenuEmailProveedorController implements Initializable {
 
     public void reporte() {
         switch (tipoDeOperaciones) {
+            case NINGUNO:
+                limpiarControles();
+                break;
             case ACTUALIZAR:
                 desactivarControles();
                 limpiarControles();
                 btnEditar.setText("Editar");
-                btnReporte.setText("Reporte");
+                btnReporte.setText("deseleccionar");
                 btnAgregar.setDisable(false);
                 btnEliminar.setDisable(false);
                 imgEditar.setImage(new Image("/org/josesanchez/Images/EditarEmailProveedor.png"));
-                imgReporte.setImage(new Image("/org/josesanchez/Images/Accounting_icon-icons.com_74682.png"));
                 imgAgregar.setOpacity(1);
                 imgEliminar.setOpacity(1);
                 tipoDeOperaciones = operaciones.NINGUNO;

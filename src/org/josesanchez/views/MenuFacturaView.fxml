@@ -37,25 +37,25 @@
             <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
         </rowConstraints>
          <children>
-            <Button fx:id="btnAgregar" mnemonicParsing="false" onAction="#agregar" prefHeight="419.0" prefWidth="475.0" stylesheets="@../resources/KinalStoreCSS.css" text="Agregar" textFill="WHITE">
+            <Button fx:id="btnAgregar" mnemonicParsing="false" onAction="#agregar" prefHeight="419.0" prefWidth="475.0" stylesheets="@../resources/KinalStoreCSS.css" text="Agregar" textFill="#032870">
                <styleClass>
                   <String fx:value="button2" />
                   <String fx:value="button3" />
                </styleClass>
             </Button>
-            <Button fx:id="btnEliminar" mnemonicParsing="false" onAction="#eliminar" prefHeight="343.0" prefWidth="384.0" stylesheets="@../resources/KinalStoreCSS.css" text="Eliminar" textFill="WHITE" GridPane.rowIndex="1">
+            <Button fx:id="btnEliminar" mnemonicParsing="false" onAction="#eliminar" prefHeight="343.0" prefWidth="384.0" stylesheets="@../resources/KinalStoreCSS.css" text="Eliminar" textFill="#032870" GridPane.rowIndex="1">
                <styleClass>
                   <String fx:value="button2" />
                   <String fx:value="button3" />
                </styleClass>
             </Button>
-            <Button fx:id="btnEditar" mnemonicParsing="false" onAction="#editar" prefHeight="300.0" prefWidth="430.0" stylesheets="@../resources/KinalStoreCSS.css" text="Editar" textFill="WHITE" GridPane.rowIndex="2">
+            <Button fx:id="btnEditar" mnemonicParsing="false" onAction="#editar" prefHeight="300.0" prefWidth="430.0" stylesheets="@../resources/KinalStoreCSS.css" text="Editar" textFill="#032870" GridPane.rowIndex="2">
                <styleClass>
                   <String fx:value="button2" />
                   <String fx:value="button3" />
                </styleClass>
             </Button>
-            <Button fx:id="btnReporte" mnemonicParsing="false" onAction="#reporte" prefHeight="282.0" prefWidth="478.0" stylesheets="@../resources/KinalStoreCSS.css" text="Reportes" textFill="WHITE" GridPane.rowIndex="3">
+            <Button fx:id="btnReporte" mnemonicParsing="false" onAction="#reporte" prefHeight="282.0" prefWidth="478.0" stylesheets="@../resources/KinalStoreCSS.css" text="Reportes" textFill="#032870" GridPane.rowIndex="3">
                <styleClass>
                   <String fx:value="button2" />
                   <String fx:value="button3" />

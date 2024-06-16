@@ -9,6 +9,8 @@ import java.net.URL;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.ResourceBundle;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -27,6 +29,7 @@ import javax.swing.JOptionPane;
 import org.josesanchez.beans.Cargos;
 import org.josesanchez.beans.Empleados;
 import org.josesanchez.dbs.Conexion;
+import org.josesanchez.reports.GenerarReportes;
 import org.josesanchez.system.Main;
 
 /**
@@ -224,7 +227,7 @@ public class MenuEmpleadosController implements Initializable {
         registro.setDireccion(txtDireccion.getText());
         registro.setTurno(txtTurno.getText());
         try {
-            PreparedStatement procedimiento = Conexion.getInstance().getConexion().prepareCall("{call sp_AgregarEmpleados(?, ?, ?, ?, ?, ?)}");
+            PreparedStatement procedimiento = Conexion.getInstance().getConexion().prepareCall("{call sp_AgregarEmpleado(?, ?, ?, ?, ?, ?)}");
             procedimiento.setString(1, registro.getNombresEmpleado());
             procedimiento.setString(2, registro.getApellidosEmpleado());
             procedimiento.setDouble(3, registro.getSueldo());
@@ -343,6 +346,9 @@ public class MenuEmpleadosController implements Initializable {
 
     public void reporte() {
         switch (tipoDeOperacion) {
+            case NINGUNO:
+                imprimirReporte();
+                break;
             case ACTUALIZAR:
                 desactivarControles();
                 limpiarControles();
@@ -357,6 +363,12 @@ public class MenuEmpleadosController implements Initializable {
                 tipoDeOperacion = operaciones.NINGUNO;
                 break;
         }
+    }
+    
+     public void imprimirReporte(){
+        Map parametros = new HashMap();
+        parametros.put("nombresEmpleado", null);
+        GenerarReportes.mostrarReportes("reportEmpleados.jasper", "Reporte de los Empleados", parametros);
     }
 
     public void setEscenarioPrincipal(Main escenarioPrincipal) {

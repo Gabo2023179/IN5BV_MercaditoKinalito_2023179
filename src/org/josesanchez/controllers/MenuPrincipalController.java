@@ -24,7 +24,6 @@ public class MenuPrincipalController implements Initializable {
 
     @FXML
     MenuItem btnMenuClientes;
-
     @FXML
     MenuItem btnMenuProgramador;
     @FXML
@@ -68,6 +67,10 @@ public class MenuPrincipalController implements Initializable {
 
     public void setEscenarioPrincipal(Main escenarioPrincipal) {
         this.escenarioPrincipal = escenarioPrincipal;
+    }
+    public void play(ActionEvent event){
+        setRotate(c1,true,360,10);
+        setRotate(c2,true,360,18);
     }
     
      @FXML
